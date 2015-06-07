@@ -1,7 +1,9 @@
 if (!DISABLE_JS) {
-  document.getElementById('addJsButton').style.display = 'block';
+  document.getElementById('addJsButton').style.display = 'inline';
 
   document.getElementById('addFormButton').style.display = 'none';
+
+  setupReportButtons();
 
   var staffDiv = document.getElementById('divStaff');
 
@@ -25,7 +27,7 @@ function processCell(cell) {
     switch (node.id) {
     case 'saveJsButton':
       button = node;
-      node.style.display = 'block';
+      node.style.display = 'inline';
       break;
     case 'saveFormButton':
       node.style.display = 'none';
@@ -69,7 +71,7 @@ function setUser(login, role) {
 
     if (status === 'ok') {
 
-      window.location.pathname = '/globalManagement.js';
+      location.reload(true);
 
     } else {
       alert(status + ': ' + JSON.stringify(data));

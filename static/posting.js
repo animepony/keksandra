@@ -2,8 +2,10 @@ var checkBoxes = [];
 
 if (!DISABLE_JS) {
 
-  document.getElementById('deleteJsButton').style.display = 'block';
+  document.getElementById('deleteJsButton').style.display = 'inline';
+  document.getElementById('reportJsButton').style.display = 'inline';
 
+  document.getElementById('reportFormButton').style.display = 'none';
   document.getElementById('deleteFormButton').style.display = 'none';
 
   var divPostings = document.getElementById('divPostings');
@@ -28,11 +30,8 @@ function processPostingCell(postingCell) {
 
 }
 
-function deletePosts() {
-  var typedPassword = document.getElementById('deletionFieldPassword').value
-      .trim();
-
-  var toDelete = [];
+function getSelectedContent() {
+  var selectedContent = [];
 
   for (var i = 0; i < checkBoxes.length; i++) {
     var checkBox = checkBoxes[i];
@@ -50,10 +49,45 @@ function deletePosts() {
         toAdd.post = splitName[2];
       }
 
-      toDelete.push(toAdd);
+      selectedContent.push(toAdd);
 
     }
   }
+
+  return selectedContent;
+
+}
+
+function reportPosts() {
+
+  console.log('report');
+
+  var typedReason = document.getElementById('reportFieldReason').value.trim();
+
+  var toReport = getSelectedContent();
+
+  apiRequest('reportContent', {
+    reason : typedReason,
+    global : document.getElementById('checkboxGlobal').checked,
+    postings : toReport
+  }, function requestComplete(status, data) {
+
+    if (status === 'ok') {
+
+      alert('Content reported');
+
+    } else {
+      alert(status + ': ' + JSON.stringify(data));
+    }
+  });
+}
+
+function deletePosts() {
+
+  var typedPassword = document.getElementById('deletionFieldPassword').value
+      .trim();
+
+  var toDelete = getSelectedContent();
 
   apiRequest('deleteContent', {
     password : typedPassword,
@@ -61,6 +95,8 @@ function deletePosts() {
   }, function requestComplete(status, data) {
 
     if (status === 'ok') {
+
+      alert('Content deleted');
 
       window.location.pathname = '/';
 

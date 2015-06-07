@@ -1,9 +1,9 @@
 var boardIdentifier;
 
 if (!DISABLE_JS) {
-  document.getElementById('addVolunteerJsButton').style.display = 'block';
-  document.getElementById('transferBoardJsButton').style.display = 'block';
-  document.getElementById('deleteBoardJsButton').style.display = 'block';
+  document.getElementById('addVolunteerJsButton').style.display = 'inline';
+  document.getElementById('transferBoardJsButton').style.display = 'inline';
+  document.getElementById('deleteBoardJsButton').style.display = 'inline';
 
   document.getElementById('deleteBoardFormButton').style.display = 'none';
   document.getElementById('addVolunteerFormButton').style.display = 'none';
@@ -14,15 +14,15 @@ if (!DISABLE_JS) {
   var volunteerDiv = document.getElementById('volunteersDiv');
 
   for (var i = 0; i < volunteerDiv.childNodes.length; i++) {
-    var cell = volunteerDiv.childNodes[i];
-
-    processCell(cell);
+    processVolunteerCell(volunteerDiv.childNodes[i]);
 
   }
 
+  setupReportButtons();
+
 }
 
-function processCell(cell) {
+function processVolunteerCell(cell) {
   var button;
   var user;
 
@@ -32,7 +32,7 @@ function processCell(cell) {
     switch (node.id) {
     case 'removeJsButton':
       button = node;
-      node.style.display = 'block';
+      node.style.display = 'inline';
       break;
     case 'removeFormButton':
       node.style.display = 'none';
@@ -64,8 +64,7 @@ function setVolunteer(user, add) {
 
     if (status === 'ok') {
 
-      window.location.pathname = '/boardManagement.js?boardUri='
-          + boardIdentifier;
+      location.reload(true);
 
     } else {
       alert(status + ': ' + JSON.stringify(data));

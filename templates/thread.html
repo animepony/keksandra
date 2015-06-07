@@ -93,11 +93,13 @@
       enctype="multipart/form-data">
       <input
         name="lock"
+        id="checkboxLock"
         type="checkbox">
       Lock
       <br>
       <input
         name="pin"
+        id="checkboxPin"
         type="checkbox">
       Pin
       <input
@@ -111,11 +113,25 @@
       <br>
       <input
         type="submit"
+        id="lockFormButton"
         name="action"
+        value="Lock">
+      <input
+        type="button"
+        id="lockJsButton"
+        onClick="setLock()"
+        style="display: none;"
         value="Lock">
       <input
         name="action"
         type="submit"
+        id="pinFormButton"
+        value="Pin">
+      <input
+        type="button"
+        id="pinJsButton"
+        onClick="setPin()"
+        style="display: none;"
         value="Pin">
     </form>
   </div>
@@ -130,7 +146,7 @@
     Reason:
     <input
       type="text"
-      id="reportFieldPassword"
+      id="reportFieldReason"
       name="reason">
     <br>
     <div id="divExpiration">
@@ -149,8 +165,9 @@
     <br>
     <input
       type="checkbox"
+      id="checkboxGlobal"
       name="global">
-    Global report
+    Global
     <br>
     <input
       type="submit"
