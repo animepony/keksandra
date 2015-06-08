@@ -1,5 +1,3 @@
-var checkBoxes = [];
-
 if (!DISABLE_JS) {
 
   document.getElementById('deleteJsButton').style.display = 'inline';
@@ -10,20 +8,11 @@ if (!DISABLE_JS) {
   document.getElementById('reportFormButton').style.display = 'none';
   document.getElementById('deleteFormButton').style.display = 'none';
 
-  var divPostings = document.getElementById('divPostings');
-
-  for (var i = 0; i < divPostings.childNodes.length; i++) {
-
-    processPostingCell(divPostings.childNodes[i]);
-
-  }
-
 }
 
 function banPosts() {
   var typedReason = document.getElementById('reportFieldReason').value.trim();
-  var typedExpiration = document.getElementById('fieldExpiration').value
-      .trim();
+  var typedExpiration = document.getElementById('fieldExpiration').value.trim();
 
   var expiration = Date.parse(typedExpiration || '');
 
@@ -32,7 +21,7 @@ function banPosts() {
 
     return;
   }
-  
+
   var toBan = getSelectedContent();
 
   apiRequest('banUsers', {
@@ -52,20 +41,10 @@ function banPosts() {
   });
 }
 
-function processPostingCell(postingCell) {
-
-  for (var i = 0; i < postingCell.childNodes.length; i++) {
-    var node = postingCell.childNodes[i];
-
-    if (node.id === 'deletionCheckBox') {
-      checkBoxes.push(node);
-    }
-  }
-
-}
-
 function getSelectedContent() {
   var selectedContent = [];
+
+  var checkBoxes = document.getElementsByClassName('deletionCheckBox');
 
   for (var i = 0; i < checkBoxes.length; i++) {
     var checkBox = checkBoxes[i];
