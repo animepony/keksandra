@@ -4,7 +4,9 @@ if (!DISABLE_JS) {
 
   document.getElementById('deleteJsButton').style.display = 'inline';
   document.getElementById('reportJsButton').style.display = 'inline';
+  document.getElementById('banJsButton').style.display = 'inline';
 
+  document.getElementById('inputBan').style.display = 'none';
   document.getElementById('reportFormButton').style.display = 'none';
   document.getElementById('deleteFormButton').style.display = 'none';
 
@@ -16,6 +18,38 @@ if (!DISABLE_JS) {
 
   }
 
+}
+
+function banPosts() {
+  var typedReason = document.getElementById('reportFieldReason').value.trim();
+  var typedExpiration = document.getElementById('fieldExpiration').value
+      .trim();
+
+  var expiration = Date.parse(typedExpiration || '');
+
+  if (isNaN(expiration)) {
+    alert('Invalid expiration');
+
+    return;
+  }
+  
+  var toBan = getSelectedContent();
+
+  apiRequest('banUsers', {
+    reason : typedReason,
+    expiration : typedExpiration,
+    global : document.getElementById('checkboxGlobal').checked,
+    postings : toBan
+  }, function requestComplete(status, data) {
+
+    if (status === 'ok') {
+
+      alert('Bans applied');
+
+    } else {
+      alert(status + ': ' + JSON.stringify(data));
+    }
+  });
 }
 
 function processPostingCell(postingCell) {
@@ -59,8 +93,6 @@ function getSelectedContent() {
 }
 
 function reportPosts() {
-
-  console.log('report');
 
   var typedReason = document.getElementById('reportFieldReason').value.trim();
 

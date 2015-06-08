@@ -8,30 +8,16 @@ function setupReportButtons() {
 }
 
 function processReportCell(cell) {
-  var button;
-  var report;
 
-  for (var j = 0; j < cell.childNodes.length; j++) {
-    var node = cell.childNodes[j];
-
-    switch (node.id) {
-    case 'closeJsButton':
-      button = node;
-      node.style.display = 'inline';
-      break;
-    case 'closeFormButton':
-      node.style.display = 'none';
-      break;
-    case 'idIdentifier':
-      report = node.value;
-      break;
-    }
-
-  }
+  var button = cell.getElementsByClassName('closeJsButton')[0];
+  button.style.display = 'inline';
 
   button.onclick = function() {
-    closeReport(report);
+    closeReport(cell.getElementsByClassName('idIdentifier')[0].value);
   };
+
+  cell.getElementsByClassName('closeFormButton')[0].style.display = 'none';
+
 }
 
 function closeReport(report) {

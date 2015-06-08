@@ -23,30 +23,14 @@ if (!DISABLE_JS) {
 }
 
 function processVolunteerCell(cell) {
-  var button;
-  var user;
-
-  for (var j = 0; j < cell.childNodes.length; j++) {
-    var node = cell.childNodes[j];
-
-    switch (node.id) {
-    case 'removeJsButton':
-      button = node;
-      node.style.display = 'inline';
-      break;
-    case 'removeFormButton':
-      node.style.display = 'none';
-      break;
-    case 'userIdentifier':
-      user = node.value;
-      break;
-    }
-
-  }
+  var button = cell.getElementsByClassName('removeJsButton')[0];
+  button.style.display = 'inline';
+  cell.getElementsByClassName('removeFormButton')[0].style.display = 'none';
 
   button.onclick = function() {
-    setVolunteer(user, false);
+    setVolunteer(cell.getElementsByClassName('userIdentifier')[0].value, false);
   };
+
 }
 
 function addVolunteer() {

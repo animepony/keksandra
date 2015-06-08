@@ -17,30 +17,14 @@ if (!DISABLE_JS) {
 }
 
 function processCell(cell) {
-  var button;
-  var comboBox;
-  var user;
 
-  for (var j = 0; j < cell.childNodes.length; j++) {
-    var node = cell.childNodes[j];
+  var button = cell.getElementsByClassName('saveJsButton')[0];
+  button.style.display = 'inline';
 
-    switch (node.id) {
-    case 'saveJsButton':
-      button = node;
-      node.style.display = 'inline';
-      break;
-    case 'saveFormButton':
-      node.style.display = 'none';
-      break;
-    case 'userIdentifier':
-      user = node.value;
-      break;
-    case 'roleCombo':
-      comboBox = node;
-      break;
-    }
+  cell.getElementsByClassName('saveFormButton')[0].style.display = 'none';
 
-  }
+  var comboBox = cell.getElementsByClassName('roleCombo')[0];
+  var user = cell.getElementsByClassName('userIdentifier')[0].value;
 
   button.onclick = function() {
     saveUser(user, comboBox);
