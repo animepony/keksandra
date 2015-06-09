@@ -20,5 +20,6 @@
   "closedReportsPage": "closedReports.html",
   "closedReportCell": "closedReportCell.html",
   "bansPage": "bans.html",
-  "banCell": "banCell.html"
+  "banCell": "banCell.html",
+  "uploadCell": "uploadCell.html"
 }
