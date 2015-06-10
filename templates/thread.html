@@ -89,7 +89,7 @@
 
   <div id="divControls">
     <form
-      action="/threadControls.js"
+      action="/changeThreadSettings.js"
       method="post"
       enctype="multipart/form-data">
       <input
@@ -114,26 +114,15 @@
       <br>
       <input
         type="submit"
-        id="lockFormButton"
-        name="action"
-        value="Lock">
+        id="settingsFormButon"
+        value="Save">
+
       <input
         type="button"
-        id="lockJsButton"
-        onClick="setLock()"
+        id="settingsJsButon"
+        onClick="saveThreadSettings()"
         style="display: none;"
-        value="Lock">
-      <input
-        name="action"
-        type="submit"
-        id="pinFormButton"
-        value="Pin">
-      <input
-        type="button"
-        id="pinJsButton"
-        onClick="setPin()"
-        style="display: none;"
-        value="Pin">
+        value="Save">
     </form>
   </div>
 
