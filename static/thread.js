@@ -1,5 +1,6 @@
 var boardUri;
 var threadId;
+var board = false;
 
 if (!DISABLE_JS) {
 
