@@ -20,8 +20,72 @@
     href="/globalManagement.js">Global management</a>
 
   <br>
+
+  <h3>Settings</h3>
   <form
-    action="/createBoard.js"
+    action="/changeAccountSettings.js"
+    method="post"
+    enctype="multipart/form-data">
+    E-mail:
+    <input
+      type="text"
+      name="email"
+      id="emailField">
+    <br>
+    <input
+      type="submit"
+      value="Save"
+      id="saveFormButton">
+
+    <input
+      type="button"
+      onClick="save()"
+      style="display: none;"
+      value="Save"
+      id="saveJsButton">
+  </form>
+
+  <h3>Password change</h3>
+  <form
+    action="/changeAccountPassword.js"
+    method="post"
+    enctype="multipart/form-data">
+    Current password:
+    <input
+      type="password"
+      id="fieldPassword"
+      name="password">
+    <br>
+    New password:
+    <input
+      type="password"
+      id="fieldNewPassword"
+      name="newPassword">
+    <br>
+    Confirm new password:
+    <input
+      type="password"
+      id="fieldConfirmation"
+      name="confirmation">
+    <br>
+
+    <input
+      type="submit"
+      value="Change password"
+      id="passwordFormButton">
+
+    <input
+      type="button"
+      onClick="changePassword()"
+      style="display: none;"
+      value="Change password"
+      id="passwordJsButton">
+  </form>
+
+  <h3>Create board</h3>
+  <form
+    action="
+    /createBoard.js"
     enctype="multipart/form-data"
     method="post">
     Board URI:
@@ -54,7 +118,7 @@
       value="Create board">
   </form>
 
-  Owned boards:
+  <h3>Owned boards:</h3>
   <div id="boardsDiv"></div>
 </body>
 
