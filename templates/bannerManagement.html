@@ -1,0 +1,35 @@
+<html>
+<body>
+  <h3>New banner</h3>
+  <form
+    action="/createBanner.js"
+    method="post"
+    enctype="multipart/form-data">
+    <input
+      type="hidden"
+      name="boardUri"
+      id="boardIdentifier">
+
+    <input
+      type="file"
+      id="files"
+      name="files">
+
+    <input
+      type="submit"
+      value="Add banner"
+      id="addFormButton">
+
+
+    <input
+      type="button"
+      onClick="addBanner()"
+      style="display: none;"
+      value="Add banner"
+      id="addJsButton">
+
+  </form>
+  <h3>Existing banners</h3>
+  <div id="bannersDiv"></div>
+</body>
+</html>

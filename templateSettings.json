@@ -23,5 +23,7 @@
   "banCell": "banCell.html",
   "uploadCell": "uploadCell.html",
   "errorPage":"error.html",
-  "banPage":"ban.html"
+  "banPage":"ban.html",
+  "bannerManagementPage":"bannerManagement.html",
+  "bannerCell":"bannerCell.html"
 }
