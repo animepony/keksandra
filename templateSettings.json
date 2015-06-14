@@ -25,5 +25,6 @@
   "errorPage":"error.html",
   "banPage":"ban.html",
   "bannerManagementPage":"bannerManagement.html",
-  "bannerCell":"bannerCell.html"
+  "bannerCell":"bannerCell.html",
+  "defaultBanner":"banner.png"
 }
