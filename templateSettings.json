@@ -26,5 +26,6 @@
   "banPage":"ban.html",
   "bannerManagementPage":"bannerManagement.html",
   "bannerCell":"bannerCell.html",
-  "defaultBanner":"banner.png"
+  "defaultBanner":"banner.png",
+  "spoiler":"spoiler.png"
 }
