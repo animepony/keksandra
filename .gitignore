@@ -1,4 +1,5 @@
 static/settings.js
+.settings
 
 #Binaries
 *.exe
@@ -53,3 +54,7 @@ $RECYCLE.BIN/
 *.msp
 # Windows shortcuts
 *.lnk
+/.jsdtscope
+/.jshintrc
+/.project
+/.tern-project
