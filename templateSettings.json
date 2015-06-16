@@ -27,5 +27,7 @@
   "bannerManagementPage":"bannerManagement.html",
   "bannerCell":"bannerCell.html",
   "defaultBanner":"banner.png",
-  "spoiler":"spoiler.png"
+  "spoiler":"spoiler.png",
+  "catalogPage": "catalog.html",
+  "catalogCell": "catalogCell.html"
 }
