@@ -90,12 +90,48 @@
     <h3>Volunteers</h3>
     <div id="volunteersDiv"></div>
 
+    <h3>Settings</h3>
+    <form
+      action="/setBoardSettings.js"
+      method="post"
+      enctype="multipart/form-data">
+      <input
+        type="hidden"
+        id="boardSettingsIdentifier"
+        name="boardUri">
+      Board name:
+      <input
+        id="boardNameField"
+        type="text"
+        name="boardName">
+      <br>
+      Board description:
+      <input
+        id="boardDescriptionField"
+        type="text"
+        name="boardDescription">
+      <br>
+      <input
+        type="checkbox"
+        name="disableIds"
+        id="disableIdsCheckbox">
+      Disable thread-wise ids
+      <br>
+      <input
+        type="button"
+        value="Save"
+        style="display: none;"
+        id="saveSettingsJsButton">
+      <input
+        type="submit"
+        value="Save"
+        id="saveSettingsFormButton">
+    </form>
+
+    <a id="bannerManagementLink">Manage banners</a>
   </div>
-  <br>
-  <br>
+
   <a id="closedReportsLink">Closed reports</a>
-  <br>
-  <a id="bannerManagementLink">Manage banners</a>
   <br>
   <a id="bansLink">Bans</a>
   <h3>Open reports</h3>
