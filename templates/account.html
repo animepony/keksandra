@@ -82,42 +82,43 @@
       id="passwordJsButton">
   </form>
 
-  <h3>Create board</h3>
-  <form
-    action="
+  <div id="boardCreationDiv">
+    <h3>Create board</h3>
+    <form
+      action="
     /createBoard.js"
-    enctype="multipart/form-data"
-    method="post">
-    Board URI:
-    <input
-      type="text"
-      name="boardUri"
-      id="newBoardFieldUri">
-    <br>
-    Board name:
-    <input
-      type="text"
-      id="newBoardFieldName"
-      name="boardName">
-    <br>
-    Board description:
-    <input
-      type="text"
-      id="newBoardFieldDescription"
-      name="boardDescription">
-    <br>
-    <input
-      type="button"
-      id="newBoardJsButton"
-      onClick="createBoard()"
-      style="display: none"
-      value="Create board">
-    <input
-      id="newBoardFormButton"
-      type="submit"
-      value="Create board">
-  </form>
-
+      enctype="multipart/form-data"
+      method="post">
+      Board URI:
+      <input
+        type="text"
+        name="boardUri"
+        id="newBoardFieldUri">
+      <br>
+      Board name:
+      <input
+        type="text"
+        id="newBoardFieldName"
+        name="boardName">
+      <br>
+      Board description:
+      <input
+        type="text"
+        id="newBoardFieldDescription"
+        name="boardDescription">
+      <br>
+      <input
+        type="button"
+        id="newBoardJsButton"
+        onClick="createBoard()"
+        style="display: none"
+        value="Create board">
+      <input
+        id="newBoardFormButton"
+        type="submit"
+        value="Create board">
+    </form>
+  </div>
   <h3>Owned boards:</h3>
   <div id="boardsDiv"></div>
 </body>
