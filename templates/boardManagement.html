@@ -3,6 +3,7 @@
   <h2 id="boardLabel"></h2>
 
   <a href="/account.js">Account</a>
+  <br>
 
   <div id="ownerControlDiv">
 
@@ -124,8 +125,16 @@
       Disable captcha
       <br>
       <input
+        type="checkbox"
+        name="forceAnonymity"
+        id="forceAnonymityCheckbox">
+      Force anonymity
+      <br>
+
+      <input
         type="button"
         value="Save"
+        onClick="saveSettings()"
         style="display: none;"
         id="saveSettingsJsButton">
       <input
