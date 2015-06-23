@@ -1,0 +1,13 @@
+.greenText {
+	color: green;
+}
+
+span.spoiler {
+	background: black;
+	color: black;
+	padding: 0 1px;
+}
+
+.spoiler:hover {
+	color: white;
+}
