@@ -22,12 +22,14 @@
   "bansPage": "bans.html",
   "banCell": "banCell.html",
   "uploadCell": "uploadCell.html",
-  "errorPage":"error.html",
-  "banPage":"ban.html",
-  "bannerManagementPage":"bannerManagement.html",
-  "bannerCell":"bannerCell.html",
-  "defaultBanner":"banner.png",
-  "spoiler":"spoiler.png",
+  "errorPage": "error.html",
+  "banPage": "ban.html",
+  "bannerManagementPage": "bannerManagement.html",
+  "bannerCell": "bannerCell.html",
+  "defaultBanner": "banner.png",
+  "spoiler": "spoiler.png",
   "catalogPage": "catalog.html",
-  "catalogCell": "catalogCell.html"
+  "catalogCell": "catalogCell.html",
+  "logsPage": "logs.html",
+  "logCell": "logCell.html"
 }

@@ -1,0 +1,48 @@
+<html>
+<body>
+  <form
+    action="/logs.js"
+    method="get">
+
+    <input
+      type="checkbox"
+      id="checkboxExcludeGlobals"
+      name="excludeGlobals">
+    Exclude global entries
+    <br>
+    Board:
+    <input
+      type="text"
+      id="fieldBoard"
+      name="boardUri">
+    User:
+    <input
+      type="text"
+      name="user"
+      id="fieldUser">
+    <br>
+    Only after:
+    <input
+      type="text"
+      name="after"
+      id=fieldAfter>
+    Only before:
+    <input
+      type="text"
+      name="before"
+      id="fieldBefore">
+    <br>
+    Type: <select
+      id="comboboxType"
+      name="type"></select>
+    <br>
+    <input
+      type="submit"
+      value="Search">
+
+  </form>
+  <div id="divLogs"></div>
+  <div id="divPages"></div>
+
+</body>
+</html>
