@@ -31,5 +31,6 @@
   "catalogPage": "catalog.html",
   "catalogCell": "catalogCell.html",
   "logsPage": "logs.html",
-  "logCell": "logCell.html"
+  "logCell": "logCell.html",
+  "previewPage":"preview.html"
 }
