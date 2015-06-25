@@ -1,0 +1,46 @@
+<html>
+<body>
+  <a href="/account.js">Account</a>
+  <h3>New filter</h3>
+  <form
+    action="/createFilter.js"
+    method="post"
+    enctype="multipart/form-data">
+    <input
+      type="hidden"
+      name="boardUri"
+      id="boardIdentifier">
+    Original term:
+    <input
+      type="text"
+      name="originalTerm"
+      id="fieldOriginalTerm">
+    <br>
+    Replacement term:
+    <input
+      type="text"
+      name="replacementTerm"
+      id="fieldReplacementTerm">
+    <br>
+    <input
+      type="submit"
+      value="Add filter"
+      id="addFormButton">
+
+    <input
+      type="button"
+      onClick="addFilter()"
+      style="display: none;"
+      value="Add filter"
+      id="addJsButton">
+
+  </form>
+  <h3>Existing filters</h3>
+
+  <div id="divFilters"></div>
+</body>
+
+<script src="http://static.localhost:8080/settings.js"></script>
+<script src="http://static.localhost:8080/api.js"></script>
+<script src="http://static.localhost:8080/filterManagement.js"></script>
+</html>
