@@ -14,13 +14,23 @@
 }
 
 .linkName {
-	color: #0F0C5D;
 	font-weight: bold;
+	color: #0F0C5D;
 	font-size: 10pt;
 }
 
-.labelSubject {
+.linkName:hover {
+	color: #ff0000;
+}
+
+.noEmailName, .noEmailName:hover {
 	color: #117743;
+}
+
+.labelSubject {
+	color: #0F0C5D;
+	font-weight: bold;
+	font-size: 10pt;
 	font-weight: bold;
 	font-size: 10pt;
 }
