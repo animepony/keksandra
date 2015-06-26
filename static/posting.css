@@ -5,3 +5,7 @@
 .divMessage {
 	clear: both;
 }
+
+.postCell {
+	background-color: #cccccc;
+}
