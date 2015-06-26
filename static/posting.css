@@ -7,5 +7,30 @@
 }
 
 .postCell {
-	background-color: #cccccc;
+	background-color: #D6DAF0;
+	margin-bottom: 5px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.linkName {
+	color: #0F0C5D;
+	font-weight: bold;
+	font-size: 10pt;
+}
+
+.labelSubject {
+	color: #117743;
+	font-weight: bold;
+	font-size: 10pt;
+}
+
+.labelRole {
+	color: #ff0000;
+	font-weight: bold;
+	font-size: 10pt;
+}
+
+.divMessage {
+	padding-left: 10px;
 }
