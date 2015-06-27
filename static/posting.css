@@ -6,6 +6,10 @@
 	clear: both;
 }
 
+.quoteLink {
+	color: #ff0000;
+}
+
 .postCell {
 	background-color: #D6DAF0;
 	margin-bottom: 5px;

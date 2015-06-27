@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/global.css">
+<meta charset="UTF-8">
+</head>
+<body>
+  <h2 id="labelTitle"></h2>
+  Owner:
+  <span id="labelOwner"></span>
+  <br>
+  <br>
+  <form
+    method="post"
+    action="/transferBoardOwnership.js"
+    enctype="multipart/form-data">
+    <input
+      type="hidden"
+      name="boardUri"
+      id="boardTransferIdentifier">
+    User login:
+    <input
+      type="text"
+      name="login"
+      name="userLogin">
+    <br>
+    <input
+      type="submit"
+      value="Transfer board"
+      id="transferFormButton">
+    <input
+      type="button"
+      onclick="transferBoard()"
+      style="display: none;"
+      value="Transfer board"
+      id="transferJsButton">
+  </form>
+  <br>
+  <form
+    method="post"
+    action="/deleteBoard.js"
+    enctype="multipart/form-data">
+    <input
+      type="hidden"
+      name="boardUri"
+      id="boardDeletionIdentifier">
+    <input
+      type="submit"
+      value="Delete board"
+      id="deleteFormButton">
+    <input
+      type="button"
+      onclick="deleteBoard()"
+      style="display: none;"
+      value="Delete board"
+      id="deleteJsButton">
+  </form>
+</body>
+</html>
+

@@ -34,5 +34,6 @@
   "logCell": "logCell.html",
   "previewPage": "preview.html",
   "filterManagement": "filterManagement.html",
-  "filterCell": "filterCell.html"
+  "filterCell": "filterCell.html",
+  "boardModerationPage": "boardModeration.html"
 }
