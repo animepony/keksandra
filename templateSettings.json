@@ -35,5 +35,7 @@
   "previewPage": "preview.html",
   "filterManagement": "filterManagement.html",
   "filterCell": "filterCell.html",
-  "boardModerationPage": "boardModeration.html"
+  "boardModerationPage": "boardModeration.html",
+  "boardsPage": "boards.html",
+  "boardsCell" :"boardsCell.html"
 }
