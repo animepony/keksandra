@@ -15,7 +15,7 @@ if (!DISABLE_JS) {
 }
 
 function reloadCaptcha() {
-  document.cookie = 'captchaid=; path=/captcha.js;';
+  document.cookie = 'captchaid=; path=/;';
 
   document.getElementById('captchaImage').src = '/captcha.js#'
       + new Date().toString();
