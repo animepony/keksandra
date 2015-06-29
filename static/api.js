@@ -118,12 +118,17 @@ function localRequest(address, callback) {
     xhr = new XDomainRequest();
     xhr.open('GET', address);
   } else {
+    alert('This site can\'t run js on your shitty browser because it does not support CORS requests. Disable js and try again.');
     return;
   }
 
   xhr.onreadystatechange = function connectionStateChanged() {
 
     if (xhr.readyState == 4) {
+
+      if (callback.hasOwnProperty('stop')) {
+        callback.stop();
+      }
 
       if (xhr.status != 200) {
         callback('Connection failed');

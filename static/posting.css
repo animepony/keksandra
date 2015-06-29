@@ -49,3 +49,11 @@
 .divMessage {
 	padding-left: 10px;
 }
+
+.contentAction {
+	float: left;
+}
+
+.divRefresh {
+	float: right;
+}

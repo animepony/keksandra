@@ -159,85 +159,102 @@
   </div>
 
   <br>
+
   <form
     method="post"
     action="../../contentActions.js"
     enctype="multipart/form-data">
     <div id="divPostings"></div>
-
-    Reason:
-    <input
-      type="text"
-      id="reportFieldReason"
-      name="reason">
-    <br>
-    <div id="divBanInput">
-      Expiration:
+    <div
+      class="divRefresh"
+      style="display: none;">
       <input
-        type="text"
-        id="fieldExpiration"
-        name="expiration">
+        type="checkbox"
+        checked
+        onchange="changeRefresh()">
+      Auto <span id="labelRefresh"></span>
       <br>
-
-      Ban message:
+      <input
+        type="button"
+        id="refreshButton"
+        onclick="refreshPosts(true)"
+        value="Refresh">
+    </div>
+    <div class="contentAction">
+      Reason:
       <input
         type="text"
-        id="fieldbanMessage"
-        name="banMessage">
+        id="reportFieldReason"
+        name="reason">
+      <br>
+      <div id="divBanInput">
+        Expiration:
+        <input
+          type="text"
+          id="fieldExpiration"
+          name="expiration">
+        <br>
 
+        Ban message:
+        <input
+          type="text"
+          id="fieldbanMessage"
+          name="banMessage">
+
+      </div>
+      Password:
+      <input
+        type="password"
+        id="deletionFieldPassword"
+        name="password">
+      <br>
+      <input
+        type="checkbox"
+        id="checkboxGlobal"
+        name="global">
+      Global
+      <br>
+      <input
+        type="submit"
+        id="deleteFormButton"
+        value="Delete"
+        name="action">
+
+      <input
+        type="button"
+        style="display: none;"
+        id="deleteJsButton"
+        onClick="deletePosts()"
+        value="Delete">
+
+      <input
+        type="submit"
+        id="inputBan"
+        value="Ban"
+        name="action">
+
+      <input
+        type="button"
+        style="display: none;"
+        id="banJsButton"
+        onClick="banPosts()"
+        value="Ban">
+
+      <input
+        type="submit"
+        id="reportFormButton"
+        value="Report"
+        name="action">
+
+      <input
+        type="button"
+        style="display: none;"
+        id="reportJsButton"
+        onClick="reportPosts()"
+        value="Report">
     </div>
-    Password:
-    <input
-      type="password"
-      id="deletionFieldPassword"
-      name="password">
-    <br>
-    <input
-      type="checkbox"
-      id="checkboxGlobal"
-      name="global">
-    Global
-    <br>
-    <input
-      type="submit"
-      id="deleteFormButton"
-      value="Delete"
-      name="action">
-
-    <input
-      type="button"
-      style="display: none;"
-      id="deleteJsButton"
-      onClick="deletePosts()"
-      value="Delete">
-
-    <input
-      type="submit"
-      id="inputBan"
-      value="Ban"
-      name="action">
-
-    <input
-      type="button"
-      style="display: none;"
-      id="banJsButton"
-      onClick="banPosts()"
-      value="Ban">
-
-    <input
-      type="submit"
-      id="reportFormButton"
-      value="Report"
-      name="action">
-
-    <input
-      type="button"
-      style="display: none;"
-      id="reportJsButton"
-      onClick="reportPosts()"
-      value="Report">
-
   </form>
+
   <br>
 
 </body>
