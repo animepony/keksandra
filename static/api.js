@@ -91,7 +91,7 @@ function apiRequest(page, parameters, delegate) {
   }
 
   var body = {
-    captchaId : parsedCookies.captchaId,
+    captchaId : parsedCookies.captchaid,
     parameters : parameters,
     auth : {
       login : parsedCookies.login,
@@ -105,4 +105,34 @@ function apiRequest(page, parameters, delegate) {
 
   xhr.send(JSON.stringify(body));
 
+}
+
+function localRequest(address, callback) {
+
+  var xhr = new XMLHttpRequest();
+
+  if ('withCredentials' in xhr) {
+    xhr.open('GET', address, true);
+  } else if (typeof XDomainRequest != 'undefined') {
+
+    xhr = new XDomainRequest();
+    xhr.open('GET', address);
+  } else {
+    return;
+  }
+
+  xhr.onreadystatechange = function connectionStateChanged() {
+
+    if (xhr.readyState == 4) {
+
+      if (xhr.status != 200) {
+        callback('Connection failed');
+      } else {
+        callback(null, xhr.responseText);
+      }
+
+    }
+  };
+
+  xhr.send();
 }

@@ -59,9 +59,7 @@ function processQuote(quote) {
 
     if (loadedPreviews.indexOf(quoteUrl) < 0
         && loadingPreviews.indexOf(quoteUrl) < 0) {
-
       loadQuote(tooltip, quoteUrl);
-
     }
 
   };
@@ -74,8 +72,6 @@ function processQuote(quote) {
 
 function loadQuote(tooltip, quoteUrl) {
 
-  var xhr = new XMLHttpRequest();
-
   var matches = quoteUrl.match(/\/(\w+)\/res\/\d+\.html\#(\d+)/);
 
   var board = matches[1];
@@ -83,42 +79,25 @@ function loadQuote(tooltip, quoteUrl) {
 
   var previewUrl = '/' + board + '/preview/' + post + '.html';
 
-  if ('withCredentials' in xhr) {
-    xhr.open('GET', previewUrl, true);
-  } else if (typeof XDomainRequest != 'undefined') {
-
-    xhr = new XDomainRequest();
-    xhr.open('GET', previewUrl);
-  } else {
-    return;
-  }
-
-  xhr.onreadystatechange = function connectionStateChanged() {
-
-    if (xhr.readyState == 4) {
-
-      if (xhr.status != 200) {
-        alert('Connection failed.');
-        return;
-      }
+  localRequest(previewUrl, function receivedData(error, data) {
+    if (error) {
+      loadingPreviews.splice(loadingPreviews.indexOf(quoteUrl), 1);
+    } else {
 
       var referenceList = quoteReference[quoteUrl];
 
       for (var i = 0; i < referenceList.length; i++) {
-        referenceList[i].innerHTML = xhr.responseText;
+        referenceList[i].innerHTML = data;
 
       }
 
       loadedPreviews.push(quoteUrl);
       loadingPreviews.splice(loadingPreviews.indexOf(quoteUrl), 1);
-      ;
-
     }
-  };
+  });
 
   loadingPreviews.push(quoteUrl);
 
-  xhr.send();
 }
 
 function banPosts() {

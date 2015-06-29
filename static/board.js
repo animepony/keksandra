@@ -3,7 +3,16 @@ var board = true;
 if (!DISABLE_JS) {
 
   document.getElementById('jsButton').style.display = 'inline';
+  document.getElementById('reloadCaptchaButton').style.display = 'inline';
   document.getElementById('formButton').style.display = 'none';
+
+}
+
+function reloadCaptcha() {
+  document.cookie = 'captchaid=; path=/captcha.js;';
+
+  document.getElementById('captchaImage').src = '/captcha.js#'
+      + new Date().toString();
 
 }
 

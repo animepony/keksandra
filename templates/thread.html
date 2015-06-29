@@ -82,7 +82,15 @@
     Spoiler
     <br>
     <div id="captchaDiv">
-      <img src="/captcha.js">
+      <img
+        id="captchaImage"
+        src="/captcha.js">
+      <input
+        type="button"
+        style="display: none;"
+        id="reloadCaptchaButton"
+        onclick="reloadCaptcha()"
+        value="Reload captcha">
       <br>
       Captcha:
       <input
