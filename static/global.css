@@ -4,3 +4,7 @@ body {
 	margin-bottom: 100px;
 	background: #EEF2FF;
 }
+
+.finePrint {
+	font-size: 8pt;
+}

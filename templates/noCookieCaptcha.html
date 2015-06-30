@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/global.css">
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/noCookieCaptcha.css">
+</head>
+<body>
+  <div id="divSolvedCaptcha">
+    Captcha solved. Input this ID as the answer of the captcha when posting: <span
+      id="labelCaptchaId"></span>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  No problem! Solve this captcha here instead.
+  <br>
+  <img id="imageCaptcha">
+  <form
+    method="post"
+    action="/solveCaptcha.js"
+    enctype="multipart/form-data">
+    <input
+      type="hidden"
+      name="captchaId"
+      id="inputCaptchaId">
+    Answer:
+    <input
+      type="text"
+      name="answer">
+    <br>
+    <input
+      type="submit"
+      value="Solve captcha">
+  </form>
+
+</body>
+</html>

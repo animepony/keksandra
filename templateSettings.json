@@ -37,5 +37,6 @@
   "filterCell": "filterCell.html",
   "boardModerationPage": "boardModeration.html",
   "boardsPage": "boards.html",
-  "boardsCell" :"boardsCell.html"
+  "boardsCell": "boardsCell.html",
+  "noCookieCaptchaPage": "noCookieCaptcha.html"
 }
