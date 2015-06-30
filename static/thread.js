@@ -11,7 +11,8 @@ var refreshTimer;
 var lastRefresh;
 var currentRefresh;
 var manualRefresh;
-var foundPosts
+var foundPosts;
+var hiddenCaptcha = !document.getElementById('captchaDiv');
 
 var postCellTemplate = '<input type="checkbox" class="deletionCheckBox">'
     + ' <span class="labelSubject"></span> <a class="linkName"></a> <span class="labelRole">'
@@ -92,7 +93,12 @@ function saveThreadSettings() {
 var replyCallback = function(status, data) {
 
   if (status === 'ok') {
-    refreshPosts();
+    document.getElementById('fieldMessage').value = '';
+    document.getElementById('fieldSubject').value = '';
+
+    setTimeout(function() {
+      refreshPosts();
+    }, 2000);
   } else {
     alert(status + ': ' + JSON.stringify(data));
   }
@@ -100,6 +106,11 @@ var replyCallback = function(status, data) {
 
 replyCallback.stop = function() {
   replyButton.style.display = 'inline';
+
+  if (!hiddenCaptcha) {
+    reloadCaptcha();
+    document.getElementById('fieldCaptcha').value = '';
+  }
 };
 
 function padDateField(value) {
@@ -342,8 +353,6 @@ function sendReplyData(files) {
   var typedPassword = document.getElementById('fieldPassword').value.trim();
 
   var threadId = document.getElementById('threadIdentifier').value;
-
-  var hiddenCaptcha = !document.getElementById('captchaDiv');
 
   if (!hiddenCaptcha) {
     var typedCaptcha = document.getElementById('fieldCaptcha').value.trim();
