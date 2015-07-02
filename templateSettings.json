@@ -38,5 +38,7 @@
   "boardModerationPage": "boardModeration.html",
   "boardsPage": "boards.html",
   "boardsCell": "boardsCell.html",
-  "noCookieCaptchaPage": "noCookieCaptcha.html"
+  "noCookieCaptchaPage": "noCookieCaptcha.html",
+  "rangeBansPage": "rangeBans.html",
+  "rangeBanCell": "rangeBanCell.html"
 }

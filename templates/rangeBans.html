@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/global.css">
+</head>
+<body>
+  <form
+    action="/placeRangeBan.js"
+    method="post"
+    enctype="multipart/form-data">
+    Range to be banned:
+    <input
+      type="text"
+      name="range"
+      id="rangeField">
+    <input
+      id="boardIdentifier"
+      type="hidden"
+      name="boardUri">
+    <br>
+    <input
+      type="submit"
+      id="createFormButton"
+      value="Place range ban">
+    <input
+      type="button"
+      id="createJsButton"
+      style="display: none;"
+      value="Place range ban">
+  </form>
+  <div id="rangeBansDiv"></div>
+</body>
+
+<script src="http://static.localhost:8080/settings.js"></script>
+<script src="http://static.localhost:8080/api.js"></script>
+<script src="http://static.localhost:8080/rangeBans.js"></script>
+
+</html>
