@@ -40,5 +40,6 @@
   "boardsCell": "boardsCell.html",
   "noCookieCaptchaPage": "noCookieCaptcha.html",
   "rangeBansPage": "rangeBans.html",
-  "rangeBanCell": "rangeBanCell.html"
+  "rangeBanCell": "rangeBanCell.html",
+  "rangeBanPage": "rangeBanPage.html"
 }
