@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/global.css">
+</head>
+<body>
+  <form
+    action="/placeHashBan.js"
+    method="post"
+    enctype="multipart/form-data">
+    Hash of the file to be banned:
+    <input
+      type="text"
+      name="hash"
+      id="hashField">
+    <input
+      id="boardIdentifier"
+      type="hidden"
+      name="boardUri">
+    <br>
+    <input
+      type="submit"
+      id="createFormButton"
+      value="Place hash ban">
+    <input
+      type="button"
+      id="createJsButton"
+      onClick="placeHashBan()"
+      style="display: none;"
+      value="Place hash ban">
+  </form>
+  <div id="hashBansDiv"></div>
+</body>
+
+<script src="http://static.localhost:8080/settings.js"></script>
+<script src="http://static.localhost:8080/api.js"></script>
+<script src="http://static.localhost:8080/hashBans.js"></script>
+
+</html>
