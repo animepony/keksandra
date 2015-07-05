@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/global.css">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/markdown.css">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/posting.css">
+</head>
+<body>
+
+  <h1>Tripcodes</h1>
+  To use a tripcode, add a # in your name. After the #, add the password for the
+  tripcode.
+  <br>
+  The server will apply a hash to the password and display the hashed password.
+  <br>
+  To use a secure tripcode, add ## in your name and a password. A secure
+  tripcode will generate a random text to be displayed that will only be used if
+  your password matches.
+
+  <br>
+  <br>
+
+  <h1>Role signature</h1>
+  If you wish to display your global or board role when posting, you can put #rs
+  in your name, like a tripcode, case insensitive. This will prevent you from
+  using a tripcode.
+  <br>
+  You can also enable in your account settings to always use role signature.
+  <br>
+  <br>
+  <h1>Markdown</h1>
+  When posting you can use some tools that will enhance its text in HTML.
+
+  <br>
+  <br>
+
+  <h3>Greentext</h3>
+  If you add a > in the start of a line, it will greentext the text until it
+  finds a new line.
+  <br>
+  Example:
+  <br>
+  <span class="greenText">>le ebin upboat :^)</span>
+
+  <br>
+  <br>
+
+  <h3>Quote</h3>
+  If you write >> and then a number to a posting, it will create a link to this
+  post in the board you are posting and add a tooltip with the post preview if
+  you have javascript enabled.
+  <br>
+  Example:
+  <br>
+  <a href="">>>50</a>
+
+  <br>
+  <br>
+
+  <h3>Board link</h3>
+  If you write >>> and then add a board name between slashes, it will create a
+  link to the board.
+  <br>
+  Example:
+  <br>
+  <a
+    href=""
+    class="quoteLink">>>>/cancer/</a>
+
+  <br>
+  <br>
+
+  <h3>Cross-quote</h3>
+  It is also possible to quote posts from another boards. Just add the posting
+  number after the board name.
+  <br>
+  Example:
+  <br>
+  <a
+    href=""
+    class="quoteLink">>>>/cancer/50</a>
+
+  <br>
+  <br>
+
+  <h3>Spoiler</h3>
+  If you add your text between [spoiler] and [/spoiler], it will hide your text
+  to be only revealed when hovering over it. You can't break lines between the
+  tags.
+  <br>
+  Example:
+  <br>
+  <span class="spoiler">the game</span>
+
+  <br>
+  <br>
+
+  <h3>Urls</h3>
+  If you post a url starting with either http or https, it will automatically be
+  linked.
+  <br>
+  Example:
+  <br>
+  <a href="">http://bot.net</a>
+</body>
+
+</html>
