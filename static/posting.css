@@ -36,8 +36,6 @@
 	color: #0F0C5D;
 	font-weight: bold;
 	font-size: 10pt;
-	font-weight: bold;
-	font-size: 10pt;
 }
 
 .labelRole {
@@ -56,4 +54,10 @@
 
 .divRefresh {
 	float: right;
+}
+
+.divBanMessage {
+	color: #ff0000;
+	font-weight: bold;
+	font-size: 11pt;
 }
