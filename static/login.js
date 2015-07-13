@@ -69,9 +69,9 @@ function registerAccount() {
   if (!typedLogin.length || !typedPassword.length) {
     alert('Both login and password are mandatory.');
   } else if (typedLogin.length > 16) {
-    alert('Login too long, keep it under 16 characters');
+    alert('Login too long, keep it under 16 characters.');
   } else if (typedEmail.length > 64) {
-    alert('Email too long, keep it under 64 characters');
+    alert('E-mail too long, keep it under 64 characters.');
   } else if (/\W/.test(typedLogin)) {
     alert('Invalid login.');
   } else {
