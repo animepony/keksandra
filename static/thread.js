@@ -20,7 +20,7 @@ var postCellTemplate = '<input type="checkbox" class="deletionCheckBox">'
     + ' class="labelId"></span></span> <a class="linkSelf"></a><div class="panelUploads"></div>'
     + '<div class="divMessage" /></div><div class="divBanMessage"></div><br>';
 
-var uploadCellTemplate = '<a class="nameLink"></a>(<span class="infoLabel"> </span>)<br><a class="imageLink"></a>';
+var uploadCellTemplate = '<a class="nameLink"></a>(<span class="infoLabel"> </span>)<br><a class="imgLink"></a>';
 
 var sizeOrders = [ 'B', 'KB', 'MB', 'GB', 'TB' ];
 
@@ -160,7 +160,7 @@ function formatFileSize(size) {
 }
 
 function setUploadLinks(cell, file) {
-  var thumbLink = cell.getElementsByClassName('imageLink')[0];
+  var thumbLink = cell.getElementsByClassName('imgLink')[0];
   thumbLink.href = file.path;
 
   var img = document.createElement('img');
@@ -280,6 +280,19 @@ function addPost(post) {
   postCell.setAttribute('class', 'postCell');
 
   setPostInnerElements(boardUri, threadId, post, postCell);
+
+  var links = postCell.getElementsByClassName('imgLink');
+
+  var fuckYou = [];
+
+  for (var i = 0; i < links.length; i++) {
+    fuckYou.push(links[i]);
+  }
+
+  for (var i = 0; i < fuckYou.length; i++) {
+
+    processImageLink(fuckYou[i]);
+  }
 
   divPostings.appendChild(postCell);
 }

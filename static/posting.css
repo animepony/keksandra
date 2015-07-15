@@ -1,3 +1,10 @@
+.hideLink {
+	color: #000000;
+	background: #ffffff;
+	font-size: 12pt;
+	vertical-align: top;
+}
+
 .uploadCell {
 	float: left;
 	margin: 2px;
