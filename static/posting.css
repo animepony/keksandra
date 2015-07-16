@@ -36,7 +36,7 @@
 	color: #ff0000;
 }
 
-.postCell {
+.postCell, .markedPost {
 	background-color: #D6DAF0;
 	margin-bottom: 5px;
 	border-style: solid;
@@ -45,9 +45,6 @@
 
 .markedPost {
 	background-color: #D6BAD0;
-	margin-bottom: 5px;
-	border-style: solid;
-	border-width: 1px;
 }
 
 .linkName {

@@ -152,14 +152,6 @@ if (!DISABLE_JS) {
   document.getElementById('reportFormButton').style.display = 'none';
   document.getElementById('deleteFormButton').style.display = 'none';
 
-  var quotes = document.getElementsByClassName('quoteLink');
-
-  for (var i = 0; i < quotes.length; i++) {
-    var quote = quotes[i];
-
-    processQuote(quote);
-  }
-
   var imageLinks = document.getElementsByClassName('imgLink');
 
   var fuckYou = [];
@@ -171,6 +163,16 @@ if (!DISABLE_JS) {
   for (i = 0; i < fuckYou.length; i++) {
     processImageLink(fuckYou[i]);
   }
+
+  window.onload = function() {
+    var quotes = document.getElementsByClassName('quoteLink');
+
+    for (var i = 0; i < quotes.length; i++) {
+      var quote = quotes[i];
+
+      processQuote(quote);
+    }
+  };
 
 }
 
