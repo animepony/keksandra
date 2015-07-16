@@ -185,6 +185,8 @@ function setClickableImage(link, parent) {
     newImage.src = newImage.src === thumb ? path : thumb;
   };
 
+  newImage.style.cursor = 'pointer';
+
   parent.replaceChild(newImage, link);
 }
 
@@ -206,6 +208,7 @@ function setWebm(link) {
 
   var hideLink = document.createElement('a');
   hideLink.innerHTML = '[ - ]';
+  hideLink.style.cursor = 'pointer';
   hideLink.style.display = 'none';
   hideLink.setAttribute('class', 'hideLink');
   hideLink.onclick = function() {
@@ -223,6 +226,7 @@ function setWebm(link) {
     hideLink.style.display = 'inline';
     video.play();
   };
+  newThumb.style.cursor = 'pointer';
 
   videoContainer.appendChild(hideLink);
   videoContainer.appendChild(video);
@@ -284,6 +288,14 @@ function processQuote(quote) {
   quote.onmouseout = function() {
     tooltip.style.display = 'none';
   };
+
+  if (!board) {
+    var matches = quote.href.match(/\#(\d+)/);
+
+    quote.onclick = function() {
+      markPost(matches[1]);
+    };
+  }
 
 }
 

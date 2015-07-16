@@ -18,8 +18,33 @@
 	color: #ff0000;
 }
 
+.linkSelf {
+	color: #000000;
+	text-decoration: none;
+}
+
+.linkSelf:hover {
+	color: #ff0000;
+}
+
+.linkQuote {
+	color: #000000;
+	text-decoration: none;
+}
+
+.linkQuote:hover {
+	color: #ff0000;
+}
+
 .postCell {
 	background-color: #D6DAF0;
+	margin-bottom: 5px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.markedPost {
+	background-color: #D6BAD0;
 	margin-bottom: 5px;
 	border-style: solid;
 	border-width: 1px;

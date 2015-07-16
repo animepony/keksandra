@@ -13,11 +13,13 @@ var currentRefresh;
 var manualRefresh;
 var foundPosts;
 var hiddenCaptcha = !document.getElementById('captchaDiv');
+var markedPosting;
 
 var postCellTemplate = '<input type="checkbox" class="deletionCheckBox">'
     + ' <span class="labelSubject"></span> <a class="linkName"></a> <span class="labelRole">'
     + '</span> <span class="labelCreated"></span><span class="spanId"> Id: <span'
-    + ' class="labelId"></span></span> <a class="linkSelf"></a><div class="panelUploads"></div>'
+    + ' class="labelId"></span></span> <a class="linkSelf">No.</a><a class="linkQuote"></a>'
+    + '<div class="panelUploads"></div>'
     + '<div class="divMessage" /></div><div class="divBanMessage"></div><br>';
 
 var uploadCellTemplate = '<a class="nameLink"></a>(<span class="infoLabel"> </span>)<br><a class="imgLink"></a>';
@@ -58,6 +60,48 @@ if (!DISABLE_JS) {
   }
 
   changeRefresh();
+
+  var hash = window.location.hash.substring(1);
+
+  if (hash.indexOf('q') === 0 && hash.length > 1) {
+    document.getElementById('fieldMessage').value = '>>' + hash.substring(1);
+  } else if (hash.length > 1) {
+    markPost(hash);
+  }
+
+  var postingQuotes = document.getElementsByClassName('linkQuote');
+
+  for (var i = 0; i < postingQuotes.length; i++) {
+    processPostingQuote(postingQuotes[i]);
+  }
+
+}
+
+function markPost(id) {
+
+  if (isNaN(id)) {
+    return;
+  }
+
+  if (markedPosting && markedPosting.className === 'markedPost') {
+    markedPosting.setAttribute('class', 'postCell');
+  }
+
+  markedPosting = document.getElementById(id);
+
+  if (markedPosting && markedPosting.className === 'postCell') {
+    markedPosting.setAttribute('class', 'markedPost');
+  }
+}
+
+function processPostingQuote(link) {
+
+  link.onclick = function() {
+    var toQuote = link.href.match(/#q(\d+)/);
+
+    document.getElementById('fieldMessage').value += '>>' + toQuote[1];
+
+  };
 
 }
 
@@ -236,7 +280,11 @@ function setPostComplexElements(postCell, post, boardUri, threadId) {
   }
 
   var link = postCell.getElementsByClassName('linkSelf')[0];
-  link.innerHTML = post.postId;
+
+  var linkQuote = postCell.getElementsByClassName('linkQuote')[0];
+  linkQuote.innerHTML = post.postId;
+  linkQuote.href = '/' + boardUri + '/res/' + threadId + '.html#q'
+      + post.postId;
 
   var deletionCheckbox = postCell.getElementsByClassName('deletionCheckBox')[0];
 
@@ -295,6 +343,17 @@ function addPost(post) {
   }
 
   divPostings.appendChild(postCell);
+
+  var quotes = postCell.getElementsByClassName('quoteLink');
+
+  for (var i = 0; i < quotes.length; i++) {
+    var quote = quotes[i];
+
+    processQuote(quote);
+  }
+
+  processPostingQuote(postCell.getElementsByClassName('linkQuote')[0]);
+
 }
 
 var refreshCallback = function(error, data) {
