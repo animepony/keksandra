@@ -96,6 +96,32 @@
         value="Delete board">
     </form>
 
+    <h3>Custom CSS</h3>
+    Upload without any files to delete the custom CSS.
+    <form
+      action="/setCustomCss.js"
+      method="post"
+      enctype="multipart/form-data">
+      <input
+        type="hidden"
+        name="boardUri"
+        id="customCssIdentifier">
+      <input
+        type="file"
+        id="files"
+        name="files">
+      <input
+        id="cssFormButton"
+        type="submit"
+        value="Upload CSS">
+      <input
+        type="button"
+        onclick="setCss()"
+        id="cssJsButton"
+        style="display: none"
+        value="Upload CSS">
+    </form>
+
     <h3>Volunteers</h3>
     <div id="volunteersDiv"></div>
 
@@ -160,6 +186,8 @@
     <a id="bannerManagementLink">Manage banners</a>
     <br>
     <a id="filterManagementLink">Manage filters</a>
+    <br>
+
   </div>
 
   <a id="rangeBansLink">Range bans</a>

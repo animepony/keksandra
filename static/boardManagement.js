@@ -8,7 +8,9 @@ if (!DISABLE_JS) {
     document.getElementById('transferBoardJsButton').style.display = 'inline';
     document.getElementById('deleteBoardJsButton').style.display = 'inline';
     document.getElementById('saveSettingsJsButton').style.display = 'inline';
+    document.getElementById('cssJsButton').style.display = 'inline';
 
+    document.getElementById('cssFormButton').style.display = 'none';
     document.getElementById('saveSettingsFormButton').style.display = 'none';
     document.getElementById('deleteBoardFormButton').style.display = 'none';
     document.getElementById('addVolunteerFormButton').style.display = 'none';
@@ -25,6 +27,55 @@ if (!DISABLE_JS) {
   }
 
   setupReportButtons();
+
+}
+
+function makeCssRequest(files) {
+  apiRequest('setCustomCss', {
+    files : files || [],
+    boardUri : boardIdentifier,
+  }, function requestComplete(status, data) {
+
+    document.getElementById('files').type = 'text';
+    document.getElementById('files').type = 'file';
+
+    if (status === 'ok') {
+
+      if (files) {
+        alert('New CSS set.');
+      } else {
+        alert('CSS deleted.');
+      }
+
+    } else {
+      alert(status + ': ' + JSON.stringify(data));
+    }
+  });
+}
+
+function setCss() {
+
+  var file = document.getElementById('files').files[0];
+
+  if (!file) {
+    makeCssRequest();
+    return;
+  }
+
+  var reader = new FileReader();
+
+  reader.onloadend = function(e) {
+
+    // style exception, too simple
+    makeCssRequest([ {
+      name : file.name,
+      content : reader.result
+    } ]);
+    // style exception, too simple
+
+  };
+
+  reader.readAsDataURL(file);
 
 }
 
