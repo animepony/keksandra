@@ -29,7 +29,7 @@ var sizeOrders = [ 'B', 'KB', 'MB', 'GB', 'TB' ];
 if (!DISABLE_JS) {
 
   boardUri = document.getElementById('boardIdentifier').value;
-  var divPostings = document.getElementById('divPostings');
+  var divPosts = document.getElementsByClassName('divPosts')[0];
 
   document.getElementsByClassName('divRefresh')[0].style.display = 'inline';
 
@@ -344,7 +344,7 @@ function addPost(post) {
     processImageLink(fuckYou[i]);
   }
 
-  divPostings.appendChild(postCell);
+  divPosts.appendChild(postCell);
 
   var quotes = postCell.getElementsByClassName('quoteLink');
 
