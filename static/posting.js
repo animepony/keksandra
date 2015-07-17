@@ -176,21 +176,60 @@ if (!DISABLE_JS) {
 
 }
 
-function setClickableImage(link, parent) {
-  var thumb = link.childNodes[0].src;
-  var path = link.href;
-  var parent = link.parentNode;
-
-  var newImage = document.createElement('img');
-  newImage.src = thumb;
-  newImage.onclick = function() {
-    newImage.src = newImage.src === thumb ? path : thumb;
+/* Expanded images have the class 'imgExpanded' */
+function setClickableImage(link) {
+  link.onclick = function(mouseEvent) {
+    return expandImage(mouseEvent, link);
   };
-
-  newImage.style.cursor = 'pointer';
-
-  parent.replaceChild(newImage, link);
 }
+
+/* mouseEvent.target -> link */
+function expandImage(mouseEvent, link) {
+  /* return: false -> Don't follow link, true -> Follow link */
+
+  /* If event was fired by middle mouse button or combined with
+   * the ctrl key, act as a normal link */
+  if (mouseEvent.which === 2 || mouseEvent.ctrlKey) {
+    return true;
+  }
+
+  var thumb = link.getElementsByTagName('img')[0];
+
+  /* If image is expanded */
+  if (thumb.style.display === 'none') {
+    link.getElementsByClassName('imgExpanded')[0].style.display = 'none';
+    thumb.style.display = '';
+    return false;
+  }
+
+  /* Click animation could be inserted here */
+
+  var expanded = link.getElementsByClassName('imgExpanded')[0];
+
+  /* If image has already been expanded in the past,
+   * don't create another <img> */
+  if (expanded) {
+    thumb.style.display = 'none';
+    expanded.style.display = '';
+    return false;
+  } else {
+    var expandedSrc = link.href;
+
+    /* If the thumb is the same image as the source, do nothing */
+    if (thumb.src === expandedSrc) {
+      return false;
+    }
+
+    expanded = document.createElement('img');
+    expanded.setAttribute('src', expandedSrc);
+    expanded.setAttribute('class', 'imgExpanded');
+
+    thumb.style.display = 'none';
+    link.appendChild(expanded);
+    return false;
+  }
+}
+
 
 function setWebm(link) {
 
