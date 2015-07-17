@@ -1,5 +1,6 @@
 var loadedPreviews = [];
 var loadingPreviews = [];
+var loadedContent = {};
 var quoteReference = {};
 
 var MIMETYPES = {
@@ -164,16 +165,13 @@ if (!DISABLE_JS) {
     processImageLink(fuckYou[i]);
   }
 
-  window.onload = function() {
-    var quotes = document.getElementsByClassName('quoteLink');
+  var quotes = document.getElementsByClassName('quoteLink');
 
-    for (var i = 0; i < quotes.length; i++) {
-      var quote = quotes[i];
+  for (var i = 0; i < quotes.length; i++) {
+    var quote = quotes[i];
 
-      processQuote(quote);
-    }
-  };
-
+    processQuote(quote);
+  }
 }
 
 /* Expanded images have the class 'imgExpanded' */
@@ -187,8 +185,10 @@ function setClickableImage(link) {
 function expandImage(mouseEvent, link) {
   /* return: false -> Don't follow link, true -> Follow link */
 
-  /* If event was fired by middle mouse button or combined with
-   * the ctrl key, act as a normal link */
+  /*
+   * If event was fired by middle mouse button or combined with the ctrl key,
+   * act as a normal link
+   */
   if (mouseEvent.which === 2 || mouseEvent.ctrlKey) {
     return true;
   }
@@ -206,8 +206,9 @@ function expandImage(mouseEvent, link) {
 
   var expanded = link.getElementsByClassName('imgExpanded')[0];
 
-  /* If image has already been expanded in the past,
-   * don't create another <img> */
+  /*
+   * If image has already been expanded in the past, don't create another <img>
+   */
   if (expanded) {
     thumb.style.display = 'none';
     expanded.style.display = '';
@@ -229,7 +230,6 @@ function expandImage(mouseEvent, link) {
     return false;
   }
 }
-
 
 function setWebm(link) {
 
@@ -291,32 +291,36 @@ function processImageLink(link) {
 
 function processQuote(quote) {
 
-  var rect = quote.getBoundingClientRect();
-
-  var previewOrigin = {
-    x : rect.right + 10 + window.scrollX,
-    y : rect.top + window.scrollY
-  };
-
   var tooltip = document.createElement('div');
   tooltip.style.display = 'none';
-  quote.parentNode.appendChild(tooltip);
-  tooltip.innerHTML = 'Loading';
   tooltip.style['background-color'] = '#cccccc';
-
   tooltip.style.position = 'absolute';
-  tooltip.style.left = previewOrigin.x + 'px';
-  tooltip.style.top = previewOrigin.y + 'px';
+
+  quote.parentNode.appendChild(tooltip);
 
   var quoteUrl = quote.href;
 
-  var referenceList = quoteReference[quoteUrl] || [];
+  if (loadedPreviews.indexOf(quoteUrl) > -1) {
+    tooltip.innerHTML = loadedContent[quoteUrl];
+  } else {
+    var referenceList = quoteReference[quoteUrl] || [];
 
-  referenceList.push(tooltip);
+    referenceList.push(tooltip);
 
-  quoteReference[quoteUrl] = referenceList;
+    quoteReference[quoteUrl] = referenceList;
+    tooltip.innerHTML = 'Loading';
+  }
 
   quote.onmouseenter = function() {
+    var rect = quote.getBoundingClientRect();
+
+    var previewOrigin = {
+      x : rect.right + 10 + window.scrollX,
+      y : rect.top + window.scrollY
+    };
+
+    tooltip.style.left = previewOrigin.x + 'px';
+    tooltip.style.top = previewOrigin.y + 'px';
     tooltip.style.display = 'inline';
 
     if (loadedPreviews.indexOf(quoteUrl) < 0
@@ -358,9 +362,9 @@ function loadQuote(tooltip, quoteUrl) {
 
       for (var i = 0; i < referenceList.length; i++) {
         referenceList[i].innerHTML = data;
-
       }
 
+      loadedContent[quoteUrl] = data;
       loadedPreviews.push(quoteUrl);
       loadingPreviews.splice(loadingPreviews.indexOf(quoteUrl), 1);
     }
