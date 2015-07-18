@@ -1,13 +1,13 @@
 .hideLink {
-	color: #000000;
-	background: #ffffff;
-	font-size: 12pt;
-	vertical-align: top;
+  color: #000000;
+  background: #ffffff;
+  font-size: 12pt;
+  vertical-align: top;
 }
 
 .uploadCell {
-	float: left;
-	margin: 2px;
+  float: left;
+  margin: 2px;
 }
 
 .imgExpanded {
@@ -15,82 +15,82 @@
 }
 
 .divMessage {
-	clear: both;
+  clear: both;
 }
 
 .quoteLink {
-	color: #ff0000;
+  color: #ff0000;
 }
 
 .linkSelf {
-	color: #000000;
-	text-decoration: none;
+  color: #000000;
+  text-decoration: none;
 }
 
 .linkSelf:hover {
-	color: #ff0000;
+  color: #ff0000;
 }
 
 .linkQuote {
-	color: #000000;
-	text-decoration: none;
+  color: #000000;
+  text-decoration: none;
 }
 
 .linkQuote:hover {
-	color: #ff0000;
+  color: #ff0000;
 }
 
 .postCell, .markedPost {
-	background-color: #D6DAF0;
-	margin-bottom: 5px;
-	border-style: solid;
-	border-width: 1px;
+  background-color: #D6DAF0;
+  margin-bottom: 5px;
+  border-style: solid;
+  border-width: 1px;
 }
 
 .markedPost {
-	background-color: #D6BAD0;
+  background-color: #D6BAD0;
 }
 
 .linkName {
-	font-weight: bold;
-	color: #0F0C5D;
-	font-size: 10pt;
+  font-weight: bold;
+  color: #0F0C5D;
+  font-size: 10pt;
 }
 
 .linkName:hover {
-	color: #ff0000;
+  color: #ff0000;
 }
 
 .noEmailName, .noEmailName:hover {
-	color: #117743;
+  color: #117743;
 }
 
 .labelSubject {
-	color: #0F0C5D;
-	font-weight: bold;
-	font-size: 10pt;
+  color: #0F0C5D;
+  font-weight: bold;
+  font-size: 10pt;
 }
 
 .labelRole {
-	color: #ff0000;
-	font-weight: bold;
-	font-size: 10pt;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 10pt;
 }
 
 .divMessage {
-	padding-left: 10px;
+  padding-left: 10px;
 }
 
 .contentAction {
-	float: left;
+  float: left;
 }
 
 .divRefresh {
-	float: right;
+  float: right;
 }
 
 .divBanMessage {
-	color: #ff0000;
-	font-weight: bold;
-	font-size: 11pt;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 11pt;
 }

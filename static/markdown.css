@@ -1,13 +1,13 @@
 .greenText {
-	color: #789922;
+  color: #789922;
 }
 
 span.spoiler {
-	background: black;
-	color: black;
-	padding: 0 1px;
+  background: black;
+  color: black;
+  padding: 0 1px;
 }
 
 .spoiler:hover {
-	color: white;
+  color: white;
 }

@@ -1,14 +1,14 @@
 .catalogCell {
-	float: left;
-	width: 256px;
-	text-align: center;
-	padding: 2px;
-	height: 256px;
-	overflow: hidden;
-	background-color: #D6DAF0;
-	margin: 2px;
-	border-style: solid;
-	border-width: 1px;
-	border-style: solid;
-	height: 256px;
+  float: left;
+  width: 256px;
+  text-align: center;
+  padding: 2px;
+  height: 256px;
+  overflow: hidden;
+  background-color: #D6DAF0;
+  margin: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-style: solid;
+  height: 256px;
 }

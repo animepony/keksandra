@@ -329,6 +329,10 @@ function addPost(post) {
   postCell.id = post.postId;
   postCell.setAttribute('class', 'postCell');
 
+  if (post.files && post.files.length > 1) {
+    postCell.className += ' multipleUploads';
+  }
+
   setPostInnerElements(boardUri, threadId, post, postCell);
 
   var links = postCell.getElementsByClassName('imgLink');
