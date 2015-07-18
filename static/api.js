@@ -19,6 +19,8 @@ function handleConnectionResponse(xhr, delegate) {
 
   if (response.status === 'error') {
     alert('Internal server error. ' + response.data);
+  } else if (response.status === 'fileTooLarge') {
+    alert('Maximum file size exceeded for a file.');
   } else if (response.status === 'blank') {
     alert('Parameter ' + response.data + ' was sent in blank.');
   } else if (response.status === 'tooLarge') {
