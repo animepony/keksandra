@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/global.css">
+</head>
+<body>
+  <a href="/account.js">Account</a>
+  <h3>New rule</h3>
+  <form
+    action="/createRule.js"
+    method="post"
+    enctype="multipart/form-data">
+    <input
+      type="hidden"
+      name="boardUri"
+      id="boardIdentifier">
+
+    <input
+      type="text"
+      name="rule"
+      id="fieldRule">
+
+    <input
+      type="submit"
+      value="Add rule"
+      id="addFormButton">
+
+    <input
+      type="button"
+      onClick="addRule()"
+      style="display: none;"
+      value="Add rule"
+      id="addJsButton">
+
+  </form>
+  <h3>Current rules</h3>
+  <div id="divRules"></div>
+</body>
+
+<script src="http://static.localhost:8080/settings.js"></script>
+<script src="http://static.localhost:8080/api.js"></script>
+<script src="http://static.localhost:8080/ruleManagement.js"></script>
+
+</html>

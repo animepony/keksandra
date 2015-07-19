@@ -43,5 +43,7 @@
   "rangeBanCell": "rangeBanCell.html",
   "rangeBanPage": "rangeBanPage.html",
   "hashBansPage": "hashBans.html",
-  "hashBanCell": "hashBanCell.html"
+  "hashBanCell": "hashBanCell.html",
+  "ruleManagementPage": "ruleManagement.html",
+  "ruleManagementCell": "ruleManagementCell.html"
 }
