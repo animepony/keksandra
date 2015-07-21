@@ -15,14 +15,21 @@ var foundPosts;
 var hiddenCaptcha = !document.getElementById('captchaDiv');
 var markedPosting;
 
-var postCellTemplate = '<input type="checkbox" class="deletionCheckBox">'
-    + ' <span class="labelSubject"></span> <a class="linkName"></a> <span class="labelRole">'
-    + '</span> <span class="labelCreated"></span><span class="spanId"> Id: <span'
-    + ' class="labelId"></span></span> <a class="linkSelf">No.</a><a class="linkQuote"></a>'
-    + '<div class="panelUploads"></div>'
-    + '<div class="divMessage" /></div><div class="divBanMessage"></div><br>';
+var postCellTemplate = '<input type="checkbox" '
+    + 'class="deletionCheckBox"> <span class="labelSubject"></span>'
+    + '<a class="linkName"></a> <span class="labelRole"></span>'
+    + ' <span class="labelCreated"></span>'
+    + '<span class="spanId"> Id: <span class="labelId"></span></span>'
+    + ' <a class="linkPreview">[Preview]</a> <a class="linkSelf">No.</a>'
+    + ' <a class="linkQuote"></a>'
+    + '<div class="panelUploads"></div><div class="divMessage" /></div>'
+    + '<div class="divBanMessage"></div><br>';
 
-var uploadCellTemplate = '<a class="nameLink"></a>(<span class="infoLabel"> </span>)<br><a class="imgLink"></a>';
+var uploadCell = '<a class="nameLink" target="blank"></a>'
+    + ' ( <span class="sizeLabel"></span> '
+    + '<span class="dimensionLabel"></span> '
+    + '<a class="originalNameLink"></a> )<br>'
+    + '<a class="imgLink" target="blank"></a>';
 
 var sizeOrders = [ 'B', 'KB', 'MB', 'GB', 'TB' ];
 
@@ -205,6 +212,10 @@ function formatFileSize(size) {
 
 }
 
+function removeElement(element) {
+  element.parentNode.removeChild(element);
+}
+
 function setUploadLinks(cell, file) {
   var thumbLink = cell.getElementsByClassName('imgLink')[0];
   thumbLink.href = file.path;
@@ -217,6 +228,18 @@ function setUploadLinks(cell, file) {
   var nameLink = cell.getElementsByClassName('nameLink')[0];
   nameLink.href = file.path;
   nameLink.innerHTML = file.name;
+
+  var originalLink = cell.getElementsByClassName('originalNameLink')[0];
+  originalLink.innerHTML = file.originalName;
+  originalLink.href = file.path + '/alias/' + file.originalName;
+}
+
+function getUploadCellBase() {
+  var cell = document.createElement('div');
+  cell.innerHTML = uploadCell;
+  cell.setAttribute('class', 'uploadCell');
+
+  return cell;
 }
 
 function setUploadCell(node, files) {
@@ -227,19 +250,21 @@ function setUploadCell(node, files) {
 
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
-    var cell = document.createElement('div');
-    cell.innerHTML = uploadCellTemplate;
-    cell.setAttribute('class', 'uploadCell');
+
+    var cell = getUploadCellBase();
 
     setUploadLinks(cell, file);
 
-    var infoString = formatFileSize(file.size);
+    var sizeString = formatFileSize(file.size);
+    cell.getElementsByClassName('sizeLabel')[0].innerHTML = sizeString;
+
+    var dimensionLabel = cell.getElementsByClassName('dimensionLabel')[0];
 
     if (file.width) {
-      infoString += ', ' + file.width + 'x' + file.height;
+      dimensionLabel.innerHTML = file.width + 'x' + file.height;
+    } else {
+      removeElement(dimensionLabel);
     }
-
-    cell.getElementsByClassName('infoLabel')[0].innerHTML = infoString;
 
     node.appendChild(cell);
   }
@@ -251,7 +276,7 @@ function setPostHideableElements(postCell, post) {
   if (post.subject) {
     subjectLabel.innerHTML = post.subject;
   } else {
-    subjectLabel.parentNode.removeChild(subjectLabel);
+    removeElement(subjectLabel);
   }
 
   if (post.id) {
@@ -271,29 +296,43 @@ function setPostHideableElements(postCell, post) {
 
 }
 
-function setPostComplexElements(postCell, post, boardUri, threadId) {
+function setPostLinks(postCell, post, boardUri, link, threadId, linkQuote,
+    deletionCheckbox) {
+  var linkStart = '/' + boardUri + '/res/' + threadId + '.html#';
+  link.href = linkStart + post.postId;
+  linkQuote.href = linkStart + 'q' + post.postId;
 
-  var labelRole = postCell.getElementsByClassName('labelRole')[0];
+  var checkboxName = boardUri + '-' + threadId + '-' + post.postId;
+  deletionCheckbox.setAttribute('name', checkboxName);
 
-  if (post.signedRole) {
-    labelRole.innerHTML = post.signedRole;
+  var linkPreview = '/' + boardUri + '/preview/' + post.postId + '.html';
+
+  postCell.getElementsByClassName('linkPreview')[0].href = linkPreview;
+}
+
+function setRoleSignature(postingCell, posting) {
+  var labelRole = postingCell.getElementsByClassName('labelRole')[0];
+
+  if (posting.signedRole) {
+    labelRole.innerHTML = posting.signedRole;
   } else {
     labelRole.parentNode.removeChild(labelRole);
   }
+}
+
+function setPostComplexElements(postCell, post, boardUri, threadId) {
+
+  setRoleSignature(postCell, post);
 
   var link = postCell.getElementsByClassName('linkSelf')[0];
 
   var linkQuote = postCell.getElementsByClassName('linkQuote')[0];
   linkQuote.innerHTML = post.postId;
-  linkQuote.href = '/' + boardUri + '/res/' + threadId + '.html#q'
-      + post.postId;
 
   var deletionCheckbox = postCell.getElementsByClassName('deletionCheckBox')[0];
 
-  link.href = '/' + boardUri + '/res/' + threadId + '.html#' + post.postId;
-
-  var checkboxName = boardUri + '-' + threadId + '-' + post.postId;
-  deletionCheckbox.setAttribute('name', checkboxName);
+  setPostLinks(postCell, post, boardUri, link, threadId, linkQuote,
+      deletionCheckbox);
 
   setUploadCell(postCell.getElementsByClassName('panelUploads')[0], post.files);
 }
