@@ -47,5 +47,6 @@
   "ruleManagementPage": "ruleManagement.html",
   "ruleManagementCell": "ruleManagementCell.html",
   "rulesPage": "rules.html",
-  "ruleCell": "ruleCell.html"
+  "ruleCell": "ruleCell.html",
+  "maintenancePage": "maintenance.html"
 }
