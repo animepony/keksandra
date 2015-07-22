@@ -97,6 +97,10 @@ function saveSettings() {
     settings.push('disableIds');
   }
 
+  if (document.getElementById('allowCodeCheckbox').checked) {
+    settings.push('allowCode');
+  }
+
   if (document.getElementById('disableCaptchaCheckbox').checked) {
     settings.push('disableCaptcha');
   }
