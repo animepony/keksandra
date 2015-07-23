@@ -23,7 +23,7 @@ var postCellTemplate = '<input type="checkbox" '
     + ' <a class="linkPreview">[Preview]</a> <a class="linkSelf">No.</a>'
     + ' <a class="linkQuote"></a>'
     + '<div class="panelUploads"></div><div class="divMessage" /></div>'
-    + '<div class="divBanMessage"></div><br>';
+    + '<div class="divBanMessage"></div><div class="labelLastEdit"></div><br>';
 
 var uploadCell = '<a class="nameLink" target="blank"></a>'
     + ' ( <span class="sizeLabel"></span> '
@@ -32,6 +32,8 @@ var uploadCell = '<a class="nameLink" target="blank"></a>'
     + '<a class="imgLink" target="blank"></a>';
 
 var sizeOrders = [ 'B', 'KB', 'MB', 'GB', 'TB' ];
+
+var guiEditInfo = 'Edited last time by {$login} on {$date}.';
 
 if (!DISABLE_JS) {
 
@@ -216,6 +218,23 @@ function removeElement(element) {
   element.parentNode.removeChild(element);
 }
 
+function setLastEditedLabel(post, cell) {
+
+  var editedLabel = cell.getElementsByClassName('labelLastEdit')[0];
+
+  if (post.lastEditTime) {
+
+    var formatedDate = formatDateToDisplay(new Date(post.lastEditTime));
+
+    editedLabel.innerHTML = guiEditInfo.replace('{$date}', formatedDate)
+        .replace('{$login}', post.lastEditLogin);
+
+  } else {
+    removeElement(editedLabel);
+  }
+
+}
+
 function setUploadLinks(cell, file) {
   var thumbLink = cell.getElementsByClassName('imgLink')[0];
   thumbLink.href = file.path;
@@ -293,6 +312,8 @@ function setPostHideableElements(postCell, post) {
   } else {
     banMessageLabel.innerHTML = post.banMessage;
   }
+
+  setLastEditedLabel(post, postCell);
 
 }
 
