@@ -121,6 +121,9 @@ var MIMETYPES = {
   zip : 'application/zip'
 };
 
+var playableTypes = [ 'video/webm', 'audio/mpeg', 'video/mp4' ];
+var videoTypes = [ 'video/webm', 'video/mp4' ];
+
 function getMime(pathName) {
 
   var pathParts = pathName.split('.');
@@ -231,16 +234,17 @@ function expandImage(mouseEvent, link) {
   }
 }
 
-function setWebm(link) {
+function setPlayer(link, mime) {
 
   var path = link.href;
   var parent = link.parentNode;
 
   var src = document.createElement('source');
   src.setAttribute('src', link.href);
-  src.setAttribute('type', 'video/webm');
+  src.setAttribute('type', mime);
 
-  var video = document.createElement('video');
+  var video = document.createElement(videoTypes.indexOf(mime) > -1 ? 'video'
+      : 'audio');
   video.setAttribute('controls', true);
   video.style.display = 'none';
   video.appendChild(src);
@@ -284,8 +288,8 @@ function processImageLink(link) {
 
     setClickableImage(link);
 
-  } else if (mime == 'video/webm') {
-    setWebm(link);
+  } else if (playableTypes.indexOf(mime) > -1) {
+    setPlayer(link, mime);
   }
 }
 

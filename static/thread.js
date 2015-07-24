@@ -178,21 +178,21 @@ function padDateField(value) {
 }
 
 function formatDateToDisplay(d) {
-  var day = padDateField(d.getDate());
+  var day = padDateField(d.getUTCDate());
 
   var weekDays = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
 
-  var month = padDateField(d.getMonth() + 1);
+  var month = padDateField(d.getUTCMonth() + 1);
 
-  var year = d.getFullYear();
+  var year = d.getUTCFullYear();
 
-  var weekDay = weekDays[d.getDay()];
+  var weekDay = weekDays[d.getUTCDay()];
 
-  var hour = padDateField(d.getHours());
+  var hour = padDateField(d.getUTCHours());
 
-  var minute = padDateField(d.getMinutes());
+  var minute = padDateField(d.getUTCMinutes());
 
-  var second = padDateField(d.getSeconds());
+  var second = padDateField(d.getUTCSeconds());
 
   var toReturn = month + '/' + day + '/' + year;
 
