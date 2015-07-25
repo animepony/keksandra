@@ -49,5 +49,6 @@
   "rulesPage": "rules.html",
   "ruleCell": "ruleCell.html",
   "maintenancePage": "maintenance.html",
-  "editPage": "edit.html"
+  "editPage": "edit.html",
+  "audioThumb": "music.png"
 }

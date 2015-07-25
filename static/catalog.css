@@ -12,3 +12,8 @@
   border-style: solid;
   height: 256px;
 }
+
+.linkThumb img {
+  max-height: 128px;
+  max-width: 128px;
+}
