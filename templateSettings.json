@@ -50,5 +50,7 @@
   "ruleCell": "ruleCell.html",
   "maintenancePage": "maintenance.html",
   "editPage": "edit.html",
-  "audioThumb": "music.png"
+  "audioThumb": "music.png",
+  "flagsPage": "flags.html",
+  "flagCell": "flagCell.html"
 }

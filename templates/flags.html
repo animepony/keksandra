@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/global.css">
+</head>
+<body>
+  <a href="/account.js">Account</a>
+  <h3>New flag</h3>
+  <form
+    action="/createFlag.js"
+    method="post"
+    enctype="multipart/form-data">
+    <input
+      type="hidden"
+      name="boardUri"
+      id="boardIdentifier">
+
+    Flag name:
+    <input
+      name="flagName"
+      id="fieldFlagName"
+      type="text">
+    <br>
+
+    <input
+      type="file"
+      id="files"
+      name="files">
+
+    <input
+      type="submit"
+      value="Add flag"
+      id="addFormButton">
+
+    <input
+      type="button"
+      onClick="addFlag()"
+      style="display: none;"
+      value="Add flag"
+      id="addJsButton">
+    <br>
+    <span class="finePrint">Maximum size allowed: <span id="maxSizeLabel"></span></span>
+
+  </form>
+  <h3>Existing flags</h3>
+  <div id="flagsDiv"></div>
+</body>
+
+<script src="http://static.localhost:8080/settings.js"></script>
+<script src="http://static.localhost:8080/api.js"></script>
+<script src="http://static.localhost:8080/flags.js"></script>
+
+</html>
