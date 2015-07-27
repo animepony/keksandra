@@ -17,8 +17,8 @@ var markedPosting;
 
 var postCellTemplate = '<input type="checkbox" '
     + 'class="deletionCheckBox"> <span class="labelSubject"></span>'
-    + '<a class="linkName"></a> <span class="labelRole"></span>'
-    + ' <span class="labelCreated"></span>'
+    + '<a class="linkName"></a> <img class="imgFlag"> '
+    + '<span class="labelRole"></span> <span class="labelCreated"></span>'
     + '<span class="spanId"> Id: <span class="labelId"></span></span>'
     + ' <a class="linkPreview">[Preview]</a> <a class="linkSelf">No.</a>'
     + ' <a class="linkQuote"></a>'
@@ -240,7 +240,7 @@ function setUploadLinks(cell, file) {
   thumbLink.href = file.path;
 
   thumbLink.setAttribute('data-filemime', file.mime);
-  
+
   var img = document.createElement('img');
   img.src = file.thumb;
 
@@ -316,6 +316,15 @@ function setPostHideableElements(postCell, post) {
   }
 
   setLastEditedLabel(post, postCell);
+
+  var imgFlag = postCell.getElementsByClassName('imgFlag')[0];
+
+  if (post.flag) {
+    imgFlag.src = post.flag;
+    imgFlag.title = post.flagName;
+  } else {
+    removeElement(imgFlag);
+  }
 
 }
 
@@ -483,6 +492,13 @@ function refreshPosts(manual) {
 function sendReplyData(files) {
 
   var forcedAnon = !document.getElementById('fieldName');
+  var hiddenFlags = !document.getElementById('flagsDiv');
+
+  if (!hiddenFlags) {
+    var combo = document.getElementById('flagCombobox');
+
+    var selectedFlag = combo.options[combo.selectedIndex].value;
+  }
 
   if (!forcedAnon) {
     var typedName = document.getElementById('fieldName').value.trim();
@@ -531,6 +547,7 @@ function sendReplyData(files) {
 
   apiRequest('replyThread', {
     name : forcedAnon ? null : typedName,
+    flag : hiddenFlags ? null : selectedFlag,
     captcha : hiddenCaptcha ? null : typedCaptcha,
     subject : typedSubject,
     spoiler : document.getElementById('checkboxSpoiler').checked,

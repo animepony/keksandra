@@ -41,6 +41,14 @@ postCallback.stop = function() {
 
 function sendThreadData(files) {
 
+  var hiddenFlags = !document.getElementById('flagsDiv');
+
+  if (!hiddenFlags) {
+    var combo = document.getElementById('flagCombobox');
+
+    var selectedFlag = combo.options[combo.selectedIndex].value;
+  }
+
   var forcedAnon = !document.getElementById('fieldName');
 
   if (!forcedAnon) {
@@ -90,6 +98,7 @@ function sendThreadData(files) {
 
   apiRequest('newThread', {
     name : forcedAnon ? null : typedName,
+    flag : hiddenFlags ? null : selectedFlag,
     captcha : hiddenCaptcha ? null : typedCaptcha,
     password : typedPassword,
     spoiler : document.getElementById('checkboxSpoiler').checked,
