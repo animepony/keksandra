@@ -239,6 +239,8 @@ function setUploadLinks(cell, file) {
   var thumbLink = cell.getElementsByClassName('imgLink')[0];
   thumbLink.href = file.path;
 
+  thumbLink.setAttribute('data-filemime', file.mime);
+  
   var img = document.createElement('img');
   img.src = file.thumb;
 
