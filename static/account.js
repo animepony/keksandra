@@ -7,11 +7,21 @@ if (!DISABLE_JS) {
   document.getElementById('newBoardJsButton').style.display = 'inline';
   document.getElementById('saveJsButton').style.display = 'inline';
   document.getElementById('passwordJsButton').style.display = 'inline';
+  document.getElementById('reloadCaptchaButton').style.display = 'inline';
 
   document.getElementById('passwordFormButton').style.display = 'none';
   document.getElementById('saveFormButton').style.display = 'none';
   document.getElementById('logoutFormButton').style.display = 'none';
   document.getElementById('newBoardFormButton').style.display = 'none';
+
+}
+
+function reloadCaptcha() {
+  document.cookie = 'captchaid=; path=/;';
+
+  document.getElementById('captchaImage').src = '/captcha.js#'
+      + new Date().toString();
+
 }
 
 function logout() {
@@ -98,17 +108,25 @@ function createBoard() {
   var typedName = document.getElementById('newBoardFieldName').value.trim();
   var typedDescription = document.getElementById('newBoardFieldDescription').value
       .trim();
+  var typedCaptcha = document.getElementById('fieldCaptcha').value.trim();
 
   if (!typedUri.length || !typedName.length || !typedDescription.length) {
     alert('All fields are mandatory.');
   } else if (/\W/.test(typedUri)) {
     alert('Invalid uri.');
     return;
+  } else if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
+    alert('Captchas are exactly 6 (24 if no cookies) characters long.');
+    return;
+  } else if (/\W/.test(typedCaptcha)) {
+    alert('Invalid captcha.');
+    return;
   } else {
     apiRequest('createBoard', {
       boardUri : typedUri,
       boardName : typedName,
-      boardDescription : typedDescription
+      boardDescription : typedDescription,
+      captcha : typedCaptcha
     }, function requestComplete(status, data) {
 
       if (status === 'ok') {
