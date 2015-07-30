@@ -52,5 +52,9 @@
   "editPage": "edit.html",
   "audioThumb": "music.png",
   "flagsPage": "flags.html",
-  "flagCell": "flagCell.html"
+  "flagCell": "flagCell.html",
+  "mainArchivePage": "mainArchive.html",
+  "mainArchiveCell": "mainArchiveCell.html",
+  "boardArchivePage": "boardArchive.html",
+  "boardArchiveCell": "boardArchiveCell.html"
 }
