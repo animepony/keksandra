@@ -105,6 +105,10 @@ function saveSettings() {
     settings.push('disableCaptcha');
   }
 
+  if (document.getElementById('enableArchiveCheckbox').checked) {
+    settings.push('archive');
+  }
+
   if (document.getElementById('forceAnonymityCheckbox').checked) {
     settings.push('forceAnonymity');
   }
