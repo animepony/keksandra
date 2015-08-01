@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Privacy</title>
+
+<meta charset="UTF-8">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/global.css">
+</head>
+<body>
+
+  <h1>The server</h1>
+  The server do not allow SSH connections using passwords.
+  <br>
+  The only user allowed to remotely access the server requires a key with a pass
+  phrase and this user is not the root user, but it belongs to the sudoers
+  group.
+  <br>
+  The user that runs the application do not belong to the sudoers group.
+
+  <h1>The application</h1>
+  This instance does not have SSL enabled, even though the LynxChan engine
+  supports it.
+  <br>
+  The database is not encrypted, allows only local connections and do not
+  require authentication.
+
+  <h1>Ips</h1>
+  Every posting has it's ip recorded. Except for TOR users.
+  <br>
+  The first two parts of the ip can be seen by the global staff and board staff.
+  Ex: "1.2.3.4" will be displayed as "1.2" to global volunteers, global
+  janitors, admins, root users and the board owner and volunteers of the board
+  where the user posted.
+  <br>
+  A hashed and salted version of the ip will also be available for the same
+  people mentioned on the previous item. The salt is randomly generated for
+  boards and is not available for anyone without direct access to the database.
+  <br>
+  If enabled by the board owner, a thread-wise id will be displayed on the post.
+  This thread-wise id uses a randomly generated salt to the thread, allowing for
+  everyone to identify postings from the same ip in a thread.
+  <br>
+  The thread salt is as private as the board salt and is not based on the board
+  salt.
+  <br>
+  Conclusion: the staff can identify the same user inside a board, ids allows
+  anyone to identify the same user inside a thread, the sysadmin has access to
+  all ips used to post on the whole site. That is all the access to the ips used
+  to post.
+
+</body>
+</html>
