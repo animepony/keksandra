@@ -83,11 +83,15 @@ function saveSettings() {
   var typedName = document.getElementById('boardNameField').value.trim();
   var typedDescription = document.getElementById('boardDescriptionField').value
       .trim();
+  var typedMessage = document.getElementById('boardMessageField').value.trim();
   var typedAnonymousName = document.getElementById('anonymousNameField').value
       .trim();
 
   if (!typedName.length || !typedName.length) {
     alert('Both name and description are mandatory.');
+    return;
+  } else if (typedMessage.length > 256) {
+    alert('Message too long, keep it under 256 characters.');
     return;
   }
 
@@ -115,6 +119,7 @@ function saveSettings() {
 
   apiRequest('setBoardSettings', {
     boardName : typedName,
+    boardMessage : typedMessage,
     anonymousName : typedAnonymousName,
     boardDescription : typedDescription,
     boardUri : boardIdentifier,
