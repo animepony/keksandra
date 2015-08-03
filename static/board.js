@@ -1,10 +1,12 @@
 var board = true;
+var originalButtonText;
 var boardUri = document.getElementById('boardIdentifier').value;
 
 if (!DISABLE_JS) {
 
   var postButton = document.getElementById('jsButton');
   postButton.style.display = 'inline';
+  postButton.disabled = false;
 
   if (document.getElementById('captchaDiv')) {
     document.getElementById('reloadCaptchaButton').style.display = 'inline';
@@ -36,7 +38,17 @@ var postCallback = function requestComplete(status, data) {
 };
 
 postCallback.stop = function() {
-  postButton.style.display = 'inline';
+  postButton.setAttribute('value', originalButtonText);
+  postButton.disabled = false;
+};
+
+postCallback.progress = function(info) {
+
+  if (info.lengthComputable) {
+    var newText = 'Uploading ' + Math.floor((info.loaded / info.total) * 100)
+        + '%';
+    postButton.setAttribute('value', newText);
+  }
 };
 
 function sendThreadData(files) {
@@ -94,7 +106,9 @@ function sendThreadData(files) {
     return;
   }
 
-  postButton.style.display = 'none';
+  originalButtonText = postButton.value;
+  postButton.setAttribute('value', 'Uploading 0%');
+  postButton.disabled = true;
 
   apiRequest('newThread', {
     name : forcedAnon ? null : typedName,

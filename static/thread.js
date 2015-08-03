@@ -14,6 +14,7 @@ var manualRefresh;
 var foundPosts;
 var hiddenCaptcha = !document.getElementById('captchaDiv');
 var markedPosting;
+var originalButtonText;
 
 var postCellTemplate = '<input type="checkbox" '
     + 'class="deletionCheckBox"> <span class="labelSubject"></span>'
@@ -55,6 +56,7 @@ if (!DISABLE_JS) {
 
   replyButton = document.getElementById('jsButton');
   replyButton.style.display = 'inline';
+  replyButton.disabled = false;
 
   if (document.getElementById('captchaDiv')) {
     document.getElementById('reloadCaptchaButton').style.display = 'inline';
@@ -161,11 +163,21 @@ var replyCallback = function(status, data) {
 };
 
 replyCallback.stop = function() {
-  replyButton.style.display = 'inline';
+  replyButton.setAttribute('value', originalButtonText);
+  replyButton.disabled = false;
 
   if (!hiddenCaptcha) {
     reloadCaptcha();
     document.getElementById('fieldCaptcha').value = '';
+  }
+};
+
+replyCallback.progress = function(info) {
+
+  if (info.lengthComputable) {
+    var newText = 'Uploading ' + Math.floor((info.loaded / info.total) * 100)
+        + '%';
+    replyButton.setAttribute('value', newText);
   }
 };
 
@@ -543,7 +555,9 @@ function sendReplyData(files) {
     return;
   }
 
-  replyButton.style.display = 'none';
+  originalButtonText = replyButton.value;
+  replyButton.setAttribute('value', 'Uploading 0%');
+  replyButton.disabled = true;
 
   apiRequest('replyThread', {
     name : forcedAnon ? null : typedName,

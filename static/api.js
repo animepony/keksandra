@@ -72,6 +72,10 @@ function apiRequest(page, parameters, delegate) {
 
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
+  if (delegate.hasOwnProperty('progress')) {
+    xhr.upload.onprogress = delegate.progress;
+  }
+
   xhr.onreadystatechange = function connectionStateChanged() {
 
     if (xhr.readyState == 4) {
