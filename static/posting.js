@@ -114,7 +114,6 @@ function setPlayer(link, mime) {
       : 'audio');
   video.setAttribute('controls', true);
   video.style.display = 'none';
-  video.appendChild(src);
 
   var videoContainer = document.createElement('span');
 
@@ -133,6 +132,10 @@ function setPlayer(link, mime) {
   var newThumb = document.createElement('img');
   newThumb.src = link.childNodes[0].src;
   newThumb.onclick = function() {
+    if (!video.childNodes.count) {
+      video.appendChild(src);
+    }
+
     newThumb.style.display = 'none';
     video.style.display = 'inline';
     hideLink.style.display = 'inline';
