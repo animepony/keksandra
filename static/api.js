@@ -33,6 +33,10 @@ function handleConnectionResponse(xhr, delegate) {
     alert('You are not allowed to perform this operation.');
   } else if (response.status === 'maintenance') {
     alert('The site is going under maintenance and all of it\'s functionalities are disabled temporarily.');
+  } else if (response.status === 'fileParseError') {
+    alert('An uploaded file could not be parsed.');
+  } else if (response.status === 'parseError') {
+    alert('Your request could not be parsed.');
   } else if (response.status === 'banned') {
     if (response.data.range) {
       alert('Your ip range ' + response.data.range + ' has been banned from '
