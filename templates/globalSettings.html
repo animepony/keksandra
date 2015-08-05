@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/global.css">
+</head>
+<body>
+  <form
+    action="/saveGlobalSettings.js"
+    enctype="multipart/form-data"
+    method="post">
+    Address:
+    <input
+      type="text"
+      name="address"
+      id="fieldAddress">
+    <br>
+    Port:
+    <input
+      type="text"
+      name="port"
+      id="fieldPort">
+    <br>
+    Front-end directory:
+    <input
+      type="text"
+      name="fePath"
+      id="fieldFePath">
+    <br>
+    Boards page size:
+    <input
+      type="text"
+      name="boardPageSize"
+      id="fieldPageSize">
+    <br>
+    Number of preview posts:
+    <input
+      type="text"
+      name="latestPostsCount"
+      id="fieldLatestPostsCount">
+    <br>
+    Number of replies before a thread enters auto-sage:
+    <input
+      type="text"
+      name="autoSageLimit"
+      id="fieldAutoSageLimit">
+    <br>
+    Maximum amount of threads per board:
+    <input
+      type="text"
+      name="threadLimit"
+      id="fieldThreadLimit">
+    <br>
+    Temporary directory:
+    <input
+      type="text"
+      name="tempDir"
+      id="fieldTempDir">
+    <br>
+    Sender address for automated e-mails:
+    <input
+      type="text"
+      name="senderEmail"
+      id="fieldSenderEmail">
+    <br>
+    Amount of minutes before a captcha expires:
+    <input
+      type="text"
+      name="captchaExpiration"
+      id="fieldCaptchaExpiration">
+    <br>
+    Fonts to be used by captcha*(Optional):
+    <input
+      type="text"
+      name="captchaFonts"
+      id="fieldCaptchaFonts">
+    <br>
+    Site title:
+    <input
+      type="text"
+      name="siteTitle"
+      id="fieldSiteTitle">
+    <br>
+    Maximum size for requests (MB):
+    <input
+      type="text"
+      name="maxRequestSize"
+      id="fieldMaxRequestSize">
+    <br>
+    Maximum size for uploaded files (MB):
+    <input
+      type="text"
+      name="maxFileSize"
+      id="fieldMaxFileSize">
+    <br>
+    Allowed mime-types*:
+    <input
+      type="text"
+      name="acceptedMimes"
+      id="fieldAcceptedMimes">
+    <br>
+    Maximum number of uploaded files on posting:
+    <input
+      type="text"
+      name="maxFiles"
+      id="fieldMaxFiles">
+    <br>
+    Default ban message to be displayed on banned posts:
+    <input
+      type="text"
+      name="banMessage"
+      id="fieldBanMessage">
+    <br>
+    Maximum amount of entries on logs per page:
+    <input
+      type="text"
+      name="loagPageSize"
+      id="fieldLogPageSize">
+    <br>
+    Default anonymous name:
+    <input
+      type="text"
+      name="anonymousName"
+      id="fieldAnonymousName">
+    <br>
+    Amount of boards to be picked as top boards:
+    <input
+      type="text"
+      name="topBoardsCount"
+      id="fieldTopBoardsCount">
+    <br>
+    Maximum amount of boards per page on boards list:
+    <input
+      type="text"
+      name="boardsPerPage"
+      id="fieldBoardsPerPage">
+    <br>
+    Url for the list of TOR exit node ips:
+    <input
+      type="text"
+      name="torSource"
+      id="fieldTorSource">
+    <br>
+    Path to an optional language pack:
+    <input
+      type="text"
+      name="languagePack"
+      id="fieldLanguagePack">
+    <br>
+    Maximum dimension for thumbnails, for both height and width:
+    <input
+      type="text"
+      name="thumbSize"
+      id="fieldThumbSize">
+    <br>
+    Maximum number of rules in boards:
+    <input
+      type="text"
+      name="maxRules"
+      id="fieldMaxRules">
+    <br>
+    Maximum number of filters in boards:
+    <input
+      type="text"
+      name="maxFilters"
+      id="fieldMaxFilters">
+    <br>
+    Maximum number of volunteers in boards:
+    <input
+      type="text"
+      name="maxVolunteers"
+      id="fieldMaxVolunteers">
+    <br>
+    Maximum size for banners (KB):
+    <input
+      type="text"
+      name="maxBannerSize"
+      id="fieldMaxBannerSize">
+    <br>
+    Maximum size for flags (KB):
+    <input
+      type="text"
+      name="maxFlagSize"
+      id="fieldMaxFlagSize">
+    <br>
+    Minimum amount of seconds between posts from the same ip:
+    <input
+      type="text"
+      name="floodInterval"
+      id="fieldFloodInterval">
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxVerbose"
+      name="verbose">
+    Verbose mode
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxDisable304"
+      name="disable304">
+    Disable http response 304 (Only turn on if you know what you are doing)
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxSsl"
+      name="ssl">
+    SSL (Make sure you have the proper files, requires manual restart of the
+    server)
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxBlockTor"
+      name="blockTor">
+    Block TOR users
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxMediaThumb"
+      name="mediaThumb">
+    Generate thumbnails from media files (requires ffmpeg installed)
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxMaintenance"
+      name="maintenance">
+    Maintenance mode (Disables input to the server and let users know it is
+    under maintenance)
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxDisableAccountCreation"
+      name="disableAccountCreation">
+    Disable account creation
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxRestrictBoardCreation"
+      name="retrictBoardCreation">
+    Allow only root and admins to create boards
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxMultipleReports"
+      name="multipleReports">
+    Allow multiple reports at once
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxServeArchive"
+      name="serveArchive">
+    Serve archived threads
+    <br>
+    Archive level:
+    <select
+      id="comboArchive"
+      name="archiveLevel">
+    </select>
+
+  </form>
+  <br>
+  *: separate values by commas, spaces will be ignored (a, b,c)
+</body>
+</html>

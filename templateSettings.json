@@ -56,5 +56,6 @@
   "mainArchivePage": "mainArchive.html",
   "mainArchiveCell": "mainArchiveCell.html",
   "boardArchivePage": "boardArchive.html",
-  "boardArchiveCell": "boardArchiveCell.html"
+  "boardArchiveCell": "boardArchiveCell.html",
+  "globalSettings": "globalSettings.html"
 }
