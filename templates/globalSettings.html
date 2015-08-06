@@ -12,13 +12,13 @@
     action="/saveGlobalSettings.js"
     enctype="multipart/form-data"
     method="post">
-    Address:
+    Address**:
     <input
       type="text"
       name="address"
       id="fieldAddress">
     <br>
-    Port:
+    Port**:
     <input
       type="text"
       name="port"
@@ -72,7 +72,7 @@
       name="captchaExpiration"
       id="fieldCaptchaExpiration">
     <br>
-    Fonts to be used by captcha*(Optional):
+    Fonts to be used by captcha*:
     <input
       type="text"
       name="captchaFonts"
@@ -117,7 +117,7 @@
     Maximum amount of entries on logs per page:
     <input
       type="text"
-      name="loagPageSize"
+      name="logPageSize"
       id="fieldLogPageSize">
     <br>
     Default anonymous name:
@@ -202,14 +202,14 @@
       type="checkbox"
       id="checkboxDisable304"
       name="disable304">
-    Disable http response 304 (Only turn on if you know what you are doing)
+    Disable http response 304 (Only turn on if you know what you are doing, will
+    consume lots more of bandwidth)
     <br>
     <input
       type="checkbox"
       id="checkboxSsl"
       name="ssl">
-    SSL (Make sure you have the proper files, requires manual restart of the
-    server)
+    SSL** (Make sure you have the proper files)
     <br>
     <input
       type="checkbox"
@@ -252,16 +252,26 @@
       type="checkbox"
       id="checkboxServeArchive"
       name="serveArchive">
-    Serve archived threads
+    Serve archived threads**
     <br>
-    Archive level:
+    Archive level***:
     <select
       id="comboArchive"
       name="archiveLevel">
     </select>
 
+    <br>
+    <input
+      type="submit"
+      value="Save"
+      id="saveFormButton">
+
   </form>
   <br>
   *: separate values by commas, spaces will be ignored (a, b,c)
+  <br>
+  **: requires server restart
+  <br>
+  ***: requires server restart if changing from/to no archives
 </body>
 </html>
