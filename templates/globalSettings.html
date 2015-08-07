@@ -266,6 +266,13 @@
       value="Save"
       id="saveFormButton">
 
+    <input
+      id="saveJSButton"
+      type="button"
+      value="Save"
+      onclick="save()"
+      style="display: none;">
+
   </form>
   <br>
   *: separate values by commas, spaces will be ignored (a, b,c)
@@ -274,4 +281,9 @@
   <br>
   ***: requires server restart if changing from/to no archives
 </body>
+
+<script src="http://static.localhost:8080/settings.js"></script>
+<script src="http://static.localhost:8080/api.js"></script>
+<script src="http://static.localhost:8080/globalSettings.js"></script>
+
 </html>

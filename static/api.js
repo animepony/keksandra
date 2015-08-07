@@ -5,7 +5,7 @@ function handleConnectionResponse(xhr, delegate) {
     response = JSON.parse(xhr.responseText);
 
     if (VERBOSE) {
-      console.log(xhr.responseText);
+      JSON.stringify(response, null, 2);
     }
   } catch (error) {
     alert('Error in parsing response.');
@@ -120,7 +120,7 @@ function apiRequest(page, parameters, delegate) {
   };
 
   if (VERBOSE) {
-    console.log(JSON.stringify(body));
+    console.log(JSON.stringify(body, null, 2));
   }
 
   xhr.send(JSON.stringify(body));
