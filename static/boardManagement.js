@@ -105,6 +105,10 @@ function saveSettings() {
     settings.push('allowCode');
   }
 
+  if (document.getElementById('early404Checkbox').checked) {
+    settings.push('early404');
+  }
+
   if (document.getElementById('disableCaptchaCheckbox').checked) {
     settings.push('disableCaptcha');
   }
