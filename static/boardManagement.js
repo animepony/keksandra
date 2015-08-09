@@ -88,9 +88,14 @@ function saveSettings() {
       .trim();
   var typedHourlyLimit = document.getElementById('hourlyThreadLimitField').value
       .trim();
+  var typedAutoCaptcha = document.getElementById('autoCaptchaThresholdField').value
+      .trim();
 
   if (typedHourlyLimit.length && isNaN(typedHourlyLimit)) {
     alert('Invalid hourly limit.');
+    return;
+  } else if (typedAutoCaptcha.length && isNaN(typedAutoCaptcha)) {
+    alert('Invalid auto captcha treshold.');
     return;
   } else if (!typedName.length || !typedName.length) {
     alert('Both name and description are mandatory.');
@@ -129,6 +134,7 @@ function saveSettings() {
   apiRequest('setBoardSettings', {
     boardName : typedName,
     boardMessage : typedMessage,
+    autoCaptchaLimit : typedAutoCaptcha,
     hourlyThreadLimit : typedHourlyLimit,
     anonymousName : typedAnonymousName,
     boardDescription : typedDescription,

@@ -152,11 +152,17 @@
         type="text"
         name="anonymousName">
       <br>
-      Hourly thread limit:
+      Hourly thread limit(Locks thread creation temporarily if exceeded):
       <input
         id="hourlyThreadLimitField"
         type="text"
         name="hourlyThreadLimit">
+      <br>
+      Enable captcha if this many threads are created within an hour:
+      <input
+        id="autoCaptchaThresholdField"
+        type="text"
+        name="autoCaptchaLimit">
       <br>
       <span style="vertical-align: top;">Board message:</span>
       <br>
