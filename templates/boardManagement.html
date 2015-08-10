@@ -122,6 +122,34 @@
         value="Upload CSS">
     </form>
 
+    <h3>Custom Spoiler</h3>
+    Upload without any files to delete the custom spoiler.
+    <div id="customSpoilerIndicator">There is a custom spoiler saved for
+      this board.</div>
+    <form
+      action="/setCustomSpoiler.js"
+      method="post"
+      enctype="multipart/form-data">
+      <input
+        type="hidden"
+        name="boardUri"
+        id="customSpoilerIdentifier">
+      <input
+        type="file"
+        id="filesSpoiler"
+        name="files">
+      <input
+        id="spoilerFormButton"
+        type="submit"
+        value="Upload custom spoiler">
+      <input
+        type="button"
+        onclick="setSpoiler()"
+        id="spoilerJsButton"
+        style="display: none"
+        value="Upload custom spoiler">
+    </form>
+
     <h3>Volunteers</h3>
     <div id="volunteersDiv"></div>
 

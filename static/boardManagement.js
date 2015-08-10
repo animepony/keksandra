@@ -9,7 +9,9 @@ if (!DISABLE_JS) {
     document.getElementById('deleteBoardJsButton').style.display = 'inline';
     document.getElementById('saveSettingsJsButton').style.display = 'inline';
     document.getElementById('cssJsButton').style.display = 'inline';
+    document.getElementById('spoilerJsButton').style.display = 'inline';
 
+    document.getElementById('spoilerFormButton').style.display = 'none';
     document.getElementById('cssFormButton').style.display = 'none';
     document.getElementById('saveSettingsFormButton').style.display = 'none';
     document.getElementById('deleteBoardFormButton').style.display = 'none';
@@ -27,6 +29,51 @@ if (!DISABLE_JS) {
   }
 
   setupReportButtons();
+
+}
+
+function makeSpoilerRequest(files) {
+  apiRequest('setCustomSpoiler', {
+    files : files || [],
+    boardUri : boardIdentifier,
+  }, function requestComplete(status, data) {
+
+    document.getElementById('files').type = 'text';
+    document.getElementById('files').type = 'file';
+
+    if (status === 'ok') {
+
+      location.reload(true);
+
+    } else {
+      alert(status + ': ' + JSON.stringify(data));
+    }
+  });
+}
+
+function setSpoiler() {
+
+  var file = document.getElementById('filesSpoiler').files[0];
+
+  if (!file) {
+    makeSpoilerRequest();
+    return;
+  }
+
+  var reader = new FileReader();
+
+  reader.onloadend = function(e) {
+
+    // style exception, too simple
+    makeSpoilerRequest([ {
+      name : file.name,
+      content : reader.result
+    } ]);
+    // style exception, too simple
+
+  };
+
+  reader.readAsDataURL(file);
 
 }
 
