@@ -21,6 +21,10 @@ if (!DISABLE_JS) {
       setting : 'boardPageSize',
       type : 'string'
     },
+    fieldMaxTags : {
+      setting : 'maxTags',
+      type : 'string'
+    },
     fieldLatestPostsCount : {
       setting : 'latestPostsCount',
       type : 'string'

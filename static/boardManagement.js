@@ -178,11 +178,14 @@ function saveSettings() {
     settings.push('forceAnonymity');
   }
 
+  var typedTags = document.getElementById('tagsField').value.split(',');
+
   apiRequest('setBoardSettings', {
     boardName : typedName,
     boardMessage : typedMessage,
     autoCaptchaLimit : typedAutoCaptcha,
     hourlyThreadLimit : typedHourlyLimit,
+    tags : typedTags,
     anonymousName : typedAnonymousName,
     boardDescription : typedDescription,
     boardUri : boardIdentifier,
