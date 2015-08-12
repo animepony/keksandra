@@ -149,6 +149,10 @@ if (!DISABLE_JS) {
       setting : 'multipleReports',
       type : 'boolean'
     },
+    checkboxDisableFloodCheck : {
+      setting : 'disableFloodCheck',
+      type : 'boolean'
+    },
     checkboxServeArchive : {
       setting : 'serveArchive',
       type : 'boolean'
