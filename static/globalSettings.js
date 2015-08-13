@@ -133,6 +133,10 @@ if (!DISABLE_JS) {
       setting : 'ssl',
       type : 'boolean'
     },
+    checkboxBlockProxy : {
+      setting : 'blockProxy',
+      type : 'boolean'
+    },
     checkboxBlockTor : {
       setting : 'blockTor',
       type : 'boolean'
