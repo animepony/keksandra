@@ -170,6 +170,10 @@ function saveSettings() {
     settings.push('disableCaptcha');
   }
 
+  if (document.getElementById('unindexCheckbox').checked) {
+    settings.push('unindex');
+  }
+
   if (document.getElementById('enableArchiveCheckbox').checked) {
     settings.push('archive');
   }
