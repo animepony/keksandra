@@ -57,5 +57,6 @@
   "mainArchiveCell": "mainArchiveCell.html",
   "boardArchivePage": "boardArchive.html",
   "boardArchiveCell": "boardArchiveCell.html",
-  "globalSettings": "globalSettings.html"
+  "globalSettingsPage": "globalSettings.html",
+  "archiveDeletionPage": "archiveDeletion.html"
 }
