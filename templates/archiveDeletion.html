@@ -7,88 +7,93 @@
   type="text/css"
   href="http://static.localhost:8080/global.css">
 </head>
-<h3>Delete all from board</h3>
-<form
-  action="/deleteArchivedBoard.js"
-  method="post"
-  enctype="multipart/form-data">
-  Board uri:
-  <input
-    id="boardBoardField"
-    type="text"
-    name="boardUri">
-  <br>
-  <input
-    type="submit"
-    id="boardFormButton"
-    value="Delete board content">
-
-  <input
-    type="button"
-    id="boardJsButton"
-    onclick="deleteBoard()"
-    value="Delete board content">
-</form>
-
-<h3>Delete thread</h3>
-<form
-  action="/deleteArchivedThread.js"
-  method="post"
-  enctype="multipart/form-data">
-  Board uri:
-  <input
-    id="threadboardField"
-    type="text"
-    name="boardUri">
-  <br>
-  Thread id:
-  <input
-    type="text"
-    id="threadThreadField"
-    name="threadId">
-  <br>
-  <input
-    type="submit"
-    id="threadFormButton"
-    value="Delete thread">
-
-  <input
-    type="button"
-    id="threadJsButton"
-    onclick="deleteThread()"
-    value="Delete thread">
-</form>
-
-<h3>Delete uploaded file</h3>
-<form
-  action="/deleteArchivedUpload.js"
-  method="post"
-  enctype="multipart/form-data">
-  Board uri:
-  <input
-    type="text"
-    id="fileBoardField"
-    name="boardUri">
-  <br>
-  File name (Ex: 0000.png)*:
-  <input
-    type="text"
-    id="fileFileField"
-    name="filename">
-  <br>
-  <input
-    id="fileFormButton"
-    type="submit"
-    value="Delete file">
-  <input
-    id="fileJsButton"
-    type="button"
-    onclick="deleteFile()"
-    value="Delete file">
-</form>
-*: thumbnails must be deleted as separate files, you can separate files using
-commas.
 <body>
+  <img
+    class="logo"
+    src="http://static.localhost:8080/logo.png"
+    title="Logo by Doke">
+  <h3>Delete all from board</h3>
+  <form
+    action="/deleteArchivedBoard.js"
+    method="post"
+    enctype="multipart/form-data">
+    Board uri:
+    <input
+      id="boardBoardField"
+      type="text"
+      name="boardUri">
+    <br>
+    <input
+      type="submit"
+      id="boardFormButton"
+      value="Delete board content">
+
+    <input
+      type="button"
+      id="boardJsButton"
+      onclick="deleteBoard()"
+      value="Delete board content">
+  </form>
+
+  <h3>Delete thread</h3>
+  <form
+    action="/deleteArchivedThread.js"
+    method="post"
+    enctype="multipart/form-data">
+    Board uri:
+    <input
+      id="threadboardField"
+      type="text"
+      name="boardUri">
+    <br>
+    Thread id:
+    <input
+      type="text"
+      id="threadThreadField"
+      name="threadId">
+    <br>
+    <input
+      type="submit"
+      id="threadFormButton"
+      value="Delete thread">
+
+    <input
+      type="button"
+      id="threadJsButton"
+      onclick="deleteThread()"
+      value="Delete thread">
+  </form>
+
+  <h3>Delete uploaded file</h3>
+  <form
+    action="/deleteArchivedUpload.js"
+    method="post"
+    enctype="multipart/form-data">
+    Board uri:
+    <input
+      type="text"
+      id="fileBoardField"
+      name="boardUri">
+    <br>
+    File name (Ex: 0000.png)*:
+    <input
+      type="text"
+      id="fileFileField"
+      name="filename">
+    <br>
+    <input
+      id="fileFormButton"
+      type="submit"
+      value="Delete file">
+    <input
+      id="fileJsButton"
+      type="button"
+      onclick="deleteFile()"
+      value="Delete file">
+  </form>
+  *: thumbnails must be deleted as separate files, you can separate files using
+  commas.
+
 </body>
 
 <script src="http://static.localhost:8080/settings.js"></script>

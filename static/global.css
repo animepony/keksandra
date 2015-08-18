@@ -9,3 +9,9 @@ body {
 .finePrint {
   font-size: 8pt;
 }
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
