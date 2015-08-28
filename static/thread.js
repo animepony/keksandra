@@ -62,6 +62,8 @@ if (!DISABLE_JS) {
     document.getElementById('reloadCaptchaButton').style.display = 'inline';
   }
 
+  document.getElementById('reloadCaptchaButtonReport').style.display = 'inline';
+
   document.getElementById('formButton').style.display = 'none';
 
   var replies = document.getElementsByClassName('postCell');
@@ -118,9 +120,14 @@ function processPostingQuote(link) {
 
 function reloadCaptcha() {
   document.cookie = 'captchaid=; path=/;';
-  document.getElementById('captchaImage').src = '/captcha.js#'
-      + new Date().toString();
 
+  if (document.getElementById('captchaDiv')) {
+    document.getElementById('captchaImage').src = '/captcha.js#'
+        + new Date().toString();
+  }
+
+  document.getElementById('captchaImageReport').src = '/captcha.js#'
+      + new Date().toString();
 }
 
 function saveThreadSettings() {

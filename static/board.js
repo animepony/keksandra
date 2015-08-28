@@ -10,7 +10,10 @@ if (!DISABLE_JS) {
 
   if (document.getElementById('captchaDiv')) {
     document.getElementById('reloadCaptchaButton').style.display = 'inline';
+
   }
+
+  document.getElementById('reloadCaptchaButtonReport').style.display = 'inline';
 
   document.getElementById('formButton').style.display = 'none';
 
@@ -19,7 +22,12 @@ if (!DISABLE_JS) {
 function reloadCaptcha() {
   document.cookie = 'captchaid=; path=/;';
 
-  document.getElementById('captchaImage').src = '/captcha.js#'
+  if (document.getElementById('captchaDiv')) {
+    document.getElementById('captchaImage').src = '/captcha.js#'
+        + new Date().toString();
+  }
+
+  document.getElementById('captchaImageReport').src = '/captcha.js#'
       + new Date().toString();
 
 }

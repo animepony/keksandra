@@ -65,6 +65,25 @@
         id="registerFieldEmail"
         name="email">
       <br>
+      <img
+        id="captchaImage"
+        src="/captcha.js">
+      <input
+        type="button"
+        style="display: none;"
+        id="reloadCaptchaButton"
+        onclick="reloadCaptcha()"
+        value="Reload captcha">
+      <br>
+      Captcha:
+      <input
+        name="captcha"
+        type="text"
+        id="fieldCaptcha">
+      <a
+        class="finePrint"
+        href="/noCookieCaptcha.js">No cookies?</a>
+      <br>
       <input
         type="submit"
         id="registerFormButton"

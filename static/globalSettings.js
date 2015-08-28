@@ -133,14 +133,6 @@ if (!DISABLE_JS) {
       setting : 'ssl',
       type : 'boolean'
     },
-    checkboxBlockProxy : {
-      setting : 'blockProxy',
-      type : 'boolean'
-    },
-    checkboxBlockTor : {
-      setting : 'blockTor',
-      type : 'boolean'
-    },
     checkboxMediaThumb : {
       setting : 'mediaThumb',
       type : 'boolean'
@@ -179,6 +171,14 @@ if (!DISABLE_JS) {
     },
     comboArchive : {
       setting : 'archiveLevel',
+      type : 'combo'
+    },
+    comboProxyAccess : {
+      setting : 'proxyAccess',
+      type : 'combo'
+    },
+    comboTorAccess : {
+      setting : 'torAccess',
       type : 'combo'
     }
   };

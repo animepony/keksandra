@@ -237,6 +237,25 @@
         name="global">
       Global
       <br>
+      <img
+        id="captchaImageReport"
+        src="/captcha.js">
+      <input
+        type="button"
+        style="display: none;"
+        id="reloadCaptchaButtonReport"
+        onclick="reloadCaptcha()"
+        value="Reload captcha">
+      <br>
+      Captcha(Used only for reporting):
+      <input
+        name="captcha"
+        type="text"
+        id="fieldCaptchaReport">
+      <a
+        class="finePrint"
+        href="/noCookieCaptcha.js">No cookies?</a>
+      <br>
       <input
         type="submit"
         id="deleteFormButton"
