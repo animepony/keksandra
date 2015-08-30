@@ -15,19 +15,20 @@
   <a href="/account.js">Account</a>
   <br>
   <h5 id="userLabel"></h5>
-  <h3>Add user to global staff</h3>
   <form
     id="addStaffForm"
     method="post"
     enctype="multipart/form-data"
     action="/setGlobalRole.js">
+    <h3>Add user to global staff</h3>
     <span>User login: </span>
     <input
       type="text"
       id="fieldLogin"
       name="login">
     <br>
-    Role: <select
+    Role:
+    <select
       id="newStaffCombo"
       name="role"></select>
     <br>
@@ -41,6 +42,39 @@
       type="submit"
       id="addFormButton"
       value="Add user">
+  </form>
+  <br>
+  <form
+    id="ipDeletionForm"
+    method="post"
+    action="/deleteFromIp.js"
+    enctype="multipart/form-data">
+    <h3>Delete all from ip</h3>
+
+    Non-hashed ip:
+    <input
+      type="text"
+      name="ip"
+      id="ipField">
+    <br>
+    Delete only from these boards(Ex: "b v", leaving in blank will delete from
+    all boards):
+    <input
+      type="text"
+      name="boards"
+      id="fieldBoards">
+    <br>
+    <input
+      type="button"
+      value="Delete"
+      onclick="deleteFromIp()"
+      id="deleteFromIpJsButton"
+      style="display: none;">
+    <input
+      value="Delete"
+      type="submit"
+      id="deleteFromIpFormButton">
+
   </form>
   <br>
   <h3>Global staff</h3>
@@ -63,7 +97,6 @@
   <a href="/closedReports.js">Closed Reports</a>
   <h3>Open reports</h3>
   <div id="reportDiv"></div>
-
 </body>
 <script src="http://static.localhost:8080/settings.js"></script>
 <script src="http://static.localhost:8080/api.js"></script>

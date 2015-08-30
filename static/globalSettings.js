@@ -180,6 +180,10 @@ if (!DISABLE_JS) {
     comboTorAccess : {
       setting : 'torAccess',
       type : 'combo'
+    },
+    comboMinClearIpRole : {
+      setting : 'clearIpMinRole',
+      type : 'combo'
     }
   };
 

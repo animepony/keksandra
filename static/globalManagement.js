@@ -1,6 +1,8 @@
 if (!DISABLE_JS) {
   document.getElementById('addJsButton').style.display = 'inline';
+  document.getElementById('deleteFromIpJsButton').style.display = 'inline';
 
+  document.getElementById('deleteFromIpFormButton').style.display = 'none';
   document.getElementById('addFormButton').style.display = 'none';
 
   setupReportButtons();
@@ -29,6 +31,35 @@ function processCell(cell) {
   button.onclick = function() {
     saveUser(user, comboBox);
   };
+}
+
+function deleteFromIp() {
+
+  var typedIp = document.getElementById('ipField').value.trim();
+  var typedBoards = document.getElementById('fieldBoards').value.trim();
+
+  if (!typedIp.length) {
+    alert('An ip is mandatory');
+    return;
+  }
+
+  apiRequest('deleteFromIp', {
+    ip : typedIp,
+    boards : typedBoards
+  }, function requestComplete(status, data) {
+
+    if (status === 'ok') {
+
+      document.getElementById('ipField').value = '';
+      document.getElementById('fieldBoards').value = '';
+
+      alert('Postings deleted.');
+
+    } else {
+      alert(status + ': ' + JSON.stringify(data));
+    }
+  });
+
 }
 
 function saveUser(user, comboBox) {
