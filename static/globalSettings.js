@@ -117,6 +117,10 @@ if (!DISABLE_JS) {
       setting : 'maxFlagSize',
       type : 'string'
     },
+    fieldThumbExtension : {
+      setting : 'thumbExtension',
+      type : 'string'
+    },
     fieldFloodInterval : {
       setting : 'floodInterval',
       type : 'string'
