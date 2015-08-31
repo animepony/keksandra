@@ -31,16 +31,19 @@
   require authentication.
 
   <h1>Ips</h1>
-  Every posting has it's ip recorded. Except for TOR users.
+  Every posting has it's ip recorded. Except for TOR and proxy users.
   <br>
   The first two parts of the ip can be seen by the global staff and board staff.
-  Ex: "1.2.3.4" will be displayed as "1.2" to global volunteers, global
-  janitors, admins, root users and the board owner and volunteers of the board
-  where the user posted.
+  Ex: "1.2.3.4" will be displayed as "1.2" to both global and board staff where
+  the post was made.
   <br>
   A hashed and salted version of the ip will also be available for the same
   people mentioned on the previous item. The salt is randomly generated for
   boards and is not available for anyone without direct access to the database.
+  <br>
+  However, root users are able to see the actual ip of the user and potentially
+  enable for any member of the global staff to see clear ips too. In this
+  instance, only root users are allowed to see real ips.
   <br>
   If enabled by the board owner, a thread-wise id will be displayed on the post.
   This thread-wise id uses a randomly generated salt to the thread, allowing for
