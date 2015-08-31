@@ -354,6 +354,7 @@ function deletePosts() {
 
   apiRequest('deleteContent', {
     password : typedPassword,
+    deleteUploads : document.getElementById('checkboxOnlyFiles').checked,
     postings : toDelete
   }, function requestComplete(status, data) {
 
