@@ -109,6 +109,25 @@
       name="login"
       id="recoverFieldLogin">
     <br>
+    <img
+      id="captchaImageRecover"
+      src="/captcha.js">
+    <input
+      type="button"
+      style="display: none;"
+      id="reloadCaptchaButtonRecover"
+      onclick="reloadCaptcha()"
+      value="Reload captcha">
+    <br>
+    Captcha:
+    <input
+      name="captcha"
+      type="text"
+      id="fieldCaptchaRecover">
+    <a
+      class="finePrint"
+      href="/noCookieCaptcha.js">No cookies?</a>
+    <br>
     <input
       type="submit"
       id="recoverFormButton"

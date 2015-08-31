@@ -4,6 +4,7 @@ if (!DISABLE_JS) {
   document.getElementById('loginJsButton').style.display = 'inline';
   document.getElementById('recoverJsButton').style.display = 'inline';
   document.getElementById('reloadCaptchaButton').style.display = 'inline';
+  document.getElementById('reloadCaptchaButtonRecover').style.display = 'inline';
 
   document.getElementById('recoverFormButton').style.display = 'none';
   document.getElementById('registerFormButton').style.display = 'none';
@@ -14,6 +15,9 @@ if (!DISABLE_JS) {
 function reloadCaptcha() {
   document.cookie = 'captchaid=; path=/;';
 
+  document.getElementById('captchaImageRecover').src = '/captcha.js#'
+      + new Date().toString();
+
   document.getElementById('captchaImage').src = '/captcha.js#'
       + new Date().toString();
 
@@ -22,11 +26,20 @@ function reloadCaptcha() {
 function recoverAccount() {
 
   var typedLogin = document.getElementById('recoverFieldLogin').value.trim();
+  var typedCaptcha = document.getElementById('fieldCaptchaRecover').value
+      .trim();
 
-  if (typedLogin.length) {
+  if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
+    alert('Captchas are exactly 6 (24 if no cookies) characters long.');
+
+  } else if (/\W/.test(typedCaptcha)) {
+    alert('Invalid captcha.');
+
+  } else if (typedLogin.length) {
 
     apiRequest('requestAccountRecovery', {
-      login : typedLogin
+      login : typedLogin,
+      captcha : typedCaptcha
     }, function requestComplete(status, data) {
 
       if (status === 'ok') {
