@@ -137,6 +137,10 @@ if (!DISABLE_JS) {
       setting : 'ssl',
       type : 'boolean'
     },
+    checkboxDisableTopBoards : {
+      setting : 'disableTopBoards',
+      type : 'boolean'
+    },
     checkboxMediaThumb : {
       setting : 'mediaThumb',
       type : 'boolean'
