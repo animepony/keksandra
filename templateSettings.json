@@ -7,7 +7,7 @@
   "messagePage": "message.html",
   "opCell": "op.html",
   "postCell": "post.html",
-  "thumb": "thumb.png",
+  "thumb": "../static/logo.png",
   "loginPage": "login.html",
   "accountPage": "account.html",
   "recoveryEmail": "recoveryEmail.html",
