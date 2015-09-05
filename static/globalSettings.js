@@ -137,6 +137,10 @@ if (!DISABLE_JS) {
       setting : 'ssl',
       type : 'boolean'
     },
+    checkboxGlobalBoardModeration : {
+      setting : 'allowGlobalBoardModeration',
+      type : 'boolean'
+    },
     checkboxDisableTopBoards : {
       setting : 'disableTopBoards',
       type : 'boolean'
