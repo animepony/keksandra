@@ -278,12 +278,6 @@
     <br>
     <input
       type="checkbox"
-      id="checkboxRestrictBoardCreation"
-      name="retrictBoardCreation">
-    Allow only root and admins to create boards
-    <br>
-    <input
-      type="checkbox"
       id="checkboxMultipleReports"
       name="multipleReports">
     Allow multiple reports at once
@@ -305,7 +299,12 @@
       id="comboMinClearIpRole"
       name="clearIpMinRole">
     </select>
-
+    <br>
+    Minimum global role required for board creation:
+    <select
+      id="comboBoardCreationRequirement"
+      name="boardCreationRequirement">
+    </select>
     <br>
     <br>
     <input

@@ -169,10 +169,6 @@ if (!DISABLE_JS) {
       setting : 'disableAccountCreation',
       type : 'boolean'
     },
-    checkboxRestrictBoardCreation : {
-      setting : 'retrictBoardCreation',
-      type : 'boolean'
-    },
     fieldCaptchaFonts : {
       setting : 'captchaFonts',
       type : 'array'
@@ -193,8 +189,12 @@ if (!DISABLE_JS) {
       setting : 'torAccess',
       type : 'combo'
     },
-    comboMinClearIpRole : {
-      setting : 'clearIpMinRole',
+    comboTorAccess : {
+      setting : 'torAccess',
+      type : 'combo'
+    },
+    comboBoardCreationRequirement : {
+      setting : 'boardCreationRequirement',
       type : 'combo'
     }
   };
