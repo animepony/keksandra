@@ -177,6 +177,10 @@ if (!DISABLE_JS) {
       setting : 'acceptedMimes',
       type : 'array'
     },
+    fieldAddons : {
+      setting : 'addons',
+      type : 'array'
+    },
     comboArchive : {
       setting : 'archiveLevel',
       type : 'combo'
