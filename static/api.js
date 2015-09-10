@@ -21,6 +21,25 @@ function handleConnectionResponse(xhr, delegate) {
     alert('Internal server error. ' + response.data);
   } else if (response.status === 'fileTooLarge') {
     alert('Maximum file size exceeded for a file.');
+  } else if (response.status === 'hashBan') {
+
+    var desc = '';
+
+    var bans = response.data;
+
+    for (var i = 0; i < bans.length; i++) {
+      var ban = bans[i];
+
+      if (i) {
+        desc += '\n';
+      }
+
+      desc += 'File ' + ban.file + ' is banned from '
+          + (ban.boardUri ? '/' + ban.boardUri + '/' : 'all boards.');
+
+    }
+
+    alert(desc);
   } else if (response.status === 'formatNotAllowed') {
     alert('A file had a format that is not allowed by the server.');
   } else if (response.status === 'blank') {

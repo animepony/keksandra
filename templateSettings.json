@@ -58,5 +58,7 @@
   "boardArchivePage": "boardArchive.html",
   "boardArchiveCell": "boardArchiveCell.html",
   "globalSettingsPage": "globalSettings.html",
-  "archiveDeletionPage": "archiveDeletion.html"
+  "archiveDeletionPage": "archiveDeletion.html",
+  "hashBanPage": "hashBansPage.html",
+  "hashBanCellDisplay": "hashBanCellDisplay.html"
 }
