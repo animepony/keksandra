@@ -157,6 +157,10 @@ if (!DISABLE_JS) {
       setting : 'multipleReports',
       type : 'boolean'
     },
+    checkboxGlobalBanners : {
+      setting : 'useGlobalBanners',
+      type : 'boolean'
+    },
     checkboxDisableFloodCheck : {
       setting : 'disableFloodCheck',
       type : 'boolean'

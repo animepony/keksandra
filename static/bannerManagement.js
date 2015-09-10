@@ -1,6 +1,10 @@
-var boardIdentifier = document.getElementById('boardIdentifier').value;
+var boardIdentifier;
 
 if (!DISABLE_JS) {
+
+  if (document.getElementById('boardIdentifier')) {
+    boardIdentifier = document.getElementById('boardIdentifier').value;
+  }
 
   document.getElementById('addJsButton').style.display = 'inline';
 
