@@ -126,6 +126,34 @@
         value="Upload CSS">
     </form>
 
+    <form
+      action="/setCustomJs.js"
+      method="post"
+      id="customJsForm"
+      enctype="multipart/form-data">
+      <h3>Custom javascript</h3>
+      Upload without any files to delete the custom javascript.
+      <br>
+      <input
+        type="hidden"
+        name="boardUri"
+        id="customJsIdentifier">
+      <input
+        type="file"
+        id="JsFiles"
+        name="files">
+      <input
+        id="jsFormButton"
+        type="submit"
+        value="Upload Js">
+      <input
+        type="button"
+        onclick="setJs()"
+        id="jsJsButton"
+        style="display: none"
+        value="Upload Js">
+    </form>
+
     <h3>Custom Spoiler</h3>
     Upload without any files to delete the custom spoiler.
     <div id="customSpoilerIndicator">There is a custom spoiler saved for

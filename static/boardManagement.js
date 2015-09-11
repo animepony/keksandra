@@ -18,6 +18,12 @@ if (!DISABLE_JS) {
     document.getElementById('addVolunteerFormButton').style.display = 'none';
     document.getElementById('transferBoardFormButton').style.display = 'none';
 
+    if (document.getElementById('customJsForm')) {
+      document.getElementById('jsJsButton').style.display = 'inline';
+
+      document.getElementById('jsFormButton').style.display = 'none';
+    }
+
     boardIdentifier = document.getElementById('addVolunteerBoardIdentifier').value;
 
     var volunteerDiv = document.getElementById('volunteersDiv');
@@ -29,6 +35,55 @@ if (!DISABLE_JS) {
   }
 
   setupReportButtons();
+
+}
+
+function makeJsRequest(files) {
+  apiRequest('setCustomJs', {
+    files : files || [],
+    boardUri : boardIdentifier,
+  }, function requestComplete(status, data) {
+
+    document.getElementById('files').type = 'text';
+    document.getElementById('files').type = 'file';
+
+    if (status === 'ok') {
+
+      if (files) {
+        alert('New javascript set.');
+      } else {
+        alert('Javascript deleted.');
+      }
+
+    } else {
+      alert(status + ': ' + JSON.stringify(data));
+    }
+  });
+}
+
+function setJs() {
+
+  var file = document.getElementById('JsFiles').files[0];
+
+  if (!file) {
+    makeJsRequest();
+    return;
+  }
+
+  var reader = new FileReader();
+
+  reader.onloadend = function(e) {
+
+    // style exception, too simple
+    makeJsRequest([ {
+      name : file.name,
+      content : reader.result
+    } ]);
+    // style exception, too simple
+
+  };
+
+  reader.readAsDataURL(file);
 
 }
 
