@@ -196,6 +196,12 @@
       name="maxBannerSize"
       id="fieldMaxBannerSize">
     <br>
+    Extension used for thumbnails (Will make all gif thumbs do not animate):
+    <input
+      type="text"
+      id="fieldThumbExtension"
+      name="thumbExtension">
+    <br>
     Maximum size for flags (KB):
     <input
       type="text"
@@ -251,29 +257,17 @@
       name="useGlobalBanners">
     Make boards use global banners
     <br>
-    Access for TOR users:
-    <select
-      id="comboTorAccess"
-      name="torAccess">
-    </select>
-    <br>
-    Access for proxy users:
-    <select
-      id="comboProxyAccess"
-      name="proxyAccess">
-    </select>
+    <input
+      type="checkbox"
+      id="checkboxAllowCustomJs"
+      name="allowBoardCustomJs">
+    Allow board custom javascript
     <br>
     <input
       type="checkbox"
       id="checkboxMediaThumb"
       name="mediaThumb">
     Generate thumbnails from media files (requires ffmpeg installed)
-    <br>
-    Extension used for thumbnails (Will make all gif thumbs do not animate):
-    <input
-      type="text"
-      id="fieldThumbExtension"
-      name="thumbExtension">
     <br>
     <input
       type="checkbox"
@@ -299,6 +293,18 @@
       id="checkboxServeArchive"
       name="serveArchive">
     Serve archived threads**
+    <br>
+    Access for TOR users:
+    <select
+      id="comboTorAccess"
+      name="torAccess">
+    </select>
+    <br>
+    Access for proxy users:
+    <select
+      id="comboProxyAccess"
+      name="proxyAccess">
+    </select>
     <br>
     Archive level***:
     <select

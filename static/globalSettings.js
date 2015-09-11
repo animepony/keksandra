@@ -133,6 +133,10 @@ if (!DISABLE_JS) {
       setting : 'disable304',
       type : 'boolean'
     },
+    checkboxAllowCustomJs : {
+      setting : 'allowBoardCustomJs',
+      type : 'boolean'
+    },
     checkboxSsl : {
       setting : 'ssl',
       type : 'boolean'
