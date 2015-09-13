@@ -13,6 +13,10 @@ if (!DISABLE_JS) {
       setting : 'port',
       type : 'string'
     },
+    fieldGlobalLatestPosts : {
+      setting : 'globalLatestPosts',
+      type : 'string'
+    },
     fieldFePath : {
       setting : 'fePath',
       type : 'string'
