@@ -60,5 +60,6 @@
   "globalSettingsPage": "globalSettings.html",
   "archiveDeletionPage": "archiveDeletion.html",
   "hashBanPage": "hashBansPage.html",
-  "hashBanCellDisplay": "hashBanCellDisplay.html"
+  "hashBanCellDisplay": "hashBanCellDisplay.html",
+  "latestPostCell": "latestPostsCell.html"
 }

@@ -149,10 +149,6 @@ if (!DISABLE_JS) {
       setting : 'allowGlobalBoardModeration',
       type : 'boolean'
     },
-    checkboxDisableTopBoards : {
-      setting : 'disableTopBoards',
-      type : 'boolean'
-    },
     checkboxMediaThumb : {
       setting : 'mediaThumb',
       type : 'boolean'
