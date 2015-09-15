@@ -304,7 +304,38 @@
     </div>
   </form>
 
-  <br>
+  <form
+    action="/transferThread.js"
+    enctype="multipart/form-data"
+    method="post"
+    id="formTransfer"
+    class="formTransfer">
+    <input
+      type="hidden"
+      name="boardUri"
+      id="transferBoardIdentifier">
+    <input
+      type="hidden"
+      name="threadId"
+      id="transferThreadIdentifier">
+
+    Transfer to board:
+    <input
+      type="text"
+      id="fieldDestinationBoard"
+      name="boardUriDestination">
+    <br>
+    <input
+      type="submit"
+      id="transferFormButton"
+      value="Transfer thread">
+    <input
+      type="button"
+      style="display: none;"
+      onclick="transfer()"
+      id="transferJsButton"
+      value="Transfer thread">
+  </form>
 
 </body>
 

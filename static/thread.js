@@ -51,6 +51,9 @@ if (!DISABLE_JS) {
 
   if (document.getElementById('controlThreadIdentifier')) {
     document.getElementById('settingsJsButon').style.display = 'inline';
+    document.getElementById('transferJsButton').style.display = 'inline';
+
+    document.getElementById('transferFormButton').style.display = 'none';
     document.getElementById('settingsFormButon').style.display = 'none';
   }
 
@@ -87,6 +90,33 @@ if (!DISABLE_JS) {
   for (var i = 0; i < postingQuotes.length; i++) {
     processPostingQuote(postingQuotes[i]);
   }
+
+}
+
+function transfer() {
+
+  var informedBoard = document.getElementById("fieldDestinationBoard").value
+      .trim();
+
+  var originThread = document.getElementById("transferThreadIdentifier").value;
+  var originBoard = document.getElementById("transferBoardIdentifier").value;
+
+  apiRequest('transferThread', {
+    boardUri : boardUri,
+    threadId : threadId,
+    boardUriDestination : informedBoard
+  }, function setLock(status, data) {
+
+    if (status === 'ok') {
+
+      alert('Thread moved.');
+
+      window.location.pathname = '/' + boardUri + '/';
+
+    } else {
+      alert(status + ': ' + JSON.stringify(data));
+    }
+  });
 
 }
 

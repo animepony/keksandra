@@ -14,7 +14,7 @@
   width: 100%;
 }
 
-.divMessage {
+.divMessage, .formTransfer {
   clear: both;
 }
 
