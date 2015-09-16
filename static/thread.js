@@ -111,7 +111,9 @@ function transfer() {
 
       alert('Thread moved.');
 
-      window.location.pathname = '/' + boardUri + '/';
+      var redirect = '/' + informedBoard + '/res/';
+
+      window.location.pathname = redirect + data + '.html';
 
     } else {
       alert(status + ': ' + JSON.stringify(data));
