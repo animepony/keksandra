@@ -153,6 +153,10 @@ if (!DISABLE_JS) {
       setting : 'mediaThumb',
       type : 'boolean'
     },
+    checkboxGlobalCaptcha : {
+      setting : 'forceCaptcha',
+      type : 'boolean'
+    },
     checkboxMaintenance : {
       setting : 'maintenance',
       type : 'boolean'
