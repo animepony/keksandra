@@ -209,6 +209,10 @@ function saveSettings() {
 
   var settings = [];
 
+  if (document.getElementById('blockDeletionCheckbox').checked) {
+    settings.push('blockDeletion');
+  }
+
   if (document.getElementById('disableIdsCheckbox').checked) {
     settings.push('disableIds');
   }
