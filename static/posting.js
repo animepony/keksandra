@@ -16,8 +16,10 @@ if (!DISABLE_JS) {
   if (!board && document.getElementById('inputBan')) {
 
     document.getElementById('banJsButton').style.display = 'inline';
+    document.getElementById('spoilJsButton').style.display = 'inline';
 
     document.getElementById('inputBan').style.display = 'none';
+    document.getElementById('inputSpoil').style.display = 'none';
   }
 
   document.getElementById('reportFormButton').style.display = 'none';
@@ -246,6 +248,23 @@ function loadQuote(tooltip, quoteUrl) {
 
   loadingPreviews.push(quoteUrl);
 
+}
+
+function spoilFiles() {
+  
+  apiRequest('spoilFiles', {
+    postings : getSelectedContent()
+  }, function requestComplete(status, data) {
+
+    if (status === 'ok') {
+
+      alert('Files spoiled');
+
+    } else {
+      alert(status + ': ' + JSON.stringify(data));
+    }
+  });
+  
 }
 
 function banPosts() {
