@@ -1,3 +1,21 @@
+function getCookies() {
+
+  var parsedCookies = {};
+
+  var cookies = document.cookie.split(';');
+
+  for (var i = 0; i < cookies.length; i++) {
+
+    var cookie = cookies[i];
+
+    var parts = cookie.split('=');
+    parsedCookies[parts.shift().trim()] = decodeURI(parts.join('='));
+
+  }
+
+  return parsedCookies;
+}
+
 function handleConnectionResponse(xhr, delegate) {
   var response;
 
@@ -116,18 +134,7 @@ function apiRequest(page, parameters, delegate) {
     }
   };
 
-  var parsedCookies = {};
-
-  var cookies = document.cookie.split(';');
-
-  for (var i = 0; i < cookies.length; i++) {
-
-    var cookie = cookies[i];
-
-    var parts = cookie.split('=');
-    parsedCookies[parts.shift().trim()] = decodeURI(parts.join('='));
-
-  }
+  var parsedCookies = getCookies();
 
   var body = {
     captchaId : parsedCookies.captchaid,

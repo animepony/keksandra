@@ -13,6 +13,10 @@ if (!DISABLE_JS) {
       setting : 'port',
       type : 'string'
     },
+    fieldTcpPort : {
+      setting : 'tcpPort',
+      type : 'string'
+    },
     fieldGlobalLatestPosts : {
       setting : 'globalLatestPosts',
       type : 'string'

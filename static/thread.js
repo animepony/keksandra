@@ -540,7 +540,7 @@ function refreshPosts(manual) {
 
 }
 
-function sendReplyData(files) {
+function sendReplyData(files, captchaId) {
 
   var forcedAnon = !document.getElementById('fieldName');
   var hiddenFlags = !document.getElementById('flagsDiv');
@@ -563,10 +563,6 @@ function sendReplyData(files) {
 
   var threadId = document.getElementById('threadIdentifier').value;
 
-  if (!hiddenCaptcha) {
-    var typedCaptcha = document.getElementById('fieldCaptcha').value.trim();
-  }
-
   if (!typedMessage.length) {
     alert('A message is mandatory.');
     return;
@@ -585,13 +581,6 @@ function sendReplyData(files) {
   } else if (typedPassword.length > 8) {
     alert('Password is too long, keep it under 8 characters.');
     return;
-  } else if (!hiddenCaptcha && typedCaptcha.length !== 6
-      && typedCaptcha.length !== 24) {
-    alert('Captchas are exactly 6 (24 if no cookies) characters long.');
-    return;
-  } else if (/\W/.test(typedCaptcha)) {
-    alert('Invalid captcha.');
-    return;
   }
 
   originalButtonText = replyButton.value;
@@ -601,7 +590,7 @@ function sendReplyData(files) {
   apiRequest('replyThread', {
     name : forcedAnon ? null : typedName,
     flag : hiddenFlags ? null : selectedFlag,
-    captcha : hiddenCaptcha ? null : typedCaptcha,
+    captcha : captchaId,
     subject : typedSubject,
     spoiler : document.getElementById('checkboxSpoiler').checked,
     password : typedPassword,
@@ -614,7 +603,7 @@ function sendReplyData(files) {
 
 }
 
-function iterateSelectedFiles(currentIndex, files, fileChooser) {
+function iterateSelectedFiles(currentIndex, files, fileChooser, captchaId) {
 
   if (currentIndex < fileChooser.files.length) {
     var reader = new FileReader();
@@ -626,20 +615,50 @@ function iterateSelectedFiles(currentIndex, files, fileChooser) {
         content : reader.result
       });
 
-      iterateSelectedFiles(currentIndex + 1, files, fileChooser);
+      iterateSelectedFiles(currentIndex + 1, files, fileChooser, captchaId);
 
     };
 
     reader.readAsDataURL(fileChooser.files[currentIndex]);
   } else {
-    sendReplyData(files);
+    sendReplyData(files, captchaId);
   }
 
 }
 
+function processFilesToPost(captchaId) {
+  iterateSelectedFiles(0, [], document.getElementById('files'), captchaId);
+}
+
 function postReply() {
 
-  iterateSelectedFiles(0, [], document.getElementById('files'));
+  if (hiddenCaptcha) {
+    processFilesToPost();
+  } else {
+    var typedCaptcha = document.getElementById('fieldCaptcha').value.trim();
+
+    if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
+      alert('Captchas are exactly 6 (24 if no cookies) characters long.');
+      return;
+    } else if (/\W/.test(typedCaptcha)) {
+      alert('Invalid captcha.');
+      return;
+    }
+
+    var parsedCookies = getCookies();
+
+    apiRequest('solveCaptcha', {
+
+      captchaId : parsedCookies.captchaid,
+      answer : typedCaptcha
+    }, function solvedCaptcha(status, data) {
+
+      processFilesToPost(parsedCookies.captchaid);
+
+    });
+
+  }
+
 }
 
 function startTimer(time) {

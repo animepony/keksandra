@@ -1,8 +1,11 @@
 var board = true;
 var originalButtonText;
 var boardUri = document.getElementById('boardIdentifier').value;
+var hiddenCaptcha;
 
 if (!DISABLE_JS) {
+
+  hiddenCaptcha = !document.getElementById('captchaDiv');
 
   var postButton = document.getElementById('jsButton');
   postButton.style.display = 'inline';
@@ -59,7 +62,7 @@ postCallback.progress = function(info) {
   }
 };
 
-function sendThreadData(files) {
+function sendThreadData(files, captchaId) {
 
   var hiddenFlags = !document.getElementById('flagsDiv');
 
@@ -81,12 +84,6 @@ function sendThreadData(files) {
   var typedPassword = document.getElementById('fieldPostingPassword').value
       .trim();
 
-  var hiddenCaptcha = !document.getElementById('captchaDiv');
-
-  if (!hiddenCaptcha) {
-    var typedCaptcha = document.getElementById('fieldCaptcha').value.trim();
-  }
-
   if (!typedMessage.length) {
     alert('A message is mandatory.');
     return;
@@ -105,13 +102,6 @@ function sendThreadData(files) {
   } else if (typedPassword.length > 8) {
     alert('Password is too long, keep it under 8 characters.');
     return;
-  } else if (!hiddenCaptcha && typedCaptcha.length !== 6
-      && typedCaptcha.length !== 24) {
-    alert('Captchas are exactly 6 (24 if no cookies) characters long.');
-    return;
-  } else if (/\W/.test(typedCaptcha)) {
-    alert('Invalid captcha.');
-    return;
   }
 
   originalButtonText = postButton.value;
@@ -121,7 +111,7 @@ function sendThreadData(files) {
   apiRequest('newThread', {
     name : forcedAnon ? null : typedName,
     flag : hiddenFlags ? null : selectedFlag,
-    captcha : hiddenCaptcha ? null : typedCaptcha,
+    captcha : captchaId,
     password : typedPassword,
     spoiler : document.getElementById('checkboxSpoiler').checked,
     subject : typedSubject,
@@ -133,7 +123,7 @@ function sendThreadData(files) {
 
 }
 
-function iterateSelectedFiles(currentIndex, files, fileChooser) {
+function iterateSelectedFiles(currentIndex, files, fileChooser, captchaId) {
 
   if (currentIndex < fileChooser.files.length) {
     var reader = new FileReader();
@@ -145,18 +135,48 @@ function iterateSelectedFiles(currentIndex, files, fileChooser) {
         content : reader.result
       });
 
-      iterateSelectedFiles(currentIndex + 1, files, fileChooser);
+      iterateSelectedFiles(currentIndex + 1, files, fileChooser, captchaId);
 
     };
 
     reader.readAsDataURL(fileChooser.files[currentIndex]);
   } else {
-    sendThreadData(files);
+    sendThreadData(files, captchaId);
   }
 
 }
 
+function processFilesToPost(captchaId) {
+  iterateSelectedFiles(0, [], document.getElementById('files'), captchaId);
+}
+
 function postThread() {
 
-  iterateSelectedFiles(0, [], document.getElementById('files'));
+  if (hiddenCaptcha) {
+    processFilesToPost();
+  } else {
+    var typedCaptcha = document.getElementById('fieldCaptcha').value.trim();
+
+    if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
+      alert('Captchas are exactly 6 (24 if no cookies) characters long.');
+      return;
+    } else if (/\W/.test(typedCaptcha)) {
+      alert('Invalid captcha.');
+      return;
+    }
+
+    var parsedCookies = getCookies();
+
+    apiRequest('solveCaptcha', {
+
+      captchaId : parsedCookies.captchaid,
+      answer : typedCaptcha
+    }, function solvedCaptcha(status, data) {
+
+      processFilesToPost(parsedCookies.captchaid);
+
+    });
+
+  }
+
 }
