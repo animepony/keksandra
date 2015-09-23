@@ -21,8 +21,16 @@ if (!DISABLE_JS) {
       setting : 'globalLatestPosts',
       type : 'string'
     },
+    fieldOverBoardThreads : {
+      setting : 'overBoardThreadCount',
+      type : 'string'
+    },
     fieldFePath : {
       setting : 'fePath',
+      type : 'string'
+    },
+    fieldOverboard : {
+      setting : 'overboard',
       type : 'string'
     },
     fieldPageSize : {
