@@ -10,20 +10,22 @@ var videoTypes = [ 'video/webm', 'video/mp4', 'video/ogg' ];
 
 if (!DISABLE_JS) {
 
-  document.getElementById('deleteJsButton').style.display = 'inline';
-  document.getElementById('reportJsButton').style.display = 'inline';
+  if (document.getElementById('deleteJsButton')) {
+    document.getElementById('deleteJsButton').style.display = 'inline';
+    document.getElementById('reportJsButton').style.display = 'inline';
 
-  if (!board && document.getElementById('inputBan')) {
+    if (!board && document.getElementById('inputBan')) {
 
-    document.getElementById('banJsButton').style.display = 'inline';
-    document.getElementById('spoilJsButton').style.display = 'inline';
+      document.getElementById('banJsButton').style.display = 'inline';
+      document.getElementById('spoilJsButton').style.display = 'inline';
 
-    document.getElementById('inputBan').style.display = 'none';
-    document.getElementById('inputSpoil').style.display = 'none';
+      document.getElementById('inputBan').style.display = 'none';
+      document.getElementById('inputSpoil').style.display = 'none';
+    }
+
+    document.getElementById('reportFormButton').style.display = 'none';
+    document.getElementById('deleteFormButton').style.display = 'none';
   }
-
-  document.getElementById('reportFormButton').style.display = 'none';
-  document.getElementById('deleteFormButton').style.display = 'none';
 
   var imageLinks = document.getElementsByClassName('imgLink');
 
@@ -251,7 +253,7 @@ function loadQuote(tooltip, quoteUrl) {
 }
 
 function spoilFiles() {
-  
+
   apiRequest('spoilFiles', {
     postings : getSelectedContent()
   }, function requestComplete(status, data) {
@@ -264,7 +266,7 @@ function spoilFiles() {
       alert(status + ': ' + JSON.stringify(data));
     }
   });
-  
+
 }
 
 function banPosts() {

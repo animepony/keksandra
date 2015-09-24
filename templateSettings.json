@@ -61,5 +61,6 @@
   "archiveDeletionPage": "archiveDeletion.html",
   "hashBanPage": "hashBansPage.html",
   "hashBanCellDisplay": "hashBanCellDisplay.html",
-  "latestPostCell": "latestPostsCell.html"
+  "latestPostCell": "latestPostsCell.html",
+  "overboard": "overboard.html"
 }
