@@ -80,10 +80,17 @@
 
     </form>
 
+    <h3>Delete board</h3>
     <form
       method="post"
       action="/deleteBoard.js"
       enctype="multipart/form-data">
+      <input
+        type="checkbox"
+        name="confirmDeletion"
+        id="confirmDelCheckbox">
+      Yes, I wish to delete this board
+      <br>
       <input
         id="deletionIdentifier"
         name="boardUri"

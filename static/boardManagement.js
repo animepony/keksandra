@@ -325,7 +325,8 @@ function transferBoard() {
 
 function deleteBoard() {
   apiRequest('deleteBoard', {
-    boardUri : boardIdentifier
+    boardUri : boardIdentifier,
+    confirmDeletion : document.getElementById('confirmDelCheckbox').checked
   }, function requestComplete(status, data) {
 
     if (status === 'ok') {
