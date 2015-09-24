@@ -213,6 +213,10 @@ function saveSettings() {
     settings.push('blockDeletion');
   }
 
+  if (document.getElementById('requireFileCheckbox').checked) {
+    settings.push('requireThreadFile');
+  }
+
   if (document.getElementById('disableIdsCheckbox').checked) {
     settings.push('disableIds');
   }
