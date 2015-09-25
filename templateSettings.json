@@ -62,5 +62,7 @@
   "hashBanPage": "hashBansPage.html",
   "hashBanCellDisplay": "hashBanCellDisplay.html",
   "latestPostCell": "latestPostsCell.html",
-  "overboard": "overboard.html"
+  "overboard": "overboard.html",
+  "proxyBanPage": "proxyBanPage.html",
+  "proxyBanCell": "proxyBanCell.html"
 }

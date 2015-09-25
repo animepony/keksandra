@@ -31,11 +31,13 @@
   require authentication.
 
   <h1>Ips</h1>
-  Every posting has it's ip recorded. Except for TOR and proxy users.
+  Every posting has it's ip recorded. Except for TOR users. Proxy users have
+  their proxy Ip recorded and displayed to both global and board staff.
   <br>
   The first two parts of the ip can be seen by the global staff and board staff.
   Ex: "1.2.3.4" will be displayed as "1.2" to both global and board staff where
   the post was made.
+  <br>
   <br>
   A hashed and salted version of the ip will also be available for the same
   people mentioned on the previous item. The salt is randomly generated for
@@ -44,6 +46,7 @@
   However, root users are able to see the actual ip of the user and potentially
   enable for any member of the global staff to see clear ips too. In this
   instance, only root users are allowed to see real ips.
+  <br>
   <br>
   If enabled by the board owner, a thread-wise id will be displayed on the post.
   This thread-wise id uses a randomly generated salt to the thread, allowing for
@@ -56,6 +59,11 @@
   anyone to identify the same user inside a thread, the sysadmin has access to
   all ips used to post on the whole site, root users can also see that and can
   enable other global staff member to access them.
+  <br>
+  <br>
+  WARNING: if you use an addon to spoof your IP, like IP-Flood, your REAL ip
+  will be logged and displayed to both global and board staff as a proxy ip,
+  while your spoofed ip will be ignored.
 
 </body>
 </html>

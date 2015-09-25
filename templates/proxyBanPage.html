@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/global.css">
+</head>
+<body>
+  <img
+    class="logo"
+    src="http://static.localhost:8080/logo.png"
+    title="Logo by Doke">
+  <form
+    action="/placeProxyBan.js"
+    method="post"
+    enctype="multipart/form-data">
+    Ip of the proxy to be banned:
+    <input
+      type="text"
+      name="ip"
+      id="ipField">
+    <input
+      id="boardIdentifier"
+      type="hidden"
+      name="boardUri">
+    <br>
+    <input
+      type="submit"
+      id="createFormButton"
+      value="Place proxy ban">
+    <input
+      type="button"
+      id="createJsButton"
+      onClick="placeProxyBan()"
+      style="display: none;"
+      value="Place proxy ban">
+  </form>
+  <div id="proxyBansDiv"></div>
+</body>
+
+<script src="http://static.localhost:8080/settings.js"></script>
+<script src="http://static.localhost:8080/api.js"></script>
+
+</html>
