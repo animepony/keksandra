@@ -78,6 +78,8 @@ function handleConnectionResponse(xhr, delegate) {
     if (response.data.range) {
       alert('Your ip range ' + response.data.range + ' has been banned from '
           + response.data.board + '.');
+    } else if (response.data.proxyIp) {
+      alert('Your proxy has been banned from ' + response.data.board + '.');
     } else {
 
       alert('You are banned from ' + response.data.board + ' until '
