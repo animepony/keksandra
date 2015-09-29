@@ -29,6 +29,14 @@ if (!DISABLE_JS) {
       setting : 'fePath',
       type : 'string'
     },
+    fieldBypassPosts : {
+      setting : 'bypassMaxPosts',
+      type : 'string'
+    },
+    fieldBypassPosts : {
+      setting : 'bypassMaxPosts',
+      type : 'string'
+    },
     fieldOverboard : {
       setting : 'overboard',
       type : 'string'
@@ -223,6 +231,10 @@ if (!DISABLE_JS) {
     },
     comboBoardCreationRequirement : {
       setting : 'boardCreationRequirement',
+      type : 'combo'
+    },
+    comboBypassMode : {
+      setting : 'bypassMode',
       type : 'combo'
     }
   };
