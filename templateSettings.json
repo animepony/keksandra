@@ -65,5 +65,6 @@
   "overboard": "overboard.html",
   "proxyBansPage": "proxyBans.html",
   "proxyBanCell": "proxyBanCell.html",
-  "proxyBanPage": "proxyBan.html"
+  "proxyBanPage": "proxyBan.html",
+  "bypassPage": "bypass.html"
 }

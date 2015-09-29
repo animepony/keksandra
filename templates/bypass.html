@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://static.localhost:8080/global.css">
+<meta charset="UTF-8">
+</head>
+<body>
+  <img
+    class="logo"
+    src="http://static.localhost:8080/logo.png"
+    title="Logo by Doke">
+
+  <h4>Warning: block bypasses require cookies to work</h4>
+
+  <span id="indicatorValidBypass">You have a valid block bypass.</span>
+
+  <h3>Renew bypass</h3>
+  <form
+    action="/renewBypass.js"
+    enctype="multipart/form-data"
+    method="post">
+    <img
+      id="captchaImage"
+      src="/captcha.js">
+    <input
+      type="button"
+      style="display: none;"
+      id="reloadCaptchaButton"
+      onclick="reloadCaptcha()"
+      value="Reload captcha">
+    <br>
+    Captcha:
+    <input
+      name="captcha"
+      type="text"
+      id="fieldCaptcha">
+
+    <br>
+
+    <input
+      type="submit"
+      id="bypassFormButton"
+      value="Renew block bypass">
+    <input
+      type="button"
+      id="bypassJsButton"
+      onclick="blockBypass()"
+      value="Renew block bypass"
+      style="display: none;">
+  </form>
+
+</body>
+
+<script src="http://static.localhost:8080/settings.js"></script>
+<script src="http://static.localhost:8080/api.js"></script>
+<script src="http://static.localhost:8080/bypass.js"></script>
+
+</html>
