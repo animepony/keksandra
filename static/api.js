@@ -62,6 +62,13 @@ function handleConnectionResponse(xhr, delegate) {
     alert('A file had a format that is not allowed by the server.');
   } else if (response.status === 'blank') {
     alert('Parameter ' + response.data + ' was sent in blank.');
+  } else if (response.status === 'bypassable') {
+    if (window
+        .confirm('You are blocked, but you can use the block bypass to post. Do you want to get a block bypass?')) {
+
+      window.open('/blockBypass.js');
+
+    }
   } else if (response.status === 'tooLarge') {
     alert('Request refused because it was too large');
   } else if (response.status === 'construction') {
@@ -140,6 +147,7 @@ function apiRequest(page, parameters, delegate) {
 
   var body = {
     captchaId : parsedCookies.captchaid,
+    bypassId : parsedCookies.bypass,
     parameters : parameters,
     auth : {
       login : parsedCookies.login,
