@@ -93,10 +93,6 @@ if (!DISABLE_JS) {
       setting : 'banMessage',
       type : 'string'
     },
-    fieldLogPageSize : {
-      setting : 'logPageSize',
-      type : 'string'
-    },
     fieldAnonymousName : {
       setting : 'anonymousName',
       type : 'string'
