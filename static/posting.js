@@ -274,9 +274,16 @@ function banPosts() {
   var typedExpiration = document.getElementById('fieldExpiration').value.trim();
   var typedMessage = document.getElementById('fieldbanMessage').value.trim();
 
+  var typedCaptcha = document.getElementById('fieldCaptchaReport').value.trim();
   var expiration = Date.parse(typedExpiration || '');
 
-  if (isNaN(expiration)) {
+  if (typedCaptcha.length !== 6 && typedCaptcha.length !== 24) {
+    alert('Captchas are exactly 6 (24 if no cookies) characters long.');
+    return;
+  } else if (/\W/.test(typedCaptcha)) {
+    alert('Invalid captcha.');
+    return;
+  } else if (isNaN(expiration)) {
     alert('Invalid expiration');
 
     return;
@@ -286,6 +293,7 @@ function banPosts() {
 
   apiRequest('banUsers', {
     reason : typedReason,
+    captcha : typedCaptcha,
     expiration : typedExpiration,
     banMessage : typedMessage,
     global : document.getElementById('checkboxGlobal').checked,
@@ -346,8 +354,6 @@ function reportPosts() {
     alert('Invalid captcha.');
     return;
   }
-
-  console.log(typedCaptcha);
 
   apiRequest('reportContent', {
     reason : typedReason,
