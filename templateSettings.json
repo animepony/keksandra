@@ -68,5 +68,6 @@
   "proxyBanPage": "proxyBan.html",
   "bypassPage": "bypass.html",
   "logIndexPage": "logsIndex.html",
-  "logIndexCell": "logIndexCell.html"
+  "logIndexCell": "logIndexCell.html",
+  "unlockEmail": "unlockEmail.html"
 }
