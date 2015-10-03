@@ -13,6 +13,10 @@ if (!DISABLE_JS) {
       setting : 'port',
       type : 'string'
     },
+    fieldMultiBoardThreadCount : {
+      setting : 'multiboardThreadCount',
+      type : 'string'
+    },
     fieldTcpPort : {
       setting : 'tcpPort',
       type : 'string'
