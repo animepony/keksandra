@@ -186,3 +186,35 @@ figure.page-head {
   font-weight: bold;
   font-size: 11pt;
 }
+
+.navWrapper {
+  color: #89A;
+  display: inline-block;
+  margin: 0px 1em;
+}
+
+#divPages a {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  font-size: 110%;
+  color: #34345C;
+  text-decoration: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+#linkNext, #linkPrevious {
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  background: rgba(255, 255, 255, 0.35) none repeat scroll 0% 0%;
+  border: 1px solid #34345C;
+  box-sizing: border-box;
+  outline: 0px none;
+  cursor: pointer;
+  color: #34345C;
+  font-size: 1.07143rem;
+  display: inline-block;
+  margin: 0.2em 0px;
+  padding: 0.15em 0.75em 0.25em;
+}
