@@ -18,8 +18,10 @@
 </head>
 <body>
   <img id="bannerImage">
-  <h1 id="labelName"></h1>
-  <h3 id="labelDescription"></h3>
+  <figure class="page-head">
+    <h1 id="labelName"></h1>
+    <h3 id="labelDescription"></h3>
+  </figure>
   <a href="catalog.html">Catalog</a>
   <br>
   <a href="/account.js">Account</a>
@@ -35,101 +37,105 @@
     <hr>
   </div>
 
-  <form
-    action="../newThread.js"
-    enctype="multipart/form-data"
-    method="post">
-    <div id="divName">
-      Name:
+  <section class="formWrapper">
+    <form
+      class="form-post"
+      action="../newThread.js"
+      enctype="multipart/form-data"
+      method="post">
+      <span class="formLabel">New Thread:</span>
+      <br>
       <input
         type="text"
-        id="fieldName"
-        name="name" />
-    </div>
-    Subject:
-    <input
-      type="text"
-      id="fieldSubject"
-      name="subject" />
-    <br>
-    E-mail:
-    <input
-      name="email"
-      type="text"
-      id="fieldEmail">
-    <br>
-    Password:
-    <input
-      name="password"
-      type="password"
-      id="fieldPostingPassword">
-    <br>
-    <span style="vertical-align: top;">Message:</span>
-    <br>
-    <textarea
-      rows="8"
-      cols="50"
-      name="message"
-      id="fieldMessage"></textarea>
-    <div id="flagsDiv">
-      Flag:
-      <select
-        name="flag"
-        id="flagCombobox"></select>
-    </div>
-    <br>
-    Files:
-    <input
-      type="file"
-      id="files"
-      name="files"
-      multiple>
-    <input
-      type="checkbox"
-      id="checkboxSpoiler"
-      name="spoiler">
-    Spoiler
-    <br>
-    <div id="captchaDiv">
-      <img
-        id="captchaImage"
-        src="/captcha.js">
+        placeholder="Subject"
+        id="fieldSubject"
+        name="subject" />
+      <div id="divName">
+        <input
+          placeholder="Author"
+          type="text"
+          id="fieldName"
+          name="name" />
+        <br>
+      </div>
+      <input
+        placeholder="E-mail"
+        name="email"
+        type="text"
+        id="fieldEmail">
+      <br>
+      <textarea
+        rows="8"
+        cols="50"
+        placeholder="Message"
+        name="message"
+        id="fieldMessage"></textarea>
+      <div id="flagsDiv">
+        Flag:
+        <select
+          name="flag"
+          id="flagCombobox"></select>
+      </div>
+      <br>
+      <input
+        name="password"
+        placeholder="Deletion password"
+        type="password"
+        id="fieldPostingPassword">
+      <br>
+      Files:
+      <input
+        type="file"
+        id="files"
+        name="files"
+        multiple>
+      <input
+        type="checkbox"
+        id="checkboxSpoiler"
+        name="spoiler">
+      Spoiler
+      <br>
+      <div id="captchaDiv">
+        <img
+          id="captchaImage"
+          src="/captcha.js">
+        <input
+          type="button"
+          style="display: none;"
+          id="reloadCaptchaButton"
+          onclick="reloadCaptcha()"
+          value="Reload captcha">
+        <br>
+        Captcha:
+        <input
+          name="captcha"
+          type="text"
+          id="fieldCaptcha">
+        <a
+          class="finePrint"
+          href="/noCookieCaptcha.js">No cookies?</a>
+        <br>
+      </div>
       <input
         type="button"
-        style="display: none;"
-        id="reloadCaptchaButton"
-        onclick="reloadCaptcha()"
-        value="Reload captcha">
-      <br>
-      Captcha:
+        id="jsButton"
+        onClick="postThread()"
+        value="Create thread"
+        style="display: none;">
       <input
-        name="captcha"
-        type="text"
-        id="fieldCaptcha">
-      <a
-        class="finePrint"
-        href="/noCookieCaptcha.js">No cookies?</a>
+        type="submit"
+        id="formButton"
+        value="Create thread">
+      <input
+        id="boardIdentifier"
+        type="hidden"
+        name="boardUri">
+      Remember to follow the <a href=rules.html>rules</a>.
       <br>
-    </div>
-    <input
-      type="button"
-      id="jsButton"
-      onClick="postThread()"
-      value="Create thread"
-      style="display: none;">
-    <input
-      type="submit"
-      id="formButton"
-      value="Create thread">
-    <input
-      id="boardIdentifier"
-      type="hidden"
-      name="boardUri">
-    Remember to follow the <a href=rules.html>rules</a>.
-    <br>
-    <span class="finePrint">Max File Size: <span id="labelMaxFileSize"></span>
-    </span>
-  </form>
+      <span class="finePrint">Max File Size: <span id="labelMaxFileSize"></span>
+      </span>
+    </form>
+  </section>
 
   <br>
   <form

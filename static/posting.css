@@ -5,6 +5,61 @@
   vertical-align: top;
 }
 
+#bannerImage {
+  display: block;
+  border: 1px solid darkgray;
+  margin: 12px auto 0 auto;
+}
+
+figure.page-head {
+  display: block;
+  text-align: center;
+  margin: 1em auto 1em auto;
+}
+
+#labelName {
+  font-weight: bold;
+  font-size: 20pt;
+  color: #AF0A0F;
+  margin: 0.2em 0 0 0;
+  letter-spacing: -2px;
+}
+
+#labelDescription {
+  margin: 0;
+  font-size: 1.5em;
+  color: #AF0A0F;
+  font-weight: normal;
+}
+
+#divMessage {
+  text-align: center;
+}
+
+.formWrapper {
+  text-align: center;
+}
+
+.form-post {
+  padding: 10px;
+  padding-right: 15px;
+  background: #D6DAF0;
+  text-align: center;
+  display: inline-block;
+  background: #D6DAF0;
+}
+
+.formLabel {
+  font-weight: bold;
+  float: left;
+  margin-bottom: 2px;
+}
+
+#fieldSubject, #fieldName, #fieldEmail, #fieldPostingPassword, #fieldMessage {
+  margin-bottom: 2px;
+  width: 100%;
+}
+
 .uploadCell {
   float: left;
   margin: 2px;
