@@ -16,7 +16,7 @@ var hiddenCaptcha = !document.getElementById('captchaDiv');
 var markedPosting;
 var originalButtonText;
 
-var postCellTemplate = '<input type="checkbox" '
+var postCellTemplate = '<div class="innerPost"><input type="checkbox" '
     + 'class="deletionCheckBox"> <span class="labelSubject"></span>'
     + '<a class="linkName"></a> <img class="imgFlag"> '
     + '<span class="labelRole"></span> <span class="labelCreated"></span>'
@@ -24,7 +24,7 @@ var postCellTemplate = '<input type="checkbox" '
     + ' <a class="linkPreview">[Preview]</a> <a class="linkSelf">No.</a>'
     + ' <a class="linkQuote"></a>'
     + '<div class="panelUploads"></div><div class="divMessage" /></div>'
-    + '<div class="divBanMessage"></div><div class="labelLastEdit"></div><br>';
+    + '<div class="divBanMessage"></div><div class="labelLastEdit"></div><br></div>';
 
 var uploadCell = '<a class="nameLink" target="blank"></a>'
     + ' ( <span class="sizeLabel"></span> '
