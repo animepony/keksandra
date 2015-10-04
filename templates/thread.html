@@ -45,7 +45,7 @@
       method="post"
       action="../../replyThread.js"
       enctype="multipart/form-data">
-      <span class="formLabel">New Thread:</span>
+      <span class="formLabel">Reply:</span>
       <br>
       <input
         type="text"
@@ -118,16 +118,18 @@
           href="/noCookieCaptcha.js">No cookies?</a>
         <br>
       </div>
-      <input
-        type="button"
-        id="jsButton"
-        onClick="postReply()"
-        value="Reply"
-        style="display: none;">
-      <input
-        type="submit"
-        id="formButton"
-        value="Reply">
+
+      <div id="submitWrapper">
+        <button
+          type="button"
+          id="jsButton"
+          onClick="postReply()"
+          style="display: none;">Reply</button>
+        <button
+          type="submit"
+          id="formButton">Reply</button>
+      </div>
+
       <input
         id="boardIdentifier"
         type="hidden"

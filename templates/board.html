@@ -116,16 +116,18 @@
           href="/noCookieCaptcha.js">No cookies?</a>
         <br>
       </div>
-      <input
-        type="button"
-        id="jsButton"
-        onClick="postThread()"
-        value="Create thread"
-        style="display: none;">
-      <input
-        type="submit"
-        id="formButton"
-        value="Create thread">
+
+      <div id="submitWrapper">
+        <button
+          type="button"
+          id="jsButton"
+          onClick="postThread()"
+          style="display: none;">Create thread</button>
+        <button
+          type="submit"
+          id="formButton">Create thread</button>
+      </div>
+
       <input
         id="boardIdentifier"
         type="hidden"

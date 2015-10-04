@@ -129,12 +129,18 @@ function markPost(id) {
   }
 
   if (markedPosting && markedPosting.className === 'markedPost') {
-    markedPosting.setAttribute('class', 'postCell');
+    markedPosting.setAttribute('class', 'innerPost');
   }
 
-  markedPosting = document.getElementById(id);
+  var container = document.getElementById(id);
 
-  if (markedPosting && markedPosting.className === 'postCell') {
+  if (container.className !== 'postCell') {
+    return;
+  }
+
+  markedPosting = container.getElementsByClassName('innerPost')[0];
+
+  if (markedPosting) {
     markedPosting.setAttribute('class', 'markedPost');
   }
 }
