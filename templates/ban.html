@@ -20,5 +20,29 @@
   <br>
   Your ban id:
   <span id="idLabel"></span>
+
+  <form
+    id="formAppeal"
+    method="post"
+    action="/appealBan.js"
+    enctype="multipart/form-data">
+    <h3>Appeal ban</h3>
+    <input
+      type="hidden"
+      name="banId"
+      id="idIdentifier">
+    <textarea
+      rows="8"
+      cols="50"
+      name="appeal"
+      id="fieldAppeal"></textarea>
+    <br>
+    <input
+      id="buttonFormAppeal"
+      type="submit"
+      value="Appeal">
+
+  </form>
+
 </body>
 </html>

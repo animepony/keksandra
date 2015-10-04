@@ -89,9 +89,33 @@ function handleConnectionResponse(xhr, delegate) {
       alert('Your proxy has been banned from ' + response.data.board + '.');
     } else {
 
-      alert('You are banned from ' + response.data.board + ' until '
+      var message = 'You are banned from ' + response.data.board + ' until '
           + new Date(response.data.expiration).toString() + '.\nReason: '
-          + response.data.reason + '.\nYour ban id: ' + response.data.banId);
+          + response.data.reason + '.\nYour ban id: ' + response.data.banId
+          + '.';
+
+      if (!response.data.appealled) {
+        message += '\nYou may appeal this ban.';
+
+        var appeal = prompt(message, 'Write your appeal');
+
+        if (appeal) {
+
+          apiRequest('appealBan', {
+            appeal : appeal,
+            banId : response.data.banId
+          }, function appealed() {
+
+            alert('Ban appealed');
+
+          });
+
+        }
+
+      } else {
+        alert(message);
+      }
+
     }
   } else {
     delegate(response.status, response.data);
