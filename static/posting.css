@@ -25,6 +25,13 @@ figure.page-head {
   letter-spacing: -2px;
 }
 
+.aa {
+  font-family: Mona, "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
+  display: block !important;
+  font-size: 12pt;
+  line-height: 1.1;
+}
+
 #labelDescription {
   margin: 0;
   font-size: 1.5em;
@@ -104,6 +111,7 @@ figure.page-head {
 
 .divMessage, .formTransfer {
   clear: both;
+  font-size: 14px;
 }
 
 .quoteLink {
