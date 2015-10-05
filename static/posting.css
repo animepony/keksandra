@@ -47,6 +47,9 @@ figure.page-head {
   text-align: center;
   display: inline-block;
   background: #D6DAF0;
+  border-color: -moz-use-text-color #B7C5D9 #B7C5D9 -moz-use-text-color;
+  border-width: medium 1px 1px medium;
+  border-style: none solid solid none;
 }
 
 .formLabel {

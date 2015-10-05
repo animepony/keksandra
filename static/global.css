@@ -33,3 +33,27 @@ hr {
   margin-left: auto;
   margin-right: auto;
 }
+
+.linkWrapper {
+  color: #89A;
+  margin: 0px 1em;
+}
+
+.linkWrapper a {
+  background: rgba(255, 255, 255, 0.35) none repeat scroll 0% 0%;
+  border: 1px solid #34345C;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #34345C;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 0.2em 0px;
+  outline: 0px none;
+  padding: 0.15em 0.75em 0.25em;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+}
