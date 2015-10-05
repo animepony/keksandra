@@ -58,7 +58,8 @@ figure.page-head {
   margin-bottom: 2px;
 }
 
-#fieldSubject, #fieldName, #fieldEmail, #fieldPostingPassword, #fieldMessage {
+#fieldSubject, #fieldName, #fieldEmail, #fieldPostingPassword, #fieldMessage,
+  #fieldCaptcha {
   margin-bottom: 2px;
   width: 100%;
 }
