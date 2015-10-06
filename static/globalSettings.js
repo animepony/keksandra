@@ -5,6 +5,10 @@ if (!DISABLE_JS) {
 
   var siteSettingsRelation = {
 
+    fieldConcurrentRebuildMessages : {
+      setting : 'concurrentRebuildMessages',
+      type : 'string'
+    },
     fieldAddress : {
       setting : 'address',
       type : 'string'
