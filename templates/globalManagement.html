@@ -44,39 +44,6 @@
       value="Add user">
   </form>
   <br>
-  <form
-    id="ipDeletionForm"
-    method="post"
-    action="/deleteFromIp.js"
-    enctype="multipart/form-data">
-    <h3>Delete all from ip</h3>
-
-    Non-hashed ip:
-    <input
-      type="text"
-      name="ip"
-      id="ipField">
-    <br>
-    Delete only from these boards(Ex: "b v", leaving in blank will delete from
-    all boards):
-    <input
-      type="text"
-      name="boards"
-      id="fieldBoards">
-    <br>
-    <input
-      type="button"
-      value="Delete"
-      onclick="deleteFromIp()"
-      id="deleteFromIpJsButton"
-      style="display: none;">
-    <input
-      value="Delete"
-      type="submit"
-      id="deleteFromIpFormButton">
-
-  </form>
-  <br>
 
   <div id="divStaff">
     <h3>Global staff</h3>
@@ -84,25 +51,46 @@
 
   <a
     id="globalSettingsLink"
-    href="/globalSettings.js">Global Settings<br></a>
+    href="/globalSettings.js">
+    Global Settings
+    <br>
+  </a>
   <a
     id="globalBannersLink"
-    href="/bannerManagement.js">Global Banners<br></a>
+    href="/bannerManagement.js">
+    Global Banners
+    <br>
+  </a>
   <a
     id="bansLink"
-    href="/bans.js">Bans<br></a>
+    href="/bans.js">
+    Bans
+    <br>
+  </a>
   <a
     id="archiveDeletionLink"
-    href="/archiveDeletion.js">Archive deletion<br></a>
+    href="/archiveDeletion.js">
+    Archive deletion
+    <br>
+  </a>
   <a
     id="rangeBansLink"
-    href="/rangeBans.js">Range Bans<br></a>
+    href="/rangeBans.js">
+    Range Bans
+    <br>
+  </a>
   <a
     id="proxyBansLink"
-    href="/proxyBans.js">Proxy Bans<br></a>
+    href="/proxyBans.js">
+    Proxy Bans
+    <br>
+  </a>
   <a
     id="hashBansLink"
-    href="/hashBans.js">Hash Bans<br></a>
+    href="/hashBans.js">
+    Hash Bans
+    <br>
+  </a>
   <a href="/closedReports.js">Closed Reports</a>
   <h3>Open reports</h3>
   <div id="reportDiv"></div>

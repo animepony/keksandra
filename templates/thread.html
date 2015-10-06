@@ -330,6 +330,7 @@
         value="Report">
     </div>
   </form>
+  <br>
 
   <form
     action="/transferThread.js"
@@ -337,6 +338,7 @@
     method="post"
     id="formTransfer"
     class="formTransfer">
+    <h3>Transfer to different board</h3>
     <input
       type="hidden"
       name="boardUri"
@@ -346,7 +348,7 @@
       name="threadId"
       id="transferThreadIdentifier">
 
-    Transfer to board:
+    Destination board:
     <input
       type="text"
       id="fieldDestinationBoard"
@@ -362,6 +364,39 @@
       onclick="transfer()"
       id="transferJsButton"
       value="Transfer thread">
+  </form>
+  <br>
+  <form
+    id="ipDeletionForm"
+    method="post"
+    action="/deleteFromIp.js"
+    enctype="multipart/form-data">
+    <h3>Delete all from ip</h3>
+
+    Non-hashed ip:
+    <input
+      type="text"
+      name="ip"
+      id="ipField">
+    <br>
+    Delete only from these boards(Ex: "b v", leaving in blank will delete from
+    all boards):
+    <input
+      type="text"
+      name="boards"
+      id="fieldBoards">
+    <br>
+    <input
+      type="button"
+      value="Delete"
+      onclick="deleteFromIp()"
+      id="deleteFromIpJsButton"
+      style="display: none;">
+    <input
+      value="Delete"
+      type="submit"
+      id="deleteFromIpFormButton">
+
   </form>
 
 </body>

@@ -1,18 +1,29 @@
 if (!DISABLE_JS) {
-  document.getElementById('addJsButton').style.display = 'inline';
-  document.getElementById('deleteFromIpJsButton').style.display = 'inline';
 
-  document.getElementById('deleteFromIpFormButton').style.display = 'none';
-  document.getElementById('addFormButton').style.display = 'none';
+  if (document.getElementById('addStaffForm')) {
+    document.getElementById('addJsButton').style.display = 'inline';
+
+    document.getElementById('addFormButton').style.display = 'none';
+
+  }
 
   setupReportButtons();
 
   var staffDiv = document.getElementById('divStaff');
 
-  for (var i = 0; i < staffDiv.childNodes.length; i++) {
-    var cell = staffDiv.childNodes[i];
+  if (staffDiv) {
 
-    processCell(cell);
+    for (var i = 0; i < staffDiv.childNodes.length; i++) {
+      var cell = staffDiv.childNodes[i];
+
+      if (cell.className === 'staffCell') {
+
+        processCell(cell);
+      } else {
+        console.log(cell.className);
+      }
+
+    }
 
   }
 
@@ -31,35 +42,6 @@ function processCell(cell) {
   button.onclick = function() {
     saveUser(user, comboBox);
   };
-}
-
-function deleteFromIp() {
-
-  var typedIp = document.getElementById('ipField').value.trim();
-  var typedBoards = document.getElementById('fieldBoards').value.trim();
-
-  if (!typedIp.length) {
-    alert('An ip is mandatory');
-    return;
-  }
-
-  apiRequest('deleteFromIp', {
-    ip : typedIp,
-    boards : typedBoards
-  }, function requestComplete(status, data) {
-
-    if (status === 'ok') {
-
-      document.getElementById('ipField').value = '';
-      document.getElementById('fieldBoards').value = '';
-
-      alert('Postings deleted.');
-
-    } else {
-      alert(status + ': ' + JSON.stringify(data));
-    }
-  });
-
 }
 
 function saveUser(user, comboBox) {

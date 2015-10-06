@@ -51,10 +51,20 @@ if (!DISABLE_JS) {
 
   if (document.getElementById('controlThreadIdentifier')) {
     document.getElementById('settingsJsButon').style.display = 'inline';
-    document.getElementById('transferJsButton').style.display = 'inline';
-
-    document.getElementById('transferFormButton').style.display = 'none';
     document.getElementById('settingsFormButon').style.display = 'none';
+
+    if (document.getElementById('ipDeletionForm')) {
+      document.getElementById('deleteFromIpJsButton').style.display = 'inline';
+
+      document.getElementById('deleteFromIpFormButton').style.display = 'none';
+    }
+
+    if (document.getElementById('formTransfer')) {
+      document.getElementById('transferJsButton').style.display = 'inline';
+
+      document.getElementById('transferFormButton').style.display = 'none';
+    }
+
   }
 
   replyButton = document.getElementById('jsButton');
@@ -697,5 +707,34 @@ function changeRefresh() {
   }
 
   autoRefresh = !autoRefresh;
+
+}
+
+function deleteFromIp() {
+
+  var typedIp = document.getElementById('ipField').value.trim();
+  var typedBoards = document.getElementById('fieldBoards').value.trim();
+
+  if (!typedIp.length) {
+    alert('An ip is mandatory');
+    return;
+  }
+
+  apiRequest('deleteFromIp', {
+    ip : typedIp,
+    boards : typedBoards
+  }, function requestComplete(status, data) {
+
+    if (status === 'ok') {
+
+      document.getElementById('ipField').value = '';
+      document.getElementById('fieldBoards').value = '';
+
+      alert('Postings deleted.');
+
+    } else {
+      alert(status + ': ' + JSON.stringify(data));
+    }
+  });
 
 }
