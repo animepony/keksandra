@@ -80,7 +80,8 @@ if (!DISABLE_JS) {
   var hash = window.location.hash.substring(1);
 
   if (hash.indexOf('q') === 0 && hash.length > 1) {
-    document.getElementById('fieldMessage').value = '>>' + hash.substring(1);
+    document.getElementById('fieldMessage').value = '>>' + hash.substring(1)
+        + '\n';
   } else if (hash.length > 1) {
     markPost(hash);
   }
@@ -150,7 +151,7 @@ function processPostingQuote(link) {
   link.onclick = function() {
     var toQuote = link.href.match(/#q(\d+)/);
 
-    document.getElementById('fieldMessage').value += '>>' + toQuote[1];
+    document.getElementById('fieldMessage').value += '>>' + toQuote[1] + '\n';
 
   };
 

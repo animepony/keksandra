@@ -34,19 +34,19 @@ hr {
   margin-right: auto;
 }
 
-.linkWrapper {
-  color: #89A;
-  margin: 0px 1em;
+.linksPanel {
+  text-align: center;
 }
 
 .linkWrapper a {
   background: rgba(255, 255, 255, 0.35) none repeat scroll 0% 0%;
   border: 1px solid #34345C;
+  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   cursor: pointer;
   color: #34345C;
   display: inline-block;
-  font-size: 1rem;
+  font-size: 10pt;
   font-weight: bold;
   line-height: 1.2;
   margin: 0.2em 0px;
