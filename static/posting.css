@@ -37,10 +37,6 @@ figure.page-head {
   font-size: 13pt;
 }
 
-#divMessage {
-  text-align: center;
-}
-
 .formWrapper {
   text-align: center;
 }
@@ -107,9 +103,20 @@ figure.page-head {
   width: 100%;
 }
 
-.divMessage, .formTransfer {
+#divThreads {
+  padding-left: 10px;
+}
+
+.divMessage {
   clear: both;
   font-size: 14px;
+  margin-left: 40px;
+  margin-top: 5px;
+  word-wrap: break-word;
+}
+
+.formTransfer {
+  clear: both;
 }
 
 .quoteLink {
@@ -176,11 +183,6 @@ figure.page-head {
   color: #ff0000;
   font-weight: bold;
   font-size: 10pt;
-}
-
-.divMessage {
-  padding-left: 10px;
-  word-wrap: break-word;
 }
 
 .contentAction {
