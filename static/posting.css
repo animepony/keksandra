@@ -33,6 +33,11 @@ figure.page-head {
   line-height: 1.1;
 }
 
+.labelLastEdit {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
 #labelDescription {
   font-size: 13pt;
 }
@@ -57,6 +62,11 @@ figure.page-head {
   font-weight: bold;
   float: left;
   margin-bottom: 2px;
+}
+
+.contentOmissionIndicator {
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 #fieldSubject, #fieldName, #fieldEmail, #fieldPostingPassword, #fieldMessage,
@@ -111,8 +121,13 @@ figure.page-head {
   clear: both;
   font-size: 14px;
   margin-left: 40px;
-  margin-top: 5px;
+  margin-top: 10px;
   word-wrap: break-word;
+}
+
+.labelOmission {
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .formTransfer {
@@ -196,6 +211,8 @@ figure.page-head {
 .divBanMessage {
   color: #ff0000;
   font-weight: bold;
+  margin-top: 10px;
+  margin-left: 10px;
   font-size: 11pt;
 }
 
