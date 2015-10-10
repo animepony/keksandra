@@ -13,20 +13,48 @@ Applied by:
 <span class="appealPanel">Appeal: <span class="appealLabel"></span>
 </span>
 <br>
-<input
-  type="submit"
-  class="liftFormButton"
-  value="Lift">
 
-<input
-  type="button"
-  class="liftJsButton"
-  value="Lift"
-  style="display: none;">
-<br>
-<input
-  type="hidden"
-  class="idIdentifier"
-  name="banId">
+<form
+  class="denyForm"
+  enctype="multipart/form-data"
+  method="post"
+  action="/denyAppeal.js">
+
+  <input
+    type="hidden"
+    name="banId"
+    class="denyIdentifier">
+
+  <input
+    type="submit"
+    class="denyFormButton"
+    value="Deny appeal">
+  <input
+    type="button"
+    style="display: none;"
+    class="denyJsButton"
+    value="Deny appeal">
+</form>
+
+<form
+  action="/liftBan.js"
+  method="post"
+  enctype="multipart/form-data">
+  <input
+    type="submit"
+    class="liftFormButton"
+    value="Lift">
+
+  <input
+    type="button"
+    class="liftJsButton"
+    value="Lift"
+    style="display: none;">
+  <input
+    type="hidden"
+    class="liftIdentifier"
+    name="banId">
+</form>
+
 <hr>
 
