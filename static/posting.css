@@ -46,6 +46,10 @@ figure.page-head {
   text-align: center;
 }
 
+#divMessage {
+  text-align: center;
+}
+
 .form-post {
   padding: 10px;
   padding-right: 15px;
