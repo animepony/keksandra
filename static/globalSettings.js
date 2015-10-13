@@ -205,10 +205,6 @@ if (!DISABLE_JS) {
       setting : 'disableAccountCreation',
       type : 'boolean'
     },
-    fieldCaptchaFonts : {
-      setting : 'captchaFonts',
-      type : 'array'
-    },
     fieldAcceptedMimes : {
       setting : 'acceptedMimes',
       type : 'array'
