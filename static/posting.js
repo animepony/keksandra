@@ -379,6 +379,8 @@ function deletePosts() {
 
   var toDelete = getSelectedContent();
 
+  var redirect = '/' + toDelete[0].board + '/';
+
   apiRequest('deleteContent', {
     password : typedPassword,
     deleteUploads : document.getElementById('checkboxOnlyFiles').checked,
@@ -389,7 +391,7 @@ function deletePosts() {
 
       alert('Content deleted');
 
-      window.location.pathname = '/';
+      window.location.pathname = redirect;
 
     } else {
       alert(status + ': ' + JSON.stringify(data));
