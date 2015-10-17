@@ -174,7 +174,7 @@ function processQuote(quote) {
   tooltip.style['background-color'] = '#cccccc';
   tooltip.style.position = 'absolute';
 
-  quote.parentNode.appendChild(tooltip);
+  document.body.appendChild(tooltip);
 
   var quoteUrl = quote.href;
 

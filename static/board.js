@@ -49,7 +49,7 @@ var postCallback = function requestComplete(status, data) {
 };
 
 postCallback.stop = function() {
-  postButton.setAttribute('value', originalButtonText);
+  postButton.innerHTML = originalButtonText;
   postButton.disabled = false;
 };
 
@@ -58,7 +58,7 @@ postCallback.progress = function(info) {
   if (info.lengthComputable) {
     var newText = 'Uploading ' + Math.floor((info.loaded / info.total) * 100)
         + '%';
-    postButton.setAttribute('value', newText);
+    postButton.innerHTML = newText;
   }
 };
 
@@ -104,8 +104,8 @@ function sendThreadData(files, captchaId) {
     return;
   }
 
-  originalButtonText = postButton.value;
-  postButton.setAttribute('value', 'Uploading 0%');
+  originalButtonText = postButton.innerHTML;
+  postButton.innerHTML = 'Uploading 0%';
   postButton.disabled = true;
 
   apiRequest('newThread', {

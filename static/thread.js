@@ -219,7 +219,7 @@ var replyCallback = function(status, data) {
 };
 
 replyCallback.stop = function() {
-  replyButton.setAttribute('value', originalButtonText);
+  replyButton.innerHTML = originalButtonText;
   replyButton.disabled = false;
 
   if (!hiddenCaptcha) {
@@ -233,7 +233,7 @@ replyCallback.progress = function(info) {
   if (info.lengthComputable) {
     var newText = 'Uploading ' + Math.floor((info.loaded / info.total) * 100)
         + '%';
-    replyButton.setAttribute('value', newText);
+    replyButton.innerHTML = newText;
   }
 };
 
@@ -600,8 +600,8 @@ function sendReplyData(files, captchaId) {
     return;
   }
 
-  originalButtonText = replyButton.value;
-  replyButton.setAttribute('value', 'Uploading 0%');
+  originalButtonText = replyButton.innerHTML;
+  replyButton.innerHTML = 'Uploading 0%';
   replyButton.disabled = true;
 
   apiRequest('replyThread', {
