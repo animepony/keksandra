@@ -580,8 +580,8 @@ function sendReplyData(files, captchaId) {
 
   var threadId = document.getElementById('threadIdentifier').value;
 
-  if (!typedMessage.length) {
-    alert('A message is mandatory.');
+  if (!typedMessage.length && !files.length) {
+    alert('A message or a file is mandatory.');
     return;
   } else if (!forcedAnon && typedName.length > 32) {
     alert('Name is too long, keep it under 32 characters.');
