@@ -236,6 +236,10 @@ if (!DISABLE_JS) {
     comboBypassMode : {
       setting : 'bypassMode',
       type : 'combo'
+    },
+    comboMinClearIpRole : {
+      setting : 'clearIpMinRole',
+      type : 'combo'
     }
   };
 
