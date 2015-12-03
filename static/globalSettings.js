@@ -13,6 +13,10 @@ if (!DISABLE_JS) {
       setting : 'address',
       type : 'string'
     },
+    fieldRssDomain : {
+      setting : 'rssDomain',
+      type : 'string'
+    },
     fieldPort : {
       setting : 'port',
       type : 'string'
