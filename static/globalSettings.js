@@ -25,10 +25,6 @@ if (!DISABLE_JS) {
       setting : 'multiboardThreadCount',
       type : 'string'
     },
-    fieldTcpPort : {
-      setting : 'tcpPort',
-      type : 'string'
-    },
     fieldGlobalLatestPosts : {
       setting : 'globalLatestPosts',
       type : 'string'
