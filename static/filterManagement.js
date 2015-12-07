@@ -48,6 +48,7 @@ function addFilter() {
   var typedOriginal = document.getElementById('fieldOriginalTerm').value.trim();
   var typedReplacement = document.getElementById('fieldReplacementTerm').value
       .trim();
+  var caseInsensitive = document.getElementById('checkboxCaseInsensitive').checked;
 
   if (!typedOriginal.length || !typedReplacement.length) {
     alert('Both fields are mandatory.');
@@ -60,6 +61,7 @@ function addFilter() {
   apiRequest('createFilter', {
     boardUri : boardIdentifier,
     originalTerm : typedOriginal,
+    caseInsensitive : caseInsensitive,
     replacementTerm : typedReplacement
   }, function requestComplete(status, data) {
 
