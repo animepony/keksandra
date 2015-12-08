@@ -1,6 +1,5 @@
 var settingsRelation = {
-  checkboxAlwaysSign : 'alwaysSignRole',
-  checkboxLock : 'lockEnabled'
+  checkboxAlwaysSign : 'alwaysSignRole'
 };
 
 if (!DISABLE_JS) {
