@@ -44,8 +44,8 @@ function makeJsRequest(files) {
     boardUri : boardIdentifier,
   }, function requestComplete(status, data) {
 
-    document.getElementById('files').type = 'text';
-    document.getElementById('files').type = 'file';
+    document.getElementById('JsFiles').type = 'text';
+    document.getElementById('JsFiles').type = 'file';
 
     if (status === 'ok') {
 

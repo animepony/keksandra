@@ -23,7 +23,7 @@ function handleConnectionResponse(xhr, delegate) {
     response = JSON.parse(xhr.responseText);
 
     if (VERBOSE) {
-      JSON.stringify(response, null, 2);
+      console.log(JSON.stringify(response, null, 2));
     }
   } catch (error) {
     alert('Error in parsing response.');
@@ -31,7 +31,7 @@ function handleConnectionResponse(xhr, delegate) {
   }
 
   if (response.auth && response.auth.authStatus === 'expired') {
-    document.cookie = 'hash=' + response.auth.newHash;
+    document.cookie = 'hash=' + response.auth.newHash + ';path=/';
 
   }
 
