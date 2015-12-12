@@ -145,7 +145,7 @@ function markPost(id) {
 
   var container = document.getElementById(id);
 
-  if (container.className !== 'postCell') {
+  if (!container || container.className !== 'postCell') {
     return;
   }
 

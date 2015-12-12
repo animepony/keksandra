@@ -137,6 +137,10 @@ if (!DISABLE_JS) {
       setting : 'maxVolunteers',
       type : 'string'
     },
+    fieldGlobalLatestImages : {
+      setting : 'globalLatestImages',
+      type : 'string'
+    },
     fieldMaxBannerSize : {
       setting : 'maxBannerSize',
       type : 'string'
