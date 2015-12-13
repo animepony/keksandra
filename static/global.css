@@ -6,6 +6,11 @@ body {
   background: #EEF2FF;
 }
 
+.imgFlag {
+  width: 16px;
+  height: 16px;
+}
+
 hr {
   border-width: 1px medium medium;
   border-style: solid none none;
