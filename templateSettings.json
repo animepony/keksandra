@@ -69,5 +69,6 @@
   "bypassPage": "bypass.html",
   "logIndexPage": "logsIndex.html",
   "logIndexCell": "logIndexCell.html",
-  "unlockEmail": "unlockEmail.html"
+  "unlockEmail": "unlockEmail.html",
+  "latestImageCell": "latestImagesCell.html"
 }
