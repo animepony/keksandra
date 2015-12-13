@@ -233,6 +233,14 @@ function saveSettings() {
     settings.push('disableCaptcha');
   }
 
+  if (document.getElementById('uniquePostsCheckbox').checked) {
+    settings.push('uniquePosts');
+  }
+
+  if (document.getElementById('uniqueFilesCheckbox').checked) {
+    settings.push('uniqueFiles');
+  }
+
   if (document.getElementById('unindexCheckbox').checked) {
     settings.push('unindex');
   }
