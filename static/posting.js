@@ -167,11 +167,19 @@ function processImageLink(link) {
   }
 }
 
+function setFullBorder(tooltip) {
+
+  var innerPost = tooltip.getElementsByClassName('innerPost')[0];
+  innerPost.style['border-style'] = 'solid solid solid solid';
+  innerPost.style['border-width'] = '1px 1px 1px 1px';
+  innerPost.style['border-color'] = '#B7C5D9 #B7C5D9 #B7C5D9 #B7C5D9';
+
+}
+
 function processQuote(quote) {
 
   var tooltip = document.createElement('div');
   tooltip.style.display = 'none';
-  tooltip.style['background-color'] = '#cccccc';
   tooltip.style.position = 'absolute';
 
   document.body.appendChild(tooltip);
@@ -180,6 +188,9 @@ function processQuote(quote) {
 
   if (loadedPreviews.indexOf(quoteUrl) > -1) {
     tooltip.innerHTML = loadedContent[quoteUrl];
+
+    setFullBorder(tooltip);
+
   } else {
     var referenceList = quoteReference[quoteUrl] || [];
 
@@ -240,6 +251,8 @@ function loadQuote(tooltip, quoteUrl) {
 
       for (var i = 0; i < referenceList.length; i++) {
         referenceList[i].innerHTML = data;
+
+        setFullBorder(referenceList[i]);
       }
 
       loadedContent[quoteUrl] = data;
