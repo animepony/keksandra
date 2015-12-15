@@ -8,6 +8,8 @@ var playableTypes = [ 'video/webm', 'audio/mpeg', 'video/mp4', 'video/ogg',
 
 var videoTypes = [ 'video/webm', 'video/mp4', 'video/ogg' ];
 
+var knownPosts = {};
+
 if (!DISABLE_JS) {
 
   if (document.getElementById('deleteJsButton')) {
@@ -31,7 +33,7 @@ if (!DISABLE_JS) {
 
   var fuckYou = [];
 
-  for (i = 0; i < imageLinks.length; i++) {
+  for (var i = 0; i < imageLinks.length; i++) {
     fuckYou.push(imageLinks[i]);
   }
 
@@ -39,13 +41,43 @@ if (!DISABLE_JS) {
     processImageLink(fuckYou[i]);
   }
 
-  var quotes = document.getElementsByClassName('quoteLink');
+  var posts = document.getElementsByClassName('postCell');
 
-  for (var i = 0; i < quotes.length; i++) {
+  for (i = 0; i < posts.length; i++) {
+
+    addToKnownPostsForBackLinks(posts[i])
+
+  }
+
+  var threads = document.getElementsByClassName('opCell');
+
+  for (i = 0; i < threads.length; i++) {
+
+    addToKnownPostsForBackLinks(threads[i])
+
+  }
+
+  var quotes = document.getElementsByClassName('quoteLink');
+  for (i = 0; i < quotes.length; i++) {
     var quote = quotes[i];
 
     processQuote(quote);
   }
+}
+
+function addToKnownPostsForBackLinks(posting) {
+
+  var postBoard = posting.dataset.boarduri;
+
+  var list = knownPosts[postBoard] || {};
+
+  knownPosts[postBoard] = list;
+
+  list[posting.id] = {
+    added : [],
+    container : posting.getElementsByClassName('panelBacklinks')[0]
+  };
+
 }
 
 /* Expanded images have the class 'imgExpanded' */
@@ -169,6 +201,8 @@ function processImageLink(link) {
 
 function setFullBorder(tooltip) {
 
+  tooltip.style['background-color'] = 'transparent';
+
   var innerPost = tooltip.getElementsByClassName('innerPost')[0];
   innerPost.style['border-style'] = 'solid solid solid solid';
   innerPost.style['border-width'] = '1px 1px 1px 1px';
@@ -176,15 +210,88 @@ function setFullBorder(tooltip) {
 
 }
 
-function processQuote(quote) {
+function addBackLink(quoteUrl, quote) {
+
+  var matches = quoteUrl.match(/\/(\w+)\/res\/\d+\.html\#(\d+)/);
+
+  var board = matches[1];
+  var post = matches[2];
+
+  var knownBoard = knownPosts[board];
+
+  if (knownBoard) {
+
+    var knownBackLink = knownBoard[post];
+
+    if (knownBackLink) {
+
+      var containerPost = quote.parentNode.parentNode;
+
+      if (containerPost.className !== 'opCell') {
+        containerPost = containerPost.parentNode;
+      }
+
+      var sourceBoard = containerPost.dataset.boarduri;
+      var sourcePost = containerPost.id;
+
+      var sourceId = sourceBoard + '_' + sourcePost;
+
+      if (knownBackLink.added.indexOf(sourceId) > -1) {
+        return;
+      } else {
+        knownBackLink.added.push(sourceId);
+      }
+
+      var innerHTML = '>>';
+
+      if (sourceBoard != board) {
+        innerHTML += '/' + containerPost.dataset.boarduri + '/';
+      }
+
+      innerHTML += sourcePost;
+
+      var backLink = document.createElement('a');
+      backLink.innerHTML = innerHTML;
+
+      var superContainer = containerPost.parentNode;
+
+      var backLinkUrl = '/' + sourceBoard + '/res/';
+
+      if (superContainer.className === 'divPosts') {
+
+        backLinkUrl += containerPost.parentNode.parentNode.id;
+        backLinkUrl += '.html#' + sourcePost;
+
+      } else {
+        backLinkUrl += sourcePost + '.html#' + sourcePost;
+      }
+
+      backLink.href = backLinkUrl;
+
+      knownBackLink.container.appendChild(backLink);
+
+      processQuote(backLink, true);
+
+    }
+
+  }
+
+}
+
+function processQuote(quote, backLink) {
 
   var tooltip = document.createElement('div');
   tooltip.style.display = 'none';
   tooltip.style.position = 'absolute';
+  tooltip.style['background-color'] = '#ffffff';
 
   document.body.appendChild(tooltip);
 
   var quoteUrl = quote.href;
+
+  if (!backLink) {
+    addBackLink(quoteUrl, quote);
+  }
 
   if (loadedPreviews.indexOf(quoteUrl) > -1) {
     tooltip.innerHTML = loadedContent[quoteUrl];

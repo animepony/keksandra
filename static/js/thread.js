@@ -22,7 +22,7 @@ var postCellTemplate = '<div class="innerPost"><input type="checkbox" '
     + '<span class="labelRole"></span> <span class="labelCreated"></span>'
     + '<span class="spanId"> Id: <span class="labelId"></span></span>'
     + ' <a class="linkPreview">[Preview]</a> <a class="linkSelf">No.</a>'
-    + ' <a class="linkQuote"></a>'
+    + ' <a class="linkQuote"></a> <span class="panelBacklinks"> </span>'
     + '<div class="panelUploads"></div><div class="divMessage" /></div>'
     + '<div class="divBanMessage"></div><div class="labelLastEdit"></div><br></div>';
 
@@ -495,6 +495,10 @@ function addPost(post) {
   }
 
   divPosts.appendChild(postCell);
+
+  postCell.setAttribute('data-boarduri', boardUri);
+
+  addToKnownPostsForBackLinks(postCell);
 
   var quotes = postCell.getElementsByClassName('quoteLink');
 
