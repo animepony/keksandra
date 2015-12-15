@@ -67,6 +67,13 @@ if (!DISABLE_JS) {
 
   }
 
+  var savedPassword = getSavedPassword();
+
+  if (savedPassword && savedPassword.length) {
+    document.getElementById('fieldPostingPassword').value = savedPassword;
+    document.getElementById('deletionFieldPassword').value = savedPassword;
+  }
+
   replyButton = document.getElementById('jsButton');
   replyButton.style.display = 'inline';
   replyButton.disabled = false;
@@ -598,6 +605,10 @@ function sendReplyData(files, captchaId) {
   } else if (typedPassword.length > 8) {
     alert('Password is too long, keep it under 8 characters.');
     return;
+  }
+
+  if (typedPassword.length) {
+    savePassword(typedPassword);
   }
 
   originalButtonText = replyButton.innerHTML;
