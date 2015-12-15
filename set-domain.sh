@@ -11,9 +11,9 @@ else
 
   if [ "$answerSettings" == "y" ]; then
 
-    cp settings.js.example static/settings.js
+    cp settings.js.example static/js/settings.js
 
-    sed -i "s/localhost:8080/$1/g" static/settings.js
+    sed -i "s/localhost:8080/$1/g" static/js/settings.js
 
   fi
 

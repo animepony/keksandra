@@ -7,14 +7,14 @@
 <link
   rel="stylesheet"
   type="text/css"
-  href="http://static.localhost:8080/global.css">
+  href="http://static.localhost:8080/css/global.css">
 </head>
 <body>
   <img
     class="logo"
     src="http://static.localhost:8080/logo.png"
     title="Logo by Doke">
-  <h1>The server</h1>
+  <h3>The server</h3>
   The server do not allow SSH connections using passwords.
   <br>
   The only user allowed to remotely access the server requires a key with a pass
@@ -23,18 +23,23 @@
   <br>
   The user that runs the application do not belong to the sudoers group.
 
-  <h1>The application</h1>
+  <h3>The application</h3>
   This instance does not have SSL enabled, even though the LynxChan engine
   supports it.
   <br>
   The database is not encrypted, allows only local connections and do not
   require authentication.
 
-  <h1>Ips</h1>
+  <h3>Deletion passwords</h3>
+  Deletion passwords are stored in plain text and are not meant to be secure. If
+  you wish to make sure you can't be tracked without your ip, do not provide a
+  deletion password when posting.
+
+  <h3>Ips</h3>
   Every posting has it's ip recorded. Except for TOR users. Proxy users have
   their proxy Ip recorded and displayed to both global and board staff.
   <br>
-  The first two parts of the ip can be seen by the global staff and board staff.
+  The first half of the ip can be seen by the global staff and board staff.
   Ex: "1.2.3.4" will be displayed as "1.2" to both global and board staff where
   the post was made.
   <br>
@@ -64,6 +69,14 @@
   WARNING: if you use an addon to spoof your IP, like IP-Flood, your REAL ip
   will be logged and displayed to both global and board staff as a proxy ip,
   while your spoofed ip will be ignored.
+
+  <h3>Cookies</h3>
+  Cookies are only required for using the block bypass or a moderation account
+  and are not associated in any shape or form to your posts.
+
+  <h3>Javascript</h3>
+  The placeholder front-end does not link any external resources and do not
+  require the user to run javascript at all.
 
 </body>
 </html>
