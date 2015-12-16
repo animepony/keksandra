@@ -14,6 +14,7 @@ var manualRefresh;
 var foundPosts;
 var hiddenCaptcha = !document.getElementById('captchaDiv');
 var markedPosting;
+var limitRefreshWait = 10 * 60;
 var originalButtonText;
 
 var postCellTemplate = '<div class="innerPost"><input type="checkbox" '
@@ -694,6 +695,10 @@ function postReply() {
 }
 
 function startTimer(time) {
+
+  if (time > limitRefreshWait) {
+    time = limitRefreshWait;
+  }
 
   currentRefresh = time;
   lastRefresh = time;
