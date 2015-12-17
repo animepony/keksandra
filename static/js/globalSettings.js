@@ -25,6 +25,10 @@ if (!DISABLE_JS) {
       setting : 'multiboardThreadCount',
       type : 'string'
     },
+    fieldSslPass : {
+      setting : 'sslPass',
+      type : 'string'
+    },
     fieldGlobalLatestPosts : {
       setting : 'globalLatestPosts',
       type : 'string'
