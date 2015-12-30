@@ -7,8 +7,8 @@ body {
 }
 
 .imgFlag {
-  width: 16px;
-  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
 }
 
 hr {
