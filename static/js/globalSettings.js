@@ -225,10 +225,6 @@ if (!DISABLE_JS) {
       setting : 'archiveLevel',
       type : 'combo'
     },
-    comboProxyAccess : {
-      setting : 'proxyAccess',
-      type : 'combo'
-    },
     comboTorAccess : {
       setting : 'torAccess',
       type : 'combo'
