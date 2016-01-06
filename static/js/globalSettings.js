@@ -9,6 +9,14 @@ if (!DISABLE_JS) {
       setting : 'concurrentRebuildMessages',
       type : 'string'
     },
+    fieldSlaves : {
+      setting : 'slaves',
+      type : 'array'
+    },
+    fieldMaster : {
+      setting : 'master',
+      type : 'string'
+    },
     fieldAddress : {
       setting : 'address',
       type : 'string'
