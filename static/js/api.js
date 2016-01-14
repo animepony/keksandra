@@ -131,11 +131,11 @@ function apiRequest(page, parameters, delegate) {
   var xhr = new XMLHttpRequest();
 
   if ('withCredentials' in xhr) {
-    xhr.open('POST', API_DOMAIN + page, true);
+    xhr.open('POST', '/.api/' + page, true);
   } else if (typeof XDomainRequest != 'undefined') {
 
     xhr = new XDomainRequest();
-    xhr.open('POST', API_DOMAIN + page);
+    xhr.open('POST', '/.api/' + page);
   } else {
     alert('This site can\'t run js on your shitty browser because it does not support CORS requests. Disable js and try again.');
 

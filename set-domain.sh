@@ -13,8 +13,6 @@ else
 
     cp settings.js.example static/js/settings.js
 
-    sed -i "s/localhost:8080/$1/g" static/js/settings.js
-
   fi
 
 fi

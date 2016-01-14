@@ -1,3 +1,2 @@
 var VERBOSE = false;
 var DISABLE_JS = false;
-var API_DOMAIN = '//api.localhost:8080/';
