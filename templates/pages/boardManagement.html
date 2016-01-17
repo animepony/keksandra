@@ -194,145 +194,6 @@
     <h3>Volunteers</h3>
     <div id="volunteersDiv"></div>
 
-    <h3>Settings</h3>
-    <form
-      action="/setBoardSettings.js"
-      method="post"
-      enctype="multipart/form-data">
-      <input
-        type="hidden"
-        id="boardSettingsIdentifier"
-        name="boardUri">
-      Board name:
-      <input
-        id="boardNameField"
-        type="text"
-        name="boardName">
-      <br>
-      Board description:
-      <input
-        id="boardDescriptionField"
-        type="text"
-        name="boardDescription">
-      <br>
-      Anonymous name:
-      <input
-        id="anonymousNameField"
-        type="text"
-        name="anonymousName">
-      <br>
-      Hourly thread limit(Locks thread creation temporarily if exceeded):
-      <input
-        id="hourlyThreadLimitField"
-        type="text"
-        name="hourlyThreadLimit">
-      <br>
-      Enable captcha if this many threads are created within an hour:
-      <input
-        id="autoCaptchaThresholdField"
-        type="text"
-        name="autoCaptchaLimit">
-      <br>
-      Tags*:
-      <input
-        type="text"
-        id="tagsField"
-        name="tags">
-      <br>
-      <span style="vertical-align: top;">Board message:</span>
-      <br>
-      <textarea
-        rows="8"
-        cols="50"
-        name="boardMessage"
-        id="boardMessageField"></textarea>
-      <br>
-      <input
-        type="checkbox"
-        name="uniqueFiles"
-        id="uniqueFilesCheckbox">
-      Unique files
-      <br>
-      <input
-        type="checkbox"
-        name="locationFlags"
-        id="locationCheckBox">
-      Location flags
-      <br>
-      <input
-        type="checkbox"
-        name="uniquePosts"
-        id="uniquePostsCheckbox">
-      Unique posts
-      <br>
-      <input
-        type="checkbox"
-        name="disableIds"
-        id="disableIdsCheckbox">
-      Disable thread-wise ids
-      <br>
-      <input
-        type="checkbox"
-        name="requireThreadFile"
-        id="requireFileCheckbox">
-      Require at least one file for new threads
-      <br>
-      <input
-        type="checkbox"
-        name="blockDeletion"
-        id="blockDeletionCheckbox">
-      Block users from deleting their posts
-      <br>
-      <input
-        type="checkbox"
-        name="archive"
-        id="enableArchiveCheckbox">
-      Archive content
-      <br>
-      <input
-        type="checkbox"
-        name="allowCode"
-        id="allowCodeCheckbox">
-      Allow use of code tags
-      <br>
-      <input
-        type="checkbox"
-        name="disableCaptcha"
-        id="disableCaptchaCheckbox">
-      Disable captcha
-      <br>
-      <input
-        type="checkbox"
-        name="unindex"
-        id="unindexCheckbox">
-      Don't index on top boards and board list.
-      <br>
-      <input
-        type="checkbox"
-        name="forceAnonymity"
-        id="forceAnonymityCheckbox">
-      Force anonymity
-      <br>
-      <input
-        type="checkbox"
-        name=early404
-        id="early404Checkbox">
-      Early 404: threads that are not replied at least 5 times will be deleted
-      after an hour.
-      <br>
-
-      <input
-        type="button"
-        value="Save"
-        onClick="saveSettings()"
-        style="display: none;"
-        id="saveSettingsJsButton">
-      <input
-        type="submit"
-        value="Save"
-        id="saveSettingsFormButton">
-    </form>
-
     <a id="bannerManagementLink">Manage banners</a>
     <br>
     <a id="filterManagementLink">Manage filters</a>
@@ -343,6 +204,145 @@
     <br>
 
   </div>
+
+  <h3>Settings</h3>
+  <form
+    action="/setBoardSettings.js"
+    method="post"
+    enctype="multipart/form-data">
+    <input
+      type="hidden"
+      id="boardSettingsIdentifier"
+      name="boardUri">
+    Board name:
+    <input
+      id="boardNameField"
+      type="text"
+      name="boardName">
+    <br>
+    Board description:
+    <input
+      id="boardDescriptionField"
+      type="text"
+      name="boardDescription">
+    <br>
+    Anonymous name:
+    <input
+      id="anonymousNameField"
+      type="text"
+      name="anonymousName">
+    <br>
+    Hourly thread limit(Locks thread creation temporarily if exceeded):
+    <input
+      id="hourlyThreadLimitField"
+      type="text"
+      name="hourlyThreadLimit">
+    <br>
+    Enable captcha if this many threads are created within an hour:
+    <input
+      id="autoCaptchaThresholdField"
+      type="text"
+      name="autoCaptchaLimit">
+    <br>
+    Tags*:
+    <input
+      type="text"
+      id="tagsField"
+      name="tags">
+    <br>
+    <span style="vertical-align: top;">Board message:</span>
+    <br>
+    <textarea
+      rows="8"
+      cols="50"
+      name="boardMessage"
+      id="boardMessageField"></textarea>
+    <br>
+    <input
+      type="checkbox"
+      name="uniqueFiles"
+      id="uniqueFilesCheckbox">
+    Unique files
+    <br>
+    <input
+      type="checkbox"
+      name="locationFlags"
+      id="locationCheckBox">
+    Location flags
+    <br>
+    <input
+      type="checkbox"
+      name="uniquePosts"
+      id="uniquePostsCheckbox">
+    Unique posts
+    <br>
+    <input
+      type="checkbox"
+      name="disableIds"
+      id="disableIdsCheckbox">
+    Disable thread-wise ids
+    <br>
+    <input
+      type="checkbox"
+      name="requireThreadFile"
+      id="requireFileCheckbox">
+    Require at least one file for new threads
+    <br>
+    <input
+      type="checkbox"
+      name="blockDeletion"
+      id="blockDeletionCheckbox">
+    Block users from deleting their posts
+    <br>
+    <input
+      type="checkbox"
+      name="archive"
+      id="enableArchiveCheckbox">
+    Archive content
+    <br>
+    <input
+      type="checkbox"
+      name="allowCode"
+      id="allowCodeCheckbox">
+    Allow use of code tags
+    <br>
+    <input
+      type="checkbox"
+      name="disableCaptcha"
+      id="disableCaptchaCheckbox">
+    Disable captcha
+    <br>
+    <input
+      type="checkbox"
+      name="unindex"
+      id="unindexCheckbox">
+    Don't index on top boards and board list.
+    <br>
+    <input
+      type="checkbox"
+      name="forceAnonymity"
+      id="forceAnonymityCheckbox">
+    Force anonymity
+    <br>
+    <input
+      type="checkbox"
+      name=early404
+      id="early404Checkbox">
+    Early 404: threads that are not replied at least 5 times will be deleted
+    after an hour.
+    <br>
+
+    <input
+      type="button"
+      value="Save"
+      onClick="saveSettings()"
+      style="display: none;"
+      id="saveSettingsJsButton">
+    <input
+      type="submit"
+      value="Save"
+      id="saveSettingsFormButton">
+  </form>
 
   <a id="rangeBansLink">Range bans</a>
   <br>

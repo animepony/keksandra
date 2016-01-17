@@ -7,13 +7,11 @@ if (!DISABLE_JS) {
     document.getElementById('addVolunteerJsButton').style.display = 'inline';
     document.getElementById('transferBoardJsButton').style.display = 'inline';
     document.getElementById('deleteBoardJsButton').style.display = 'inline';
-    document.getElementById('saveSettingsJsButton').style.display = 'inline';
     document.getElementById('cssJsButton').style.display = 'inline';
     document.getElementById('spoilerJsButton').style.display = 'inline';
 
     document.getElementById('spoilerFormButton').style.display = 'none';
     document.getElementById('cssFormButton').style.display = 'none';
-    document.getElementById('saveSettingsFormButton').style.display = 'none';
     document.getElementById('deleteBoardFormButton').style.display = 'none';
     document.getElementById('addVolunteerFormButton').style.display = 'none';
     document.getElementById('transferBoardFormButton').style.display = 'none';
@@ -24,8 +22,6 @@ if (!DISABLE_JS) {
       document.getElementById('jsFormButton').style.display = 'none';
     }
 
-    boardIdentifier = document.getElementById('addVolunteerBoardIdentifier').value;
-
     var volunteerDiv = document.getElementById('volunteersDiv');
 
     for (var i = 0; i < volunteerDiv.childNodes.length; i++) {
@@ -33,6 +29,10 @@ if (!DISABLE_JS) {
 
     }
   }
+
+  boardIdentifier = document.getElementById('boardSettingsIdentifier').value;
+  document.getElementById('saveSettingsJsButton').style.display = 'inline';
+  document.getElementById('saveSettingsFormButton').style.display = 'none';
 
   setupReportButtons();
 
