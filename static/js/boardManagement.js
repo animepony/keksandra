@@ -253,6 +253,10 @@ function saveSettings() {
     settings.push('forceAnonymity');
   }
 
+  if (document.getElementById('locationCheckBox').checked) {
+    settings.push('locationFlags');
+  }
+
   var typedTags = document.getElementById('tagsField').value.split(',');
 
   apiRequest('setBoardSettings', {
