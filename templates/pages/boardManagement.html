@@ -214,6 +214,36 @@
       type="hidden"
       id="boardSettingsIdentifier"
       name="boardUri">
+    Maximum files**:
+    <input
+      id="maxFilesField"
+      type="text"
+      name="maxFiles">
+    <br>
+    Max file size**:
+    <input
+      id="maxFileSizeField"
+      type="text"
+      name="maxFileSizeMB">
+    <br>
+    Thread limit**:
+    <input
+      id="maxThreadFields"
+      type="text"
+      name="maxThreadCount">
+    <br>
+    Reply limit before auto-sage**:
+    <input
+      id="autoSageLimitField"
+      type="text"
+      name="autoSageLimit">
+    <br>
+    Valid mimes*/**:
+    <input
+      id="validMimesField"
+      type="text"
+      name="acceptedMimes">
+    <br>
     Board name:
     <input
       id="boardNameField"
@@ -358,7 +388,10 @@
   <h3>Appealed bans</h3>
   <div id="appealedBansPanel"></div>
 
-  *: separate tags with commas.
+  *: separate elements with commas.
+  <br>
+  **: will be ignored if values are higher than the global equivalent as
+  elements not present on the global equivalent.
 </body>
 
 <script src="/.static/js/settings.js"></script>

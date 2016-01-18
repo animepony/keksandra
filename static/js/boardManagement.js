@@ -193,6 +193,15 @@ function saveSettings() {
   var typedAutoCaptcha = document.getElementById('autoCaptchaThresholdField').value
       .trim();
 
+  var typedAutoSage = document.getElementById('autoSageLimitField').value
+      .trim();
+  var typedFileLimit = document.getElementById('maxFilesField').value.trim();
+  var typedFileSize = document.getElementById('maxFileSizeField').value.trim();
+  var typedTypedMimes = document.getElementById('validMimesField').value
+      .split(',');
+  var typedThreadLimit = document.getElementById('maxThreadFields').value
+      .trim();
+
   if (typedHourlyLimit.length && isNaN(typedHourlyLimit)) {
     alert('Invalid hourly limit.');
     return;
@@ -268,7 +277,12 @@ function saveSettings() {
     anonymousName : typedAnonymousName,
     boardDescription : typedDescription,
     boardUri : boardIdentifier,
-    settings : settings
+    settings : settings,
+    autoSageLimit : typedAutoSage,
+    maxThreadCount : typedThreadLimit,
+    maxFileSizeMB : typedFileSize,
+    acceptedMimes : typedTypedMimes,
+    maxFiles : typedFileLimit,
   }, function requestComplete(status, data) {
 
     if (status === 'ok') {
