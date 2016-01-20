@@ -65,5 +65,7 @@
   "defaultBanner": "images/banner.png",
   "spoiler": "images/spoiler.png",
   "audioThumb": "images/music.png",
-  "thumb": "../static/logo.png"
+  "thumb": "../static/logo.png",
+  "graphsIndexPage": "pages/graphsIndex.html",
+  "graphIndexCell": "cells/graphIndexCell.html"
 }
