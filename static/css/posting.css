@@ -53,6 +53,7 @@ figure.page-head {
 
 #divMessage {
   text-align: center;
+  word-break: break-word;
 }
 
 .form-post {
@@ -167,7 +168,6 @@ figure.page-head {
 
 .innerPost, .markedPost {
   background-color: #D6DAF0;
-  white-space: nowrap;
   display: inline-block;
   position: relative;
   overflow: hidden;
