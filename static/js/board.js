@@ -176,17 +176,21 @@ function postThread() {
       return;
     }
 
-    var parsedCookies = getCookies();
+    if (typedCaptcha.length == 24) {
+      processFilesToPost(typedCaptcha);
+    } else {
+      var parsedCookies = getCookies();
 
-    apiRequest('solveCaptcha', {
+      apiRequest('solveCaptcha', {
 
-      captchaId : parsedCookies.captchaid,
-      answer : typedCaptcha
-    }, function solvedCaptcha(status, data) {
+        captchaId : parsedCookies.captchaid,
+        answer : typedCaptcha
+      }, function solvedCaptcha(status, data) {
 
-      processFilesToPost(parsedCookies.captchaid);
+        processFilesToPost(parsedCookies.captchaid);
 
-    });
+      });
+    }
 
   }
 
