@@ -254,10 +254,6 @@ function saveSettings() {
     settings.push('unindex');
   }
 
-  if (document.getElementById('enableArchiveCheckbox').checked) {
-    settings.push('archive');
-  }
-
   if (document.getElementById('forceAnonymityCheckbox').checked) {
     settings.push('forceAnonymity');
   }

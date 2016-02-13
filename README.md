@@ -9,3 +9,5 @@ Example:
 var VERBOSE = false;
 var DISABLE_JS = false;
 ```
+
+The `setup.sh` script prompts and if desired, can copy the default settings to their place.

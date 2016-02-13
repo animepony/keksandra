@@ -217,10 +217,6 @@ if (!DISABLE_JS) {
       setting : 'disableFloodCheck',
       type : 'boolean'
     },
-    checkboxServeArchive : {
-      setting : 'serveArchive',
-      type : 'boolean'
-    },
     checkboxDisableAccountCreation : {
       setting : 'disableAccountCreation',
       type : 'boolean'
@@ -232,10 +228,6 @@ if (!DISABLE_JS) {
     fieldAddons : {
       setting : 'addons',
       type : 'array'
-    },
-    comboArchive : {
-      setting : 'archiveLevel',
-      type : 'combo'
     },
     comboTorAccess : {
       setting : 'torAccess',
