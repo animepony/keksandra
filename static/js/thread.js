@@ -27,7 +27,7 @@ var postCellTemplate = '<div class="innerPost"><input type="checkbox" '
     + '<div class="panelUploads"></div><div class="divMessage" /></div>'
     + '<div class="divBanMessage"></div><div class="labelLastEdit"></div><br></div>';
 
-var uploadCell = '<a class="nameLink" target="blank"></a>'
+var uploadCell = '<a class="nameLink" target="blank">Open file</a>'
     + ' ( <span class="sizeLabel"></span> '
     + '<span class="dimensionLabel"></span> '
     + '<a class="originalNameLink"></a> )<br>'
@@ -324,7 +324,6 @@ function setUploadLinks(cell, file) {
 
   var nameLink = cell.getElementsByClassName('nameLink')[0];
   nameLink.href = file.path;
-  nameLink.innerHTML = file.name;
 
   var originalLink = cell.getElementsByClassName('originalNameLink')[0];
   originalLink.innerHTML = file.originalName;
