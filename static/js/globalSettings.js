@@ -181,6 +181,10 @@ if (!DISABLE_JS) {
       setting : 'allowBoardCustomJs',
       type : 'boolean'
     },
+    checkboxAutoPruneFiles : {
+      setting : 'autoPruneFiles',
+      type : 'boolean'
+    },
     checkboxFrontPageStats : {
       setting : 'frontPageStats',
       type : 'boolean'
