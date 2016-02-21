@@ -17,6 +17,10 @@ if (!DISABLE_JS) {
       setting : 'master',
       type : 'string'
     },
+    fieldTorPort : {
+      setting : 'torPort',
+      type : 'string'
+    },
     fieldAddress : {
       setting : 'address',
       type : 'string'
