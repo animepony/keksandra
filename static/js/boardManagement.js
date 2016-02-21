@@ -238,10 +238,6 @@ function saveSettings() {
     settings.push('early404');
   }
 
-  if (document.getElementById('disableCaptchaCheckbox').checked) {
-    settings.push('disableCaptcha');
-  }
-
   if (document.getElementById('uniquePostsCheckbox').checked) {
     settings.push('uniquePosts');
   }
@@ -264,8 +260,11 @@ function saveSettings() {
 
   var typedTags = document.getElementById('tagsField').value.split(',');
 
+  var combo = document.getElementById('captchaModeComboBox');
+
   apiRequest('setBoardSettings', {
     boardName : typedName,
+    captchaMode : combo.options[combo.selectedIndex].value,
     boardMessage : typedMessage,
     autoCaptchaLimit : typedAutoCaptcha,
     hourlyThreadLimit : typedHourlyLimit,
