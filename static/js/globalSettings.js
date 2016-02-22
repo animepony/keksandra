@@ -33,6 +33,10 @@ if (!DISABLE_JS) {
       setting : 'port',
       type : 'string'
     },
+    fieldSfwOverboard : {
+      setting : 'sfwOverboard',
+      type : 'string'
+    },
     fieldMultiBoardThreadCount : {
       setting : 'multiboardThreadCount',
       type : 'string'
