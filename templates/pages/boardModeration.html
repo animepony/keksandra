@@ -72,6 +72,33 @@
       value="Delete board"
       id="deleteJsButton">
   </form>
+
+  <h3>Special settings</h3>
+  <form
+    method="post"
+    enctype="multipart/form-data"
+    action="/setSpecialBoardSettings.js">
+    <input
+      type="checkbox"
+      name="sfw"
+      id="checkboxSfw">
+    Safe for work board
+    <br>
+    <input
+      type="hidden"
+      name="boardUri"
+      id="specialSettingsIdentifier">
+    <input
+      type="submit"
+      value="Save special settings"
+      id="saveSpecialFormButton">
+    <input
+      type="button"
+      onclick="saveSpecialSettings()"
+      style="display: none;"
+      value="Save special settings"
+      id="saveSpecialJsButton">
+  </form>
 </body>
 
 <script src="/.static/js/settings.js"></script>
