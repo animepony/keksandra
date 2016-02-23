@@ -29,6 +29,10 @@ if (!DISABLE_JS) {
       setting : 'rssDomain',
       type : 'string'
     },
+    fieldCSP : {
+      setting : 'CSP',
+      type : 'string'
+    },
     fieldPort : {
       setting : 'port',
       type : 'string'
