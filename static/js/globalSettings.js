@@ -225,8 +225,12 @@ if (!DISABLE_JS) {
       setting : 'multipleReports',
       type : 'boolean'
     },
-    checkboxGlobalBanners : {
-      setting : 'useGlobalBanners',
+    checkboxMultipleReports : {
+      setting : 'multipleReports',
+      type : 'boolean'
+    },
+    checkboxSFWLatestImages : {
+      setting : 'onlySfwLatestImages',
       type : 'boolean'
     },
     checkboxDisableFloodCheck : {

@@ -12,10 +12,13 @@
     class="logo"
     src="/.static/logo.png"
     title="Logo by Doke">
+
   <form
     action="/saveGlobalSettings.js"
     enctype="multipart/form-data"
     method="post">
+
+    <h3>HTTP settings</h3>
     Address**:
     <input
       type="text"
@@ -40,18 +43,33 @@
       name="sslPass"
       id="fieldSslPass">
     <br>
-    RSS link domain:
-    <input
-      type="text"
-      name="rssDomain"
-      id="fieldRssDomain">
-    <br>
     CSP directives (e.g: "default-src 'self'", without the quotations):
     <input
       type="text"
       name="CSP"
       id="fieldCSP">
     <br>
+    Maximum size for requests (MB):
+    <input
+      type="text"
+      name="maxRequestSize"
+      id="fieldMaxRequestSize">
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxDisable304"
+      name="disable304">
+    Disable http response 304 (Only turn on if you know what you are doing, will
+    consume lots more of bandwidth)
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxSsl"
+      name="ssl">
+    SSL** (Make sure you have the proper files)
+    <br>
+
+    <h3>System settings</h3>
     Master Ip:
     <input
       type="text"
@@ -70,59 +88,23 @@
       name="fePath"
       id="fieldFePath">
     <br>
-    Maximum amount of concurrent rebuild messages:
+    Url for the list of TOR exit node ips:
     <input
       type="text"
-      name="concurrentRebuildMessages"
-      id="fieldConcurrentRebuildMessages">
+      name="torSource"
+      id="fieldTorSource">
     <br>
-    Boards page size:
+    Path to an optional language pack:
     <input
       type="text"
-      name="boardPageSize"
-      id="fieldPageSize">
+      name="languagePack"
+      id="fieldLanguagePack">
     <br>
-    Overboard uri:
+    Extension used for thumbnails (Will make all gif thumbs do not animate):
     <input
       type="text"
-      name="overboard"
-      id="fieldOverboard">
-    <br>
-    SFW overboard uri:
-    <input
-      type="text"
-      name="sfwOverboard"
-      id="fieldSfwOverboard">
-    <br>
-    Amount of threads on the overboard:
-    <input
-      type="text"
-      name="overBoardThreadCount"
-      id="fieldOverBoardThreads">
-    <br>
-    Amount of threads on the multi-board:
-    <input
-      type="text"
-      name="multiboardThreadCount"
-      id="fieldMultiBoardThreadCount">
-    <br>
-    Number of preview posts:
-    <input
-      type="text"
-      name="latestPostsCount"
-      id="fieldLatestPostsCount">
-    <br>
-    Number of replies before a thread enters auto-sage:
-    <input
-      type="text"
-      name="autoSageLimit"
-      id="fieldAutoSageLimit">
-    <br>
-    Maximum amount of threads per board:
-    <input
-      type="text"
-      name="threadLimit"
-      id="fieldThreadLimit">
+      id="fieldThumbExtension"
+      name="thumbExtension">
     <br>
     Temporary directory:
     <input
@@ -130,36 +112,8 @@
       name="tempDir"
       id="fieldTempDir">
     <br>
-    Sender address for automated e-mails:
-    <input
-      type="text"
-      name="senderEmail"
-      id="fieldSenderEmail">
-    <br>
-    Amount of minutes before a captcha expires:
-    <input
-      type="text"
-      name="captchaExpiration"
-      id="fieldCaptchaExpiration">
-    <br>
-    Addons*/**(They will be loaded in the order they appear in this list):
-    <input
-      type="text"
-      name="addons"
-      id="fieldAddons">
-    <br>
-    Site title:
-    <input
-      type="text"
-      name="siteTitle"
-      id="fieldSiteTitle">
-    <br>
-    Maximum size for requests (MB):
-    <input
-      type="text"
-      name="maxRequestSize"
-      id="fieldMaxRequestSize">
-    <br>
+
+    <h3>Posting settings</h3>
     Maximum size for uploaded files (MB):
     <input
       type="text"
@@ -178,17 +132,91 @@
       name="maxFiles"
       id="fieldMaxFiles">
     <br>
-    Default ban message to be displayed on banned posts:
+    Minimum amount of seconds between posts from the same ip:
     <input
       type="text"
-      name="banMessage"
-      id="fieldBanMessage">
+      name="floodInterval"
+      id="fieldFloodInterval">
+    <br>
+    How many posts a block bypass allows:
+    <input
+      type="text"
+      name="bypassMaxPosts"
+      id="fieldBypassPosts">
+    <br>
+    How many hours a block bypass lasts:
+    <input
+      type="text"
+      name="bypassDurationHours"
+      id="fieldBypassHours">
     <br>
     Default anonymous name:
     <input
       type="text"
       name="anonymousName"
       id="fieldAnonymousName">
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxDisableFloodCheck"
+      name="disableFloodCheck">
+    Disable flood checks
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxGlobalCaptcha"
+      name="forceCaptcha">
+    Forces all boards to use captcha
+    <br>
+    Access for TOR users:
+    <select
+      id="comboTorAccess"
+      name="torAccess">
+    </select>
+    <br>
+    Bypass mode:
+    <select
+      id="comboBypassMode"
+      name="bypassMode">
+    </select>
+    <br>
+
+    <h3>Display Limits</h3>
+    Amount of latest posts to show on front-page:
+    <input
+      type="text"
+      name="globalLatestPosts"
+      id="fieldGlobalLatestPosts">
+    <br>
+    Amount of latest images to show on front-page:
+    <input
+      type="text"
+      name="globalLatestImages"
+      id="fieldGlobalLatestImages">
+    <br>
+    Amount of threads on the multi-board:
+    <input
+      type="text"
+      name="multiboardThreadCount"
+      id="fieldMultiBoardThreadCount">
+    <br>
+    Number of preview posts:
+    <input
+      type="text"
+      name="latestPostsCount"
+      id="fieldLatestPostsCount">
+    <br>
+    Maximum amount of threads per board:
+    <input
+      type="text"
+      name="threadLimit"
+      id="fieldThreadLimit">
+    <br>
+    Boards page size:
+    <input
+      type="text"
+      name="boardPageSize"
+      id="fieldPageSize">
     <br>
     Amount of boards to be picked as top boards:
     <input
@@ -202,23 +230,19 @@
       name="boardsPerPage"
       id="fieldBoardsPerPage">
     <br>
-    Url for the list of TOR exit node ips:
+    Amount of threads on the overboard:
     <input
       type="text"
-      name="torSource"
-      id="fieldTorSource">
+      name="overBoardThreadCount"
+      id="fieldOverBoardThreads">
     <br>
-    Path to an optional language pack:
+
+    <h3>Board limits</h3>
+    Maximum size for flags (KB):
     <input
       type="text"
-      name="languagePack"
-      id="fieldLanguagePack">
-    <br>
-    Maximum dimension for thumbnails, for both height and width:
-    <input
-      type="text"
-      name="thumbSize"
-      id="fieldThumbSize">
+      name="maxFlagSize"
+      id="fieldMaxFlagSize">
     <br>
     Maximum number of rules in boards:
     <input
@@ -250,78 +274,82 @@
       name="maxBannerSize"
       id="fieldMaxBannerSize">
     <br>
-    Extension used for thumbnails (Will make all gif thumbs do not animate):
+
+    <h3>Variables</h3>
+    Number of replies before a thread enters auto-sage:
     <input
       type="text"
-      id="fieldThumbExtension"
-      name="thumbExtension">
+      name="autoSageLimit"
+      id="fieldAutoSageLimit">
     <br>
-    Maximum size for flags (KB):
+    Maximum dimension for thumbnails, for both height and width:
     <input
       type="text"
-      name="maxFlagSize"
-      id="fieldMaxFlagSize">
+      name="thumbSize"
+      id="fieldThumbSize">
     <br>
-    Minimum amount of seconds between posts from the same ip:
+    Sender address for automated e-mails:
     <input
       type="text"
-      name="floodInterval"
-      id="fieldFloodInterval">
+      name="senderEmail"
+      id="fieldSenderEmail">
     <br>
-    Amount of latest posts to show on front-page:
+    Amount of minutes before a captcha expires:
     <input
       type="text"
-      name="globalLatestPosts"
-      id="fieldGlobalLatestPosts">
+      name="captchaExpiration"
+      id="fieldCaptchaExpiration">
     <br>
-    Amount of latest images to show on front-page:
+    Site title:
     <input
       type="text"
-      name="globalLatestImages"
-      id="fieldGlobalLatestImages">
+      name="siteTitle"
+      id="fieldSiteTitle">
     <br>
-    How many posts a block bypass allows:
+    Default ban message to be displayed on banned posts:
     <input
       type="text"
-      name="bypassMaxPosts"
-      id="fieldBypassPosts">
+      name="banMessage"
+      id="fieldBanMessage">
     <br>
-    How many hours a block bypass lasts:
+    RSS link domain:
     <input
       type="text"
-      name="bypassDurationHours"
-      id="fieldBypassHours">
+      name="rssDomain"
+      id="fieldRssDomain">
+    <br>
+    Maximum amount of concurrent rebuild messages(Increase if your site's pages
+    are taking too long to update):
+    <input
+      type="text"
+      name="concurrentRebuildMessages"
+      id="fieldConcurrentRebuildMessages">
+    <br>
+    Overboard uri:
+    <input
+      type="text"
+      name="overboard"
+      id="fieldOverboard">
+    <br>
+    SFW overboard uri:
+    <input
+      type="text"
+      name="sfwOverboard"
+      id="fieldSfwOverboard">
+    <br>
+
+    <h3>Misc</h3>
+    Addons*/**(They will be loaded in the order they appear in this list):
+    <input
+      type="text"
+      name="addons"
+      id="fieldAddons">
     <br>
     <input
       type="checkbox"
       id="checkboxGlobalBoardModeration"
       name="allowGlobalBoardModeration">
     Allow global staff to moderate boards
-    <br>
-    <input
-      type="checkbox"
-      id="checkboxVerbose"
-      name="verbose">
-    Verbose mode
-    <br>
-    <input
-      type="checkbox"
-      id="checkboxDisable304"
-      name="disable304">
-    Disable http response 304 (Only turn on if you know what you are doing, will
-    consume lots more of bandwidth)
-    <br>
-    <input
-      type="checkbox"
-      id="checkboxSsl"
-      name="ssl">
-    SSL** (Make sure you have the proper files)
-    <br>
-    <input
-      type="checkbox"
-      id="checkboxDisableFloodCheck"
-      name="disableFloodCheck">
-    Disable flood checks
     <br>
     <input
       type="checkbox"
@@ -337,6 +365,12 @@
     <br>
     <input
       type="checkbox"
+      id="checkboxVerbose"
+      name="verbose">
+    Verbose mode
+    <br>
+    <input
+      type="checkbox"
       id="checkboxMediaThumb"
       name="mediaThumb">
     Generate thumbnails from media files (requires ffmpeg installed)
@@ -346,12 +380,6 @@
       id="checkboxFrontPageStats"
       name="frontPageStats">
     Display total post count and total unique ips on front-page
-    <br>
-    <input
-      type="checkbox"
-      id="checkboxGlobalCaptcha"
-      name="forceCaptcha">
-    Forces all boards to use captcha
     <br>
     <input
       type="checkbox"
@@ -374,15 +402,15 @@
     <br>
     <input
       type="checkbox"
+      id="checkboxSFWLatestImages"
+      name="onlySfwLatestImages">
+    Display only SFW images on the front-page
+    <br>
+    <input
+      type="checkbox"
       id="checkboxMultipleReports"
       name="multipleReports">
     Allow multiple reports at once
-    <br>
-    Access for TOR users:
-    <select
-      id="comboTorAccess"
-      name="torAccess">
-    </select>
     <br>
     Minimum global role for users to be able to see poster's clear ips:
     <select
@@ -394,12 +422,6 @@
     <select
       id="comboBoardCreationRequirement"
       name="boardCreationRequirement">
-    </select>
-    <br>
-    Bypass mode:
-    <select
-      id="comboBypassMode"
-      name="bypassMode">
     </select>
     <br>
     <br>
