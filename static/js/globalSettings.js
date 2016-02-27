@@ -29,6 +29,10 @@ if (!DISABLE_JS) {
       setting : 'rssDomain',
       type : 'string'
     },
+    fieldInactivityThreshold : {
+      setting : 'inactivityThreshold',
+      type : 'string'
+    },
     fieldCSP : {
       setting : 'CSP',
       type : 'string'
