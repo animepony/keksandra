@@ -62,5 +62,7 @@
   "audioThumb": "images/music.png",
   "thumb": "../static/logo.png",
   "graphsIndexPage": "pages/graphsIndex.html",
-  "graphIndexCell": "cells/graphIndexCell.html"
+  "graphIndexCell": "cells/graphIndexCell.html",
+  "mediaManagementPage": "pages/mediaManagement.html",
+  "mediaCell": "cells/mediaCell.html"
 }
