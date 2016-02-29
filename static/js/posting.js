@@ -15,8 +15,10 @@ if (!DISABLE_JS) {
   if (document.getElementById('deleteJsButton')) {
     document.getElementById('deleteJsButton').style.display = 'inline';
     document.getElementById('reportJsButton').style.display = 'inline';
+    document.getElementById('reportFormButton').style.display = 'none';
+    document.getElementById('deleteFormButton').style.display = 'none';
 
-    if (!board && document.getElementById('inputBan')) {
+    if (!board && document.getElementById('divMod')) {
 
       document.getElementById('banJsButton').style.display = 'inline';
       document.getElementById('spoilJsButton').style.display = 'inline';
@@ -25,8 +27,6 @@ if (!DISABLE_JS) {
       document.getElementById('inputSpoil').style.display = 'none';
     }
 
-    document.getElementById('reportFormButton').style.display = 'none';
-    document.getElementById('deleteFormButton').style.display = 'none';
   }
 
   var imageLinks = document.getElementsByClassName('imgLink');
@@ -507,10 +507,16 @@ function deletePosts() {
 
   var toDelete = getSelectedContent();
 
+  if (!toDelete.length) {
+    alert('Nothing selected');
+    return;
+  }
+
   var redirect = '/' + toDelete[0].board + '/';
 
   apiRequest('deleteContent', {
     password : typedPassword,
+    deleteMedia : document.getElementById('checkboxMediaDeletion').checked,
     deleteUploads : document.getElementById('checkboxOnlyFiles').checked,
     postings : toDelete
   }, function requestComplete(status, data) {

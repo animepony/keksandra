@@ -25,6 +25,10 @@ if (!DISABLE_JS) {
       setting : 'address',
       type : 'string'
     },
+    fieldMediaPageSize : {
+      setting : 'mediaPageSize',
+      type : 'string'
+    },
     fieldRssDomain : {
       setting : 'rssDomain',
       type : 'string'

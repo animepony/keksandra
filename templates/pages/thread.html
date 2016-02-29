@@ -140,7 +140,9 @@
         id="threadIdentifier"
         type="hidden"
         name="threadId">
-      Remember to follow the <a href=../rules.html>rules</a>.
+      Remember to follow the
+      <a href=../rules.html>rules</a>
+      .
       <br>
       <span class="finePrint"> Max File Size: <span id="labelMaxFileSize"></span>
       </span>
@@ -225,7 +227,7 @@
         id="reportFieldReason"
         name="reason">
       <br>
-      <div id="divBanInput">
+      <div id="divMod">
         Expiration:
         <input
           type="text"
@@ -238,6 +240,39 @@
           type="text"
           id="fieldbanMessage"
           name="banMessage">
+
+        <br>
+        <input
+          type="checkbox"
+          id="checkboxRange"
+          name="range">
+        Range ban
+        <br>
+        <input
+          type="submit"
+          id="inputBan"
+          value="Ban"
+          name="action">
+
+        <input
+          type="button"
+          style="display: none;"
+          id="banJsButton"
+          onClick="banPosts()"
+          value="Ban">
+
+        <button
+          type="submit"
+          id="inputSpoil"
+          value="spoil"
+          name="action">Spoil files</button>
+
+        <input
+          type="button"
+          style="display: none;"
+          id="spoilJsButton"
+          onClick="spoilFiles()"
+          value="Spoil files">
 
       </div>
       Password:
@@ -260,9 +295,10 @@
       <br>
       <input
         type="checkbox"
-        id="checkboxRange"
-        name="range">
-      Range ban
+        id="checkboxMediaDeletion"
+        name="deleteMedia">
+      Delete media (Actually removes the saved files from the server, standard
+      file deletion only removes the reference to the selected posts)
       <br>
       <img
         id="captchaImageReport"
@@ -295,32 +331,6 @@
         id="deleteJsButton"
         onClick="deletePosts()"
         value="Delete">
-
-      <input
-        type="submit"
-        id="inputBan"
-        value="Ban"
-        name="action">
-
-      <input
-        type="button"
-        style="display: none;"
-        id="banJsButton"
-        onClick="banPosts()"
-        value="Ban">
-
-      <button
-        type="submit"
-        id="inputSpoil"
-        value="spoil"
-        name="action">Spoil files</button>
-
-      <input
-        type="button"
-        style="display: none;"
-        id="spoilJsButton"
-        onClick="spoilFiles()"
-        value="Spoil files">
 
       <input
         type="submit"
