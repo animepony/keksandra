@@ -90,7 +90,15 @@
         type="password"
         id="fieldPostingPassword">
       <br>
-      Files:
+      <span class="formLabel">Files:</span>
+      <br>
+      <div
+        style="display: none;"
+        id="dragAndDropDiv">
+        <div id="dropzone">Drag files to upload or click here to select
+          them</div>
+        <div id="selectedDiv"></div>
+      </div>
       <input
         type="file"
         id="files"

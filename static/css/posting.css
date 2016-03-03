@@ -7,7 +7,43 @@
 
 .panelBacklinks a {
   padding-left: 5px;
-   font-size: 8pt;
+  font-size: 8pt;
+}
+
+.selectedCell, #dropzone {
+  top: 5px;
+  background-color: rgba(200, 200, 200, 0.5);
+  margin-bottom: 5px;
+  padding: 10px 0px;
+}
+
+.selectedCell {
+  margin-top: 10px;
+}
+
+#selectedDiv {
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+#dropzone {
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease 0s;
+  border: 2px dashed rgba(125, 125, 125, 0.4);
+}
+
+.removeButton {
+  cursor: pointer;
+  color: rgba(125, 125, 125, 0.5);
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+.removeButton:hover {
+  color: #7D7D7D;
 }
 
 #bannerImage {

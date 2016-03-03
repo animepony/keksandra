@@ -16,6 +16,8 @@ var hiddenCaptcha = !document.getElementById('captchaDiv');
 var markedPosting;
 var limitRefreshWait = 10 * 60;
 var originalButtonText;
+var selectedFiles = [];
+var selectedDiv;
 
 var postCellTemplate = '<div class="innerPost"><input type="checkbox" '
     + 'class="deletionCheckBox"> <span class="labelSubject"></span>'
@@ -33,14 +35,93 @@ var uploadCell = '<a class="nameLink" target="blank">Open file</a>'
     + '<a class="originalNameLink"></a> )<br>'
     + '<a class="imgLink" target="blank"></a>';
 
+var selectedCell = '<div class="removeButton">✖</div>'
+    + '<span class="nameLabel"></span><div class="spoilerPanel">'
+    + '<input type="checkbox" class="spoilerCheckBox">Spoiler</div>';
+
 var sizeOrders = [ 'B', 'KB', 'MB', 'GB', 'TB' ];
 
 var guiEditInfo = 'Edited last time by {$login} on {$date}.';
+
+function addSelectedFile(file) {
+
+  var cell = document.createElement('div');
+  cell.setAttribute('class', 'selectedCell');
+
+  cell.innerHTML = selectedCell;
+
+  var nameLabel = cell.getElementsByClassName('nameLabel')[0];
+  nameLabel.innerHTML = file.name;
+
+  var removeButton = cell.getElementsByClassName('removeButton')[0];
+  removeButton.onclick = function() {
+    selectedDiv.removeChild(cell);
+    selectedFiles.splice(selectedFiles.indexOf(file), 1);
+  };
+
+  selectedFiles.push(file);
+  selectedDiv.appendChild(cell);
+
+}
+
+function clearSelectedFiles() {
+  selectedFiled = [];
+
+  while (selectedDiv.firstChild) {
+    selectedDiv.removeChild(selectedDiv.firstChild);
+  }
+}
+
+function setDragAndDrop() {
+
+  var fileInput = document.getElementById('files')
+  fileInput.style.display = 'none';
+
+  document.getElementById('dragAndDropDiv').style.display = 'block';
+
+  var drop = document.getElementById('dropzone');
+  drop.onclick = function() {
+    fileInput.click();
+  };
+
+  fileInput.onchange = function() {
+
+    for (var i = 0; i < fileInput.files.length; i++) {
+      addSelectedFile(fileInput.files[i]);
+    }
+
+    fileInput.type = "text";
+    fileInput.type = "file";
+  };
+
+  selectedDiv = document.getElementById('selectedDiv');
+
+  drop.addEventListener('dragover', function handleDragOver(event) {
+
+    event.stopPropagation();
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'copy';
+
+  }, false);
+
+  drop.addEventListener('drop', function handleFileSelect(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+
+    for (var i = 0; i < evt.dataTransfer.files.length; i++) {
+      addSelectedFile(evt.dataTransfer.files[i])
+    }
+
+  }, false);
+
+}
 
 if (!DISABLE_JS) {
 
   boardUri = document.getElementById('boardIdentifier').value;
   var divPosts = document.getElementsByClassName('divPosts')[0];
+
+  setDragAndDrop();
 
   document.getElementsByClassName('divRefresh')[0].style.display = 'inline';
 
@@ -215,8 +296,8 @@ var replyCallback = function(status, data) {
   if (status === 'ok') {
     document.getElementById('fieldMessage').value = '';
     document.getElementById('fieldSubject').value = '';
-    document.getElementById('files').type = 'text';
-    document.getElementById('files').type = 'file';
+
+    clearSelectedFiles();
 
     setTimeout(function() {
       refreshPosts();
@@ -635,23 +716,25 @@ function sendReplyData(files, captchaId) {
 
 }
 
-function iterateSelectedFiles(currentIndex, files, fileChooser, captchaId) {
+function iterateSelectedFiles(currentIndex, files, captchaId) {
 
-  if (currentIndex < fileChooser.files.length) {
+  if (currentIndex < selectedFiles.length) {
     var reader = new FileReader();
 
     reader.onloadend = function(e) {
 
-      files.push({
-        name : fileChooser.files[currentIndex].name,
-        content : reader.result
-      });
+      files
+          .push({
+            name : selectedFiles[currentIndex].name,
+            content : reader.result,
+            spoiler : selectedDiv.getElementsByClassName('spoilerCheckBox')[currentIndex].checked
+          });
 
-      iterateSelectedFiles(currentIndex + 1, files, fileChooser, captchaId);
+      iterateSelectedFiles(currentIndex + 1, files, captchaId);
 
     };
 
-    reader.readAsDataURL(fileChooser.files[currentIndex]);
+    reader.readAsDataURL(selectedFiles[currentIndex]);
   } else {
     sendReplyData(files, captchaId);
   }
@@ -659,7 +742,7 @@ function iterateSelectedFiles(currentIndex, files, fileChooser, captchaId) {
 }
 
 function processFilesToPost(captchaId) {
-  iterateSelectedFiles(0, [], document.getElementById('files'), captchaId);
+  iterateSelectedFiles(0, [], captchaId);
 }
 
 function postReply() {
