@@ -52,7 +52,7 @@
     Maximum size for requests (MB):
     <input
       type="text"
-      name="maxRequestSize"
+      name="maxRequestSizeMB"
       id="fieldMaxRequestSize">
     <br>
     <input
@@ -97,7 +97,7 @@
     Path to an optional language pack:
     <input
       type="text"
-      name="languagePack"
+      name="languagePackPath"
       id="fieldLanguagePack">
     <br>
     Extension used for thumbnails (Will make all gif thumbs do not animate):
@@ -109,7 +109,7 @@
     Temporary directory:
     <input
       type="text"
-      name="tempDir"
+      name="tempDirectory"
       id="fieldTempDir">
     <br>
 
@@ -117,7 +117,7 @@
     Maximum size for uploaded files (MB):
     <input
       type="text"
-      name="maxFileSize"
+      name="maxFileSizeMB"
       id="fieldMaxFileSize">
     <br>
     Allowed mime-types*:
@@ -135,7 +135,7 @@
     Minimum amount of seconds between posts from the same ip:
     <input
       type="text"
-      name="floodInterval"
+      name="floodTimerSec"
       id="fieldFloodInterval">
     <br>
     How many posts a block bypass allows:
@@ -153,7 +153,7 @@
     Default anonymous name:
     <input
       type="text"
-      name="anonymousName"
+      name="defaultAnonymousName"
       id="fieldAnonymousName">
     <br>
     <input
@@ -203,19 +203,19 @@
     Number of preview posts:
     <input
       type="text"
-      name="latestPostsCount"
+      name="latestPostCount"
       id="fieldLatestPostsCount">
     <br>
     Maximum amount of threads per board:
     <input
       type="text"
-      name="threadLimit"
+      name="maxThreadCount"
       id="fieldThreadLimit">
     <br>
     Boards page size:
     <input
       type="text"
-      name="boardPageSize"
+      name="pageSize"
       id="fieldPageSize">
     <br>
     Amount of boards to be picked as top boards:
@@ -247,13 +247,13 @@
     Maximum size for flags (KB):
     <input
       type="text"
-      name="maxFlagSize"
+      name="maxFlagSizeKB"
       id="fieldMaxFlagSize">
     <br>
     Maximum number of rules in boards:
     <input
       type="text"
-      name="maxRules"
+      name="maxBoardRules"
       id="fieldMaxRules">
     <br>
     Maximum number of filters in boards:
@@ -265,19 +265,19 @@
     Maximum number of tags per board:
     <input
       type="text"
-      name="maxTags"
+      name="maxBoardTags"
       id="fieldMaxTags">
     <br>
     Maximum number of volunteers in boards:
     <input
       type="text"
-      name="maxVolunteers"
+      name="maxBoardVolunteers"
       id="fieldMaxVolunteers">
     <br>
     Maximum size for banners (KB):
     <input
       type="text"
-      name="maxBannerSize"
+      name="maxBannerSizeKB"
       id="fieldMaxBannerSize">
     <br>
 
@@ -303,7 +303,7 @@
     Sender address for automated e-mails:
     <input
       type="text"
-      name="senderEmail"
+      name="emailSender"
       id="fieldSenderEmail">
     <br>
     Amount of minutes before a captcha expires:
@@ -321,7 +321,7 @@
     Default ban message to be displayed on banned posts:
     <input
       type="text"
-      name="banMessage"
+      name="defaultBanMessage"
       id="fieldBanMessage">
     <br>
     RSS link domain:
