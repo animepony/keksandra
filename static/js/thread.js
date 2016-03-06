@@ -16,8 +16,6 @@ var hiddenCaptcha = !document.getElementById('captchaDiv');
 var markedPosting;
 var limitRefreshWait = 10 * 60;
 var originalButtonText;
-var selectedFiles = [];
-var selectedDiv;
 
 var postCellTemplate = '<div class="innerPost"><input type="checkbox" '
     + 'class="deletionCheckBox"> <span class="labelSubject"></span>'

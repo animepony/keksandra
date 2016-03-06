@@ -136,33 +136,12 @@ function sendThreadData(files, captchaId) {
 
 }
 
-function iterateSelectedFiles(currentIndex, files, captchaId) {
-
-  if (currentIndex < selectedFiles.length) {
-    var reader = new FileReader();
-
-    reader.onloadend = function(e) {
-
-      files
-          .push({
-            name : selectedFiles[currentIndex].name,
-            content : reader.result,
-            spoiler : selectedDiv.getElementsByClassName('spoilerCheckBox')[currentIndex].checked
-          });
-
-      iterateSelectedFiles(currentIndex + 1, files, selectedFiles, captchaId);
-
-    };
-
-    reader.readAsDataURL(selectedFiles[currentIndex]);
-  } else {
-    sendThreadData(files, captchaId);
-  }
-
-}
-
 function processFilesToPost(captchaId) {
-  iterateSelectedFiles(0, [], captchaId);
+
+  getFilestToUpload(function gotFiles(files) {
+    sendThreadData(files, captchaId);
+  });
+
 }
 
 function postThread() {
