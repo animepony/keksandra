@@ -7,6 +7,7 @@ var updateFunction = function updateElements() {
   var cookies = getCookies();
 
   if (!cookies.captchaexpiration) {
+    setTimeout(updateFunction, 1000);
     return;
   }
 
