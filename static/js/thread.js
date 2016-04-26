@@ -177,18 +177,6 @@ function processPostingQuote(link) {
 
 }
 
-function reloadCaptcha() {
-  document.cookie = 'captchaid=; path=/;';
-
-  if (document.getElementById('captchaDiv')) {
-    document.getElementById('captchaImage').src = '/captcha.js#'
-        + new Date().toString();
-  }
-
-  document.getElementById('captchaImageReport').src = '/captcha.js#'
-      + new Date().toString();
-}
-
 function saveThreadSettings() {
 
   apiRequest('changeThreadSettings', {

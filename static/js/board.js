@@ -31,19 +31,6 @@ if (!DISABLE_JS) {
 
 }
 
-function reloadCaptcha() {
-  document.cookie = 'captchaid=; path=/;';
-
-  if (document.getElementById('captchaDiv')) {
-    document.getElementById('captchaImage').src = '/captcha.js#'
-        + new Date().toString();
-  }
-
-  document.getElementById('captchaImageReport').src = '/captcha.js#'
-      + new Date().toString();
-
-}
-
 var postCallback = function requestComplete(status, data) {
 
   if (status === 'ok') {

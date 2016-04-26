@@ -2,6 +2,17 @@ var captchaTimers = document.getElementsByClassName('captchaTimer');
 
 var reloading = false;
 
+function reloadCaptcha() {
+  document.cookie = 'captchaid=; path=/;';
+
+  var captchaImages = document.getElementsByClassName('captchaImage');
+
+  for (var i = 0; i < captchaImages.length; i++) {
+    captchaImages[i].src = '/captcha.js?d=' + new Date().toString();
+  }
+
+}
+
 var updateFunction = function updateElements() {
 
   var cookies = getCookies();
