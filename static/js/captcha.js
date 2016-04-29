@@ -54,4 +54,6 @@ var updateFunction = function updateElements() {
 
 };
 
-updateFunction();
+if (!DISABLE_JS) {
+  updateFunction();
+}
