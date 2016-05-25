@@ -317,7 +317,8 @@ function setUploadLinks(cell, file) {
 
   var originalLink = cell.getElementsByClassName('originalNameLink')[0];
   originalLink.innerHTML = file.originalName;
-  originalLink.href = file.path + '/alias/' + file.originalName;
+  originalLink.href = file.path;
+  originalLink.setAttribute('download', file.originalName);
 }
 
 function getUploadCellBase() {
