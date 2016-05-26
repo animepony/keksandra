@@ -16,6 +16,7 @@ var hiddenCaptcha = !document.getElementById('captchaDiv');
 var markedPosting;
 var limitRefreshWait = 10 * 60;
 var originalButtonText;
+var messageLimit;
 
 var postCellTemplate = '<div class="innerPost"><input type="checkbox" '
     + 'class="deletionCheckBox"> <span class="labelSubject"></span>'
@@ -38,6 +39,8 @@ var sizeOrders = [ 'B', 'KB', 'MB', 'GB', 'TB' ];
 var guiEditInfo = 'Edited last time by {$login} on {$date}.';
 
 if (!DISABLE_JS) {
+
+  messageLimit = +document.getElementById('labelMessageLength').innerHTML;
 
   boardUri = document.getElementById('boardIdentifier').value;
   var divPosts = document.getElementsByClassName('divPosts')[0];
@@ -588,8 +591,8 @@ function sendReplyData(files, captchaId) {
   } else if (!forcedAnon && typedName.length > 32) {
     alert('Name is too long, keep it under 32 characters.');
     return;
-  } else if (typedMessage.length > 4096) {
-    alert('Message is too long, keep it under 4096 characters.');
+  } else if (typedMessage.length > messageLimit) {
+    alert('Message is too long, keep it under ' + messageLimit + ' characters.');
     return;
   } else if (typedEmail.length > 64) {
     alert('E-mail is too long, keep it under 64 characters.');

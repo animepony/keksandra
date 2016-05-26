@@ -2,8 +2,11 @@ var board = true;
 var originalButtonText;
 var boardUri = document.getElementById('boardIdentifier').value;
 var hiddenCaptcha;
+var messageLimit;
 
 if (!DISABLE_JS) {
+
+  messageLimit = +document.getElementById('labelMessageLength').innerHTML;
 
   hiddenCaptcha = !document.getElementById('captchaDiv');
 
@@ -86,8 +89,8 @@ function sendThreadData(files, captchaId) {
   } else if (!forcedAnon && typedName.length > 32) {
     alert('Name is too long, keep it under 32 characters.');
     return;
-  } else if (typedMessage.length > 4096) {
-    alert('Message is too long, keep it under 4096 characters.');
+  } else if (typedMessage.length > messageLimit) {
+    alert('Message is too long, keep it under ' + messageLimit + ' characters.');
     return;
   } else if (typedEmail.length > 64) {
     alert('Email is too long, keep it under 64 characters.');
