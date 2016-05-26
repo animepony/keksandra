@@ -78,6 +78,10 @@
         placeholder="Message"
         name="message"
         id="fieldMessage"></textarea>
+      <br>
+      <span class="finePrint"> Max Message Length: <span
+        id="labelMessageLength"></span>
+      </span>
       <div id="flagsDiv">
         <select
           name="flag"
@@ -89,27 +93,33 @@
         placeholder="Deletion password"
         type="password"
         id="fieldPostingPassword">
-      <br>
-      <span class="formLabel">Files:</span>
-      <br>
-      <div
-        style="display: none;"
-        id="dragAndDropDiv">
-        <div id="dropzone">Drag files to upload or click here to select
-          them</div>
-        <div id="selectedDiv"></div>
+
+      <div id="divUpload">
+        <span class="formLabel">Files:</span>
+        <br>
+        <div
+          style="display: none;"
+          id="dragAndDropDiv">
+          <div id="dropzone">Drag files to upload or click here to select
+            them</div>
+          <div id="selectedDiv"></div>
+        </div>
+        <input
+          type="file"
+          id="files"
+          name="files"
+          multiple>
+        <input
+          type="checkbox"
+          id="checkboxSpoiler"
+          name="spoiler">
+        Spoiler
+        <br>
+        <span class="finePrint"> Max File Size: <span
+          id="labelMaxFileSize"></span> <br> File Limit Per Post: <span
+          id="labelMaxFiles"></span> <br></span>
       </div>
-      <input
-        type="file"
-        id="files"
-        name="files"
-        multiple>
-      <input
-        type="checkbox"
-        id="checkboxSpoiler"
-        name="spoiler">
-      Spoiler
-      <br>
+
       <div id="captchaDiv">
         <img
           class="captchaImage"
@@ -154,11 +164,6 @@
       Remember to follow the
       <a href=rules.html>rules</a>
       .
-      <br>
-      <span class="finePrint"> Max File Size: <span id="labelMaxFileSize"></span>
-        <br>File Limit Per Post: <span id="labelMaxFiles"></span> <br>Max
-        message length: <span id="labelMessageLength"></span>
-      </span>
     </form>
   </section>
 

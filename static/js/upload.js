@@ -27,6 +27,11 @@ function addSelectedFile(file) {
 }
 
 function clearSelectedFiles() {
+
+  if (!document.getElementById('divUpload')) {
+    return;
+  }
+
   selectedFiles = [];
 
   while (selectedDiv.firstChild) {
@@ -119,6 +124,11 @@ function getFilestToUpload(callback, currentIndex, files) {
 
   currentIndex = currentIndex || 0;
   files = files || [];
+
+  if (!document.getElementById('divUpload')) {
+    callback(files);
+    return;
+  }
 
   if (currentIndex < selectedFiles.length) {
 

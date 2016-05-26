@@ -258,6 +258,10 @@ function saveSettings() {
     settings.push('locationFlags');
   }
 
+  if (document.getElementById('textBoardCheckbox').checked) {
+    settings.push('textBoard');
+  }
+
   var typedTags = document.getElementById('tagsField').value.split(',');
 
   var combo = document.getElementById('captchaModeComboBox');

@@ -45,7 +45,9 @@ if (!DISABLE_JS) {
   boardUri = document.getElementById('boardIdentifier').value;
   var divPosts = document.getElementsByClassName('divPosts')[0];
 
-  setDragAndDrop();
+  if (document.getElementById('divUpload')) {
+    setDragAndDrop();
+  }
 
   document.getElementsByClassName('divRefresh')[0].style.display = 'inline';
 
@@ -613,12 +615,14 @@ function sendReplyData(files, captchaId) {
   replyButton.innerHTML = 'Uploading 0%';
   replyButton.disabled = true;
 
+  var spoilerCheckBox = document.getElementById('checkboxSpoiler');
+
   apiRequest('replyThread', {
     name : forcedAnon ? null : typedName,
     flag : hiddenFlags ? null : selectedFlag,
     captcha : captchaId,
     subject : typedSubject,
-    spoiler : document.getElementById('checkboxSpoiler').checked,
+    spoiler : spoilerCheckBox ? spoilerCheckBox.checked : false,
     password : typedPassword,
     message : typedMessage,
     email : typedEmail,

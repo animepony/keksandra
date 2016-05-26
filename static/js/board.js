@@ -10,7 +10,9 @@ if (!DISABLE_JS) {
 
   hiddenCaptcha = !document.getElementById('captchaDiv');
 
-  setDragAndDrop();
+  if (document.getElementById('divUpload')) {
+    setDragAndDrop();
+  }
 
   var postButton = document.getElementById('jsButton');
   postButton.style.display = 'inline';
@@ -111,12 +113,14 @@ function sendThreadData(files, captchaId) {
   postButton.innerHTML = 'Uploading 0%';
   postButton.disabled = true;
 
+  var spoilerCheckBox = document.getElementById('checkboxSpoiler');
+
   apiRequest('newThread', {
     name : forcedAnon ? null : typedName,
     flag : hiddenFlags ? null : selectedFlag,
     captcha : captchaId,
     password : typedPassword,
-    spoiler : document.getElementById('checkboxSpoiler').checked,
+    spoiler : spoilerCheckBox ? spoilerCheckBox.checked : false,
     subject : typedSubject,
     message : typedMessage,
     email : typedEmail,
