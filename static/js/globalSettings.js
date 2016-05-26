@@ -21,6 +21,10 @@ if (!DISABLE_JS) {
       setting : 'master',
       type : 'string'
     },
+    fieldMessageLenght : {
+      setting : 'messageLength',
+      type : 'string'
+    },
     fieldTorPort : {
       setting : 'torPort',
       type : 'string'
