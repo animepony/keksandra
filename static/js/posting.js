@@ -546,7 +546,8 @@ function deletePosts() {
 
     if (status === 'ok') {
 
-      alert('Content deleted');
+      alert(data.removedThreads + ' threads and ' + data.removedPosts
+          + ' posts were successfully deleted.');
 
       window.location.pathname = redirect;
 
