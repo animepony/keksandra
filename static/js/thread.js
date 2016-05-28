@@ -17,6 +17,9 @@ var markedPosting;
 var limitRefreshWait = 10 * 60;
 var originalButtonText;
 var messageLimit;
+var unreadPosts = 0;
+var originalTitle = document.title;
+var lastPost;
 
 var postCellTemplate = '<div class="innerPost"><input type="checkbox" '
     + 'class="deletionCheckBox"> <span class="labelSubject"></span>'
@@ -39,6 +42,22 @@ var sizeOrders = [ 'B', 'KB', 'MB', 'GB', 'TB' ];
 var guiEditInfo = 'Edited last time by {$login} on {$date}.';
 
 if (!DISABLE_JS) {
+
+  document.onscroll = function() {
+
+    if (!unreadPosts) {
+      return;
+    }
+
+    var rect = lastPost.getBoundingClientRect();
+
+    if (rect.bottom < window.innerHeight) {
+      unreadPosts = 0;
+
+      document.title = originalTitle;
+    }
+
+  };
 
   messageLimit = +document.getElementById('labelMessageLength').innerHTML;
 
@@ -465,6 +484,8 @@ function setPostInnerElements(boardUri, threadId, post, postCell) {
 
 function addPost(post) {
 
+  unreadPosts++;
+
   var postCell = document.createElement('div');
   postCell.innerHTML = postCellTemplate;
 
@@ -489,6 +510,8 @@ function addPost(post) {
 
     processImageLink(fuckYou[i]);
   }
+
+  lastPost = postCell;
 
   divPosts.appendChild(postCell);
 
@@ -536,6 +559,8 @@ var refreshCallback = function(error, data) {
         }
 
       }
+
+      document.title = '(' + unreadPosts + ') ' + originalTitle;
     }
   }
 
