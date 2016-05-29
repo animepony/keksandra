@@ -21,8 +21,10 @@ if (!DISABLE_JS) {
     if (!board && document.getElementById('divMod')) {
 
       document.getElementById('banJsButton').style.display = 'inline';
+      document.getElementById('ipDeletionJsButton').style.display = 'inline';
       document.getElementById('spoilJsButton').style.display = 'inline';
 
+      document.getElementById('inputIpDelete').style.display = 'none';
       document.getElementById('inputBan').style.display = 'none';
       document.getElementById('inputSpoil').style.display = 'none';
     }
@@ -548,6 +550,29 @@ function deletePosts() {
 
       alert(data.removedThreads + ' threads and ' + data.removedPosts
           + ' posts were successfully deleted.');
+
+      window.location.pathname = redirect;
+
+    } else {
+      alert(status + ': ' + JSON.stringify(data));
+    }
+  });
+
+}
+
+function deleteFromIpOnBoard() {
+
+  var selected = getSelectedContent();
+
+  var redirect = '/' + selected[0].board + '/';
+
+  apiRequest('deleteFromIpOnBoard', {
+    postings : selected
+  }, function requestComplete(status, data) {
+
+    if (status === 'ok') {
+
+      alert('Content deleted');
 
       window.location.pathname = redirect;
 
