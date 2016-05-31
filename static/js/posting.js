@@ -402,9 +402,9 @@ function applyBans(captcha) {
   var typedExpiration = document.getElementById('fieldExpiration').value.trim();
   var typedMessage = document.getElementById('fieldbanMessage').value.trim();
   var expiration = Date.parse(typedExpiration || '');
-  var range = document.getElementById('checkboxRange').checked;
+  var banType = document.getElementById('comboBoxBanTypes').selectedIndex;
 
-  if (isNaN(expiration) && !range) {
+  if (isNaN(expiration) && !banType) {
     alert('Invalid expiration');
 
     return;
@@ -415,7 +415,7 @@ function applyBans(captcha) {
   apiRequest('banUsers', {
     reason : typedReason,
     captcha : captcha,
-    range : range,
+    banType : banType,
     expiration : typedExpiration,
     banMessage : typedMessage,
     global : document.getElementById('checkboxGlobal').checked,

@@ -257,13 +257,15 @@
           type="text"
           id="fieldbanMessage"
           name="banMessage">
-
         <br>
-        <input
-          type="checkbox"
-          id="checkboxRange"
-          name="range">
-        Range ban
+        Ban type:
+        <select
+          name="banType"
+          id="comboBoxBanTypes">
+          <option value="0">Regular ban(requires valid expiration)</option>
+          <option value="1">Range ban (1/2 octects)</option>
+          <option value="2">Range ban (3/4 octects)</option>
+        </select>
         <br>
         <input
           type="submit"
