@@ -401,14 +401,7 @@ function applyBans(captcha) {
   var typedReason = document.getElementById('reportFieldReason').value.trim();
   var typedExpiration = document.getElementById('fieldExpiration').value.trim();
   var typedMessage = document.getElementById('fieldbanMessage').value.trim();
-  var expiration = Date.parse(typedExpiration || '');
   var banType = document.getElementById('comboBoxBanTypes').selectedIndex;
-
-  if (isNaN(expiration) && !banType) {
-    alert('Invalid expiration');
-
-    return;
-  }
 
   var toBan = getSelectedContent();
 
@@ -433,6 +426,11 @@ function applyBans(captcha) {
 }
 
 function banPosts() {
+
+  if (!document.getElementsByClassName('panelRange').length) {
+    applyBans();
+    return;
+  }
 
   var typedCaptcha = document.getElementById('fieldCaptchaReport').value.trim();
 
