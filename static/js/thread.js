@@ -391,7 +391,9 @@ function setPostHideableElements(postCell, post) {
   }
 
   if (post.id) {
-    postCell.getElementsByClassName('labelId')[0].innerHTML = post.id;
+    var labelId = postCell.getElementsByClassName('labelId')[0];
+    labelId.setAttribute('style', 'background-color: #' + post.id);
+    labelId.innerHTML = post.id;
   } else {
     var spanId = postCell.getElementsByClassName('spanId')[0];
     spanId.parentNode.removeChild(spanId);
