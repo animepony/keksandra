@@ -201,6 +201,10 @@ if (!DISABLE_JS) {
       setting : 'verbose',
       type : 'boolean'
     },
+    checkboxFfmpegGifs : {
+      setting : 'ffmpegGifs',
+      type : 'boolean'
+    },
     checkboxDisable304 : {
       setting : 'disable304',
       type : 'boolean'
