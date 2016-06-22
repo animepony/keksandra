@@ -94,6 +94,13 @@
       name="torSource"
       id="fieldTorSource">
     <br>
+    Url for the list of spammer ips(Requirements for the file format are
+    specified on src/be/readme):
+    <input
+      type="text"
+      name="spamIpsSource"
+      id="fieldSpamIpsSource">
+    <br>
     Path to an optional language pack:
     <input
       type="text"
@@ -167,6 +174,13 @@
       id="checkboxDisableFloodCheck"
       name="disableFloodCheck">
     Disable flood checks
+    <br>
+    <input
+      type="checkbox"
+      id="checkboxSpamBypass"
+      name="allowSpamBypass">
+    Allow ips caught on the spammer list to use the block bypass if block bypass
+    is not disabled
     <br>
     <input
       type="checkbox"

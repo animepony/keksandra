@@ -29,6 +29,10 @@ if (!DISABLE_JS) {
       setting : 'torPort',
       type : 'string'
     },
+    fieldSpamIpsSource : {
+      setting : 'spamIpsSource',
+      type : 'string'
+    },
     fieldAddress : {
       setting : 'address',
       type : 'string'
@@ -227,6 +231,10 @@ if (!DISABLE_JS) {
     },
     checkboxGlobalBoardModeration : {
       setting : 'allowGlobalBoardModeration',
+      type : 'boolean'
+    },
+    checkboxSpamBypass : {
+      setting : 'allowSpamBypass',
       type : 'boolean'
     },
     checkboxMediaThumb : {
