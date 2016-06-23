@@ -217,6 +217,10 @@ if (!DISABLE_JS) {
       setting : 'allowBoardCustomJs',
       type : 'boolean'
     },
+    checkboxDisableSpamCheck : {
+      setting : 'disableSpamCheck',
+      type : 'boolean'
+    },
     checkboxAutoPruneFiles : {
       setting : 'autoPruneFiles',
       type : 'boolean'
