@@ -83,7 +83,20 @@
   <br>
   <a href="/closedReports.js">Closed Reports</a>
   <h3>Open reports</h3>
-  <div id="reportDiv"></div>
+  <form
+    method="post"
+    action="/closeReports.js"
+    enctype="multipart/form-data">
+    <div id="reportDiv"></div>
+    <button
+      type="submit"
+      id="closeReportsFormButton">Close selected reports</button>
+    <button
+      id="closeReportsJsButton"
+      type="button"
+      style="display: none;"
+      onclick="closeReports()">Close selected reports</button>
+  </form>
 
   <div id="appealedBansPanel">
     <h3>Appealed bans</h3>
