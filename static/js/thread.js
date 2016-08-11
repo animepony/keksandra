@@ -414,6 +414,10 @@ function setPostHideableElements(postCell, post) {
   if (post.flag) {
     imgFlag.src = post.flag;
     imgFlag.title = post.flagName;
+
+    if (post.flagCode) {
+      imgFlag.className += ' flag' + post.flagCode;
+    }
   } else {
     removeElement(imgFlag);
   }
