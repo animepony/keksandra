@@ -13,6 +13,10 @@
 <link
   rel="stylesheet"
   type="text/css"
+  href="/.static/css/posting.css">
+<link
+  rel="stylesheet"
+  type="text/css"
   href="/.static/css/markdown.css">
 </head>
 <body>
@@ -28,6 +32,138 @@
 
   Catalog of
   <span id="labelBoard"></span>
+
+
+  <section class="formWrapper">
+    <form
+      class="form-post"
+      action="/newThread.js"
+      enctype="multipart/form-data"
+      method="post">
+      <span class="formLabel">New Thread:</span>
+      <br>
+      <input
+        type="text"
+        placeholder="Subject"
+        id="fieldSubject"
+        name="subject" />
+      <div id="divName">
+        <input
+          placeholder="Author"
+          type="text"
+          id="fieldName"
+          name="name" />
+        <br>
+      </div>
+      <input
+        placeholder="E-mail"
+        name="email"
+        type="text"
+        id="fieldEmail">
+      <br>
+      <textarea
+        rows="8"
+        cols="50"
+        placeholder="Message"
+        name="message"
+        id="fieldMessage"></textarea>
+      <br>
+      <span class="finePrint"> Max Message Length: <span
+        id="labelMessageLength"></span>
+      </span>
+      <div id="flagsDiv">
+        <select
+          name="flag"
+          id="flagCombobox"></select>
+      </div>
+      <br>
+      <input
+        name="password"
+        placeholder="Deletion password"
+        type="password"
+        id="fieldPostingPassword">
+
+      <div id="divUpload">
+        <span class="formLabel">Files:</span>
+        <br>
+        <div
+          style="display: none;"
+          id="dragAndDropDiv">
+          <div id="dropzone">Drag files to upload or click here to select
+            them</div>
+          <div id="selectedDiv"></div>
+        </div>
+        <input
+          type="file"
+          id="files"
+          name="files"
+          multiple>
+        <input
+          type="checkbox"
+          id="checkboxSpoiler"
+          name="spoiler">
+        Spoiler
+        <br>
+        <span class="finePrint"> Max File Size: <span
+          id="labelMaxFileSize"></span> <br> File Limit Per Post: <span
+          id="labelMaxFiles"></span> <br></span>
+      </div>
+
+      <div id="captchaDiv">
+        <img
+          class="captchaImage"
+          src="/captcha.js">
+        <br>
+        <input
+          type="button"
+          style="display: none;"
+          id="reloadCaptchaButton"
+          onclick="reloadCaptcha()"
+          value="Reload captcha">
+        <span class="captchaTimer"></span>
+        <br>
+
+        <input
+          name="captcha"
+          placeholder="Captcha answer"
+          type="text"
+          id="fieldCaptcha">
+        <br>
+        <a
+          class="finePrint"
+          href="/noCookieCaptcha.js">No cookie captcha</a>
+        <br>
+      </div>
+
+      <div id="submitWrapper">
+        <button
+          type="button"
+          id="jsButton"
+          onClick="postThread()"
+          style="display: none;">Create thread</button>
+        <button
+          type="submit"
+          id="formButton">Create thread</button>
+      </div>
+
+      <input
+        id="boardIdentifier"
+        type="hidden"
+        name="boardUri">
+      Remember to follow the
+      <a href=rules.html>rules</a>
+      .
+    </form>
+  </section>
+
   <div id="divThreads"></div>
 </body>
+
+<script src="/.static/js/settings.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/crypt.js"></script>
+<script src="/.static/js/upload.js"></script>
+<script src="/.static/js/board.js"></script>
+<script src="/.static/js/captcha.js"></script>
+
 </html>

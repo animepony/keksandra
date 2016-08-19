@@ -87,11 +87,6 @@ figure.page-head {
   text-align: center;
 }
 
-#divMessage {
-  text-align: center;
-  word-break: break-word;
-}
-
 .form-post {
   padding: 10px;
   padding-right: 15px;
@@ -163,7 +158,7 @@ figure.page-head {
   padding-left: 10px;
 }
 
-.divMessage {
+.opCell>.divMessage, .innerPost>.divMessage {
   clear: both;
   font-size: 14px;
   margin-left: 40px;

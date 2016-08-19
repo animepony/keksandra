@@ -30,7 +30,12 @@ if (!DISABLE_JS) {
     document.getElementById('deletionFieldPassword').value = savedPassword;
   }
 
-  document.getElementById('reloadCaptchaButtonReport').style.display = 'inline';
+  var reportReloadCaptchaButton = document
+      .getElementById('reloadCaptchaButtonReport');
+
+  if (reportReloadCaptchaButton) {
+    reportReloadCaptchaButton.style.display = 'inline';
+  }
 
   document.getElementById('formButton').style.display = 'none';
 
