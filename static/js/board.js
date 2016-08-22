@@ -1,33 +1,45 @@
 var board = true;
 var originalButtonText;
-var boardUri = document.getElementById('boardIdentifier').value;
+
+var identifierElement = document.getElementById('boardIdentifier');
+var boardUri = identifierElement ? identifierElement.value : null;
+
 var hiddenCaptcha;
 var messageLimit;
 
 if (!DISABLE_JS) {
 
-  messageLimit = +document.getElementById('labelMessageLength').innerHTML;
+  if (identifierElement) {
+    messageLimit = +document.getElementById('labelMessageLength').innerHTML;
+
+    if (document.getElementById('divUpload')) {
+      setDragAndDrop();
+    }
+    var savedPassword = getSavedPassword();
+
+    if (savedPassword && savedPassword.length) {
+      document.getElementById('fieldPostingPassword').value = savedPassword;
+
+      var deletionField = document.getElementById('deletionFieldPassword');
+
+      if (deletionField) {
+        deletionField.value = savedPassword;
+      }
+
+    }
+
+    var postButton = document.getElementById('jsButton');
+    postButton.style.display = 'inline';
+    postButton.disabled = false;
+
+    document.getElementById('formButton').style.display = 'none';
+  }
 
   hiddenCaptcha = !document.getElementById('captchaDiv');
 
-  if (document.getElementById('divUpload')) {
-    setDragAndDrop();
-  }
-
-  var postButton = document.getElementById('jsButton');
-  postButton.style.display = 'inline';
-  postButton.disabled = false;
-
-  if (document.getElementById('captchaDiv')) {
+  if (!hiddenCaptcha) {
     document.getElementById('reloadCaptchaButton').style.display = 'inline';
 
-  }
-
-  var savedPassword = getSavedPassword();
-
-  if (savedPassword && savedPassword.length) {
-    document.getElementById('fieldPostingPassword').value = savedPassword;
-    document.getElementById('deletionFieldPassword').value = savedPassword;
   }
 
   var reportReloadCaptchaButton = document
@@ -36,8 +48,6 @@ if (!DISABLE_JS) {
   if (reportReloadCaptchaButton) {
     reportReloadCaptchaButton.style.display = 'inline';
   }
-
-  document.getElementById('formButton').style.display = 'none';
 
 }
 

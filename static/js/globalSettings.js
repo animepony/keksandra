@@ -17,11 +17,15 @@ if (!DISABLE_JS) {
       type : 'boolean',
       setting : 'useGlobalBanners',
     },
+    checkboxDisableCatalogPosting : {
+      type : 'boolean',
+      setting : 'disableCatalogPosting',
+    },
     fieldMaster : {
       setting : 'master',
       type : 'string'
     },
-    fieldMessageLenght : {
+    fieldMessageLength : {
       setting : 'messageLength',
       type : 'string'
     },
