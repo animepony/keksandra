@@ -21,6 +21,10 @@ if (!DISABLE_JS) {
       type : 'boolean',
       setting : 'disableCatalogPosting',
     },
+    fieldIpExpiration : {
+      type : 'string',
+      setting : 'ipExpirationDays'
+    },
     fieldMaster : {
       setting : 'master',
       type : 'string'
