@@ -25,6 +25,14 @@ if (!DISABLE_JS) {
       type : 'boolean',
       setting : 'disableCatalogPosting',
     },
+    checkboxAllowTorFiles : {
+      type : 'boolean',
+      setting : 'allowTorFiles',
+    },
+    checkboxAllowTorPosting : {
+      type : 'boolean',
+      setting : 'allowTorPosting',
+    },
     fieldIpExpiration : {
       type : 'string',
       setting : 'ipExpirationDays'
@@ -288,10 +296,6 @@ if (!DISABLE_JS) {
     fieldAddons : {
       setting : 'addons',
       type : 'array'
-    },
-    comboTorAccess : {
-      setting : 'torAccess',
-      type : 'combo'
     },
     comboBoardCreationRequirement : {
       setting : 'boardCreationRequirement',
