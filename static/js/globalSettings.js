@@ -17,10 +17,6 @@ if (!DISABLE_JS) {
       type : 'boolean',
       setting : 'useGlobalBanners',
     },
-    checkBoxIndividualCaches : {
-      type : 'boolean',
-      setting : 'individualCaches',
-    },
     checkboxDisableCatalogPosting : {
       type : 'boolean',
       setting : 'disableCatalogPosting',
