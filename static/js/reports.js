@@ -6,7 +6,7 @@ function closeReports(report) {
 
   for (var i = 0; i < reports.length; i++) {
 
-    var checkbox = reports[i].getElementsByClassName("closureCheckbox")[0];
+    var checkbox = reports[i].getElementsByClassName('closureCheckbox')[0];
 
     if (checkbox.checked) {
       ids.push(checkbox.name.substring(7));
@@ -19,7 +19,8 @@ function closeReports(report) {
   }
 
   apiRequest('closeReports', {
-    reports : ids
+    reports : ids,
+    deleteContent : document.getElementById('deleteContentCheckbox').checked
   }, function requestComplete(status, data) {
 
     if (status === 'ok') {
