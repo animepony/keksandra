@@ -40,9 +40,9 @@
   The first admin or root will have to have it's role set using the terminal
   arguments. Consult the readme.md on src/be for instructions on that. Any role
   have all the powers of the less
-  <span title="[TRIGGER WARNING] :^)">privileged</span> roles. When your account
-  has access to the global staff tools, a link on your account page will be
-  displayed.
+  <span title="[TRIGGER WARNING] :^)">privileged</span>
+  roles. When your account has access to the global staff tools, a link on your
+  account page will be displayed.
 
   <h1>Board moderation</h1>
   A board have it's board owner and board volunteers. Board volunteers are added
@@ -91,14 +91,22 @@
   Cyclic will make the thread never get into auto-sage. Instead it will delete
   old posts when it hits the post limit that would trigger auto-sage.
 
-  <h1>Bans</h1>
+  <h1 id="banSection">Bans</h1>
   To apply bans, select the checkboxes on the left top corner of postings and
-  write an expiration for the ban. The date format must be parseable using the
-  date parse of javascript.
+  write a duration for the ban. The format used is the following:
   <br>
-  <a
-    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse">Technical
-    reference.</a>
+  <b>y</b>: amount of years.
+  <br>
+  <b>M</b>: amount of months.
+  <br>
+  <b>d</b>: amount of days.
+  <br>
+  <b>h</b>: amount of hours.
+  <br>
+  <b>m</b>: amount of minutes.
+  <br>
+  So if you write "2d 1h" it will create a 49 hour ban. The order of amounts and
+  spacing doesn`t matter. The same could be "1h 2d".
   <br>
   Bans can be lifted from the bans page that can be accessed from the moderation
   pages.

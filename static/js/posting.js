@@ -399,7 +399,7 @@ function spoilFiles() {
 
 function applyBans(captcha) {
   var typedReason = document.getElementById('reportFieldReason').value.trim();
-  var typedExpiration = document.getElementById('fieldExpiration').value.trim();
+  var typedDuration = document.getElementById('fieldDuration').value.trim();
   var typedMessage = document.getElementById('fieldbanMessage').value.trim();
   var banType = document.getElementById('comboBoxBanTypes').selectedIndex;
 
@@ -409,7 +409,7 @@ function applyBans(captcha) {
     reason : typedReason,
     captcha : captcha,
     banType : banType,
-    expiration : typedExpiration,
+    duration : typedDuration,
     banMessage : typedMessage,
     global : document.getElementById('checkboxGlobal').checked,
     postings : toBan
