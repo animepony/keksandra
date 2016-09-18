@@ -242,6 +242,7 @@ figure.page-head {
 
 .contentAction {
   float: left;
+  margin-bottom: 20px;
 }
 
 .divRefresh {

@@ -74,8 +74,9 @@
         name="message"
         id="fieldMessage"></textarea>
       <br>
-      <span class="finePrint"> Max Message Length: <span
-        id="labelMessageLength"></span>
+      <span class="finePrint">
+        Max Message Length:
+        <span id="labelMessageLength"></span>
       </span>
       <div id="flagsDiv">
         <select
@@ -110,9 +111,14 @@
           name="spoiler">
         Spoiler
         <br>
-        <span class="finePrint"> Max File Size: <span
-          id="labelMaxFileSize"></span> <br> File Limit Per Post: <span
-          id="labelMaxFiles"></span> <br></span>
+        <span class="finePrint">
+          Max File Size:
+          <span id="labelMaxFileSize"></span>
+          <br>
+          File Limit Per Post:
+          <span id="labelMaxFiles"></span>
+          <br>
+        </span>
       </div>
 
       <div id="captchaDiv">
@@ -225,7 +231,8 @@
         type="checkbox"
         checked
         onchange="changeRefresh()">
-      Auto <span id="labelRefresh"></span>
+      Auto
+      <span id="labelRefresh"></span>
       <br>
       <input
         type="button"
@@ -244,69 +251,6 @@
         id="reportFieldReason"
         name="reason">
       <br>
-      <div id="divMod">
-        Expiration (Defaults to 5 years from current date):
-        <input
-          type="text"
-          id="fieldExpiration"
-          name="expiration">
-        <br>
-
-        Ban message:
-        <input
-          type="text"
-          id="fieldbanMessage"
-          name="banMessage">
-        <br>
-        Ban type:
-        <select
-          name="banType"
-          id="comboBoxBanTypes">
-          <option value="0">Regular ban(requires valid expiration)</option>
-          <option value="1">Range ban (1/2 octects)</option>
-          <option value="2">Range ban (3/4 octects)</option>
-        </select>
-        <br>
-        <input
-          type="submit"
-          id="inputBan"
-          value="Ban"
-          name="action">
-
-        <input
-          type="button"
-          style="display: none;"
-          id="banJsButton"
-          onClick="banPosts()"
-          value="Ban">
-
-        <button
-          type="submit"
-          id="inputSpoil"
-          value="spoil"
-          name="action">Spoil files</button>
-
-        <input
-          type="button"
-          style="display: none;"
-          id="spoilJsButton"
-          onClick="spoilFiles()"
-          value="Spoil files">
-
-        <button
-          type="submit"
-          id="inputIpDelete"
-          value="ip-deletion"
-          name="action">Delete by ip on this board</button>
-
-        <input
-          type="button"
-          style="display: none;"
-          id="ipDeletionJsButton"
-          onClick="deleteFromIpOnBoard()"
-          value="Delete by ip on this board">
-
-      </div>
       Password:
       <input
         type="password"
@@ -377,10 +321,72 @@
         id="reportJsButton"
         onClick="reportPosts()"
         value="Report">
+      <div id="divMod">
+        <h3>Mod tools</h3>
+        Ban expiration (Defaults to 5 years from current date):
+        <input
+          type="text"
+          id="fieldExpiration"
+          name="expiration">
+        <br>
+
+        Ban message:
+        <input
+          type="text"
+          id="fieldbanMessage"
+          name="banMessage">
+        <br>
+        Ban type: <select
+          name="banType"
+          id="comboBoxBanTypes">
+          <option value="0">Regular ban</option>
+          <option value="1">Range ban (1/2 octects)</option>
+          <option value="2">Range ban (3/4 octects)</option>
+        </select>
+        <br>
+        <input
+          type="submit"
+          id="inputBan"
+          value="Ban"
+          name="action">
+
+        <input
+          type="button"
+          style="display: none;"
+          id="banJsButton"
+          onClick="banPosts()"
+          value="Ban">
+
+        <button
+          type="submit"
+          id="inputSpoil"
+          value="spoil"
+          name="action">Spoil files</button>
+
+        <input
+          type="button"
+          style="display: none;"
+          id="spoilJsButton"
+          onClick="spoilFiles()"
+          value="Spoil files">
+
+        <button
+          type="submit"
+          id="inputIpDelete"
+          value="ip-deletion"
+          name="action">Delete by ip on this board</button>
+
+        <input
+          type="button"
+          style="display: none;"
+          id="ipDeletionJsButton"
+          onClick="deleteFromIpOnBoard()"
+          value="Delete by ip on this board">
+
+      </div>
     </div>
   </form>
   <br>
-
   <form
     action="/transferThread.js"
     enctype="multipart/form-data"
