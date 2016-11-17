@@ -64,5 +64,7 @@
   "graphsIndexPage": "pages/graphsIndex.html",
   "graphIndexCell": "cells/graphIndexCell.html",
   "mediaManagementPage": "pages/mediaManagement.html",
-  "mediaCell": "cells/mediaCell.html"
+  "mediaCell": "cells/mediaCell.html",
+  "languagesManagementPage": "pages/languages.html",
+  "languageCell": "cells/languageCell.html"
 }

@@ -50,7 +50,6 @@ function addBanner() {
     } ];
 
     // style exception, too simple
-
     apiRequest('createBanner', {
       files : files,
       boardUri : boardIdentifier,
@@ -64,7 +63,6 @@ function addBanner() {
         alert(status + ': ' + JSON.stringify(data));
       }
     });
-
     // style exception, too simple
 
   };

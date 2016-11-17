@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/.static/css/global.css">
+</head>
+<body>
+  <img
+    class="logo"
+    src="/.static/logo.png"
+    title="Logo by Doke">
+  <a href="/account.js">Account</a>
+  <h3>New language</h3>
+  <form
+    action="/addLanguage.js"
+    method="post"
+    enctype="multipart/form-data">
+
+    Header values*:
+    <input
+      type="text"
+      name="headerValues"
+      id="fieldHeaderValues">
+    <br>
+
+    Front-end:
+    <input
+      type="text"
+      name="frontEnd"
+      id="fieldFrontEnd">
+    <br>
+
+    Language pack:
+    <input
+      type="text"
+      name="languagePack"
+      id="fieldLanguagePack">
+    <br>
+
+    <input
+      type="submit"
+      value="Add language"
+      id="addFormButton">
+
+    <input
+      type="button"
+      onClick="addLanguage()"
+      style="display: none;"
+      value="Add language"
+      id="addJsButton">
+    <br>
+
+  </form>
+  <h3>Existing languages</h3>
+  <div id="languagesDiv"></div>
+  <br>
+  *: separate values by commas, spaces will be ignored (a, b,c)
+</body>
+
+<script src="/.static/js/settings.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/languages.js"></script>
+
+</html>
