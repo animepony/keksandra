@@ -29,6 +29,10 @@ if (!DISABLE_JS) {
       type : 'boolean',
       setting : 'allowTorPosting',
     },
+    checkboxUseAlternativeLanguages : {
+      type : 'boolean',
+      setting : 'useAlternativeLanguages',
+    },
     fieldIpExpiration : {
       type : 'string',
       setting : 'ipExpirationDays'
