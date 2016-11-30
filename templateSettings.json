@@ -66,5 +66,6 @@
   "mediaManagementPage": "pages/mediaManagement.html",
   "mediaCell": "cells/mediaCell.html",
   "languagesManagementPage": "pages/languages.html",
-  "languageCell": "cells/languageCell.html"
+  "languageCell": "cells/languageCell.html",
+  "topBoardCell": "cells/topBoardCell.html"
 }
