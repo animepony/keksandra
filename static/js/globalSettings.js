@@ -17,6 +17,34 @@ if (!DISABLE_JS) {
       type : 'boolean',
       setting : 'useGlobalBanners',
     },
+    checkboxVerboseGenerator : {
+      type : 'boolean',
+      setting : 'verboseGenerator',
+    },
+    checkboxVerboseQueue : {
+      type : 'boolean',
+      setting : 'verboseQueue',
+    },
+    checkboxVerboseGridfs : {
+      type : 'boolean',
+      setting : 'verboseGridfs',
+    },
+    checkboxVerboseMisc : {
+      type : 'boolean',
+      setting : 'verboseMisc',
+    },
+    checkboxVerboseStatic : {
+      type : 'boolean',
+      setting : 'verboseStatic',
+    },
+    checkboxVerboseApis : {
+      type : 'boolean',
+      setting : 'verboseApis',
+    },
+    checkboxDisableCatalogPosting : {
+      type : 'boolean',
+      setting : 'disableCatalogPosting',
+    },
     checkboxDisableCatalogPosting : {
       type : 'boolean',
       setting : 'disableCatalogPosting',

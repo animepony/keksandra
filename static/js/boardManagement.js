@@ -201,9 +201,13 @@ function saveSettings() {
       .split(',');
   var typedThreadLimit = document.getElementById('maxThreadFields').value
       .trim();
+  var typedMaxBumpAge = document.getElementById('maxBumpAgeField').value.trim();
 
   if (typedHourlyLimit.length && isNaN(typedHourlyLimit)) {
     alert('Invalid hourly limit.');
+    return;
+  } else if (typedMaxBumpAge.length && isNaN(typedMaxBumpAge)) {
+    alert('Invalid maximum age for bumping.');
     return;
   } else if (typedAutoCaptcha.length && isNaN(typedAutoCaptcha)) {
     alert('Invalid auto captcha treshold.');
@@ -282,6 +286,7 @@ function saveSettings() {
     maxFileSizeMB : typedFileSize,
     acceptedMimes : typedTypedMimes,
     maxFiles : typedFileLimit,
+    maxBumpAge : typedMaxBumpAge
   }, function requestComplete(status, data) {
 
     if (status === 'ok') {
