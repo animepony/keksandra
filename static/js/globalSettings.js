@@ -65,6 +65,10 @@ if (!DISABLE_JS) {
       type : 'string',
       setting : 'ipExpirationDays'
     },
+    fieldIncrementalSpamIpsSource : {
+      type : 'string',
+      setting : 'incSpamIpsSource'
+    },
     fieldMaster : {
       setting : 'master',
       type : 'string'
