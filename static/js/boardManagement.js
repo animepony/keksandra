@@ -30,7 +30,7 @@ if (!DISABLE_JS) {
   }
 
   boardIdentifier = document.getElementById('boardSettingsIdentifier').value;
-  document.getElementById('closeReportsJsButton').style.display = 'inline';  
+  document.getElementById('closeReportsJsButton').style.display = 'inline';
   document.getElementById('closeReportsFormButton').style.display = 'none';
   document.getElementById('saveSettingsJsButton').style.display = 'inline';
   document.getElementById('saveSettingsFormButton').style.display = 'none';
@@ -257,45 +257,45 @@ function saveSettings() {
     settings.push('forceAnonymity');
   }
 
-  if (document.getElementById('locationCheckBox').checked) {
-    settings.push('locationFlags');
-  }
-
   if (document.getElementById('textBoardCheckbox').checked) {
     settings.push('textBoard');
   }
 
   var typedTags = document.getElementById('tagsField').value.split(',');
 
-  var combo = document.getElementById('captchaModeComboBox');
+  var captchaCombo = document.getElementById('captchaModeComboBox');
+  var locationCombo = document.getElementById('locationComboBox');
 
-  apiRequest('setBoardSettings', {
-    boardName : typedName,
-    captchaMode : combo.options[combo.selectedIndex].value,
-    boardMessage : typedMessage,
-    autoCaptchaLimit : typedAutoCaptcha,
-    hourlyThreadLimit : typedHourlyLimit,
-    tags : typedTags,
-    anonymousName : typedAnonymousName,
-    boardDescription : typedDescription,
-    boardUri : boardIdentifier,
-    settings : settings,
-    autoSageLimit : typedAutoSage,
-    maxThreadCount : typedThreadLimit,
-    maxFileSizeMB : typedFileSize,
-    acceptedMimes : typedTypedMimes,
-    maxFiles : typedFileLimit,
-    maxBumpAge : typedMaxBumpAge
-  }, function requestComplete(status, data) {
+  apiRequest(
+      'setBoardSettings',
+      {
+        boardName : typedName,
+        captchaMode : captchaCombo.options[captchaCombo.selectedIndex].value,
+        locationFlagMode : locationCombo.options[locationCombo.selectedIndex].value,
+        boardMessage : typedMessage,
+        autoCaptchaLimit : typedAutoCaptcha,
+        hourlyThreadLimit : typedHourlyLimit,
+        tags : typedTags,
+        anonymousName : typedAnonymousName,
+        boardDescription : typedDescription,
+        boardUri : boardIdentifier,
+        settings : settings,
+        autoSageLimit : typedAutoSage,
+        maxThreadCount : typedThreadLimit,
+        maxFileSizeMB : typedFileSize,
+        acceptedMimes : typedTypedMimes,
+        maxFiles : typedFileLimit,
+        maxBumpAge : typedMaxBumpAge
+      }, function requestComplete(status, data) {
 
-    if (status === 'ok') {
+        if (status === 'ok') {
 
-      location.reload(true);
+          location.reload(true);
 
-    } else {
-      alert(status + ': ' + JSON.stringify(data));
-    }
-  });
+        } else {
+          alert(status + ': ' + JSON.stringify(data));
+        }
+      });
 
 }
 
