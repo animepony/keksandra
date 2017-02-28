@@ -4,7 +4,7 @@
   "threadPage": "pages/thread.html",
   "notFoundPage": "pages/404.html",
   "errorPage": "pages/error.html",
-  "messagePage": "pages/message.html",  
+  "messagePage": "pages/message.html",
   "overboard": "pages/overboard.html",
   "bypassPage": "pages/bypass.html",
   "logIndexPage": "pages/logsIndex.html",
@@ -67,5 +67,7 @@
   "mediaCell": "cells/mediaCell.html",
   "languagesManagementPage": "pages/languages.html",
   "languageCell": "cells/languageCell.html",
-  "topBoardCell": "cells/topBoardCell.html"
+  "topBoardCell": "cells/topBoardCell.html",
+  "accountsPage": "pages/accounts.html",
+  "accountCell": "cells/accountCell.html"
 }
