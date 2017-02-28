@@ -11,6 +11,10 @@ body {
   max-height: 16px;
 }
 
+.imgLink img {
+  image-orientation: from-image;
+}
+
 hr {
   border-width: 1px medium medium;
   border-style: solid none none;
