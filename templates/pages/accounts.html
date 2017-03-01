@@ -14,8 +14,45 @@
     src="/.static/logo.png"
     title="Logo by Doke">
   <a href="/account.js">Account</a>
+
+  <h3>Add Account</h3>
+  <form
+    action="/addAccount.js"
+    method="post"
+    enctype="multipart/form-data">
+
+    Login:
+    <input
+      type="text"
+      id="fieldLogin"
+      name="login">
+    <br>
+    Password:
+    <input
+      type="password"
+      id="fieldPassword"
+      name="password">
+    <br>
+    <input
+      id="addAccountFormButton"
+      type="submit"
+      value="Add Account">
+
+    <input
+      id="addAccountJsButton"
+      type="button"
+      style="display: none;"
+      onclick="addAccount()"
+      value="Add Account">
+
+  </form>
+
   <h3>Accounts</h3>
   <div id="divAccounts"></div>
 </body>
+
+<script src="/.static/js/settings.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/accounts.js"></script>
 
 </html>
