@@ -205,6 +205,10 @@ if (!DISABLE_JS) {
       setting : 'topBoardsCount',
       type : 'string'
     },
+    fieldFlagNameLength : {
+      setting : 'flagNameLength',
+      type : 'string'
+    },
     fieldBoardsPerPage : {
       setting : 'boardsPerPage',
       type : 'string'
