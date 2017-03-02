@@ -36,8 +36,43 @@
   <h3>Volunteered boards</h3>
   <div id="volunteeredBoardsDiv"></div>
 
+  <div id="deletionForm">
+    <h3>Delete account</h3>
+
+    <form
+      action="/deleteAccount.js"
+      method="post"
+      enctype="multipart/form-data">
+
+      <input
+        id="confirmationCheckbox"
+        type="checkbox"
+        name="confirmation">
+      Yes, I wish to transfer all this user's boards to me and then delete his
+      account.
+      <br>
+      <input
+        type="hidden"
+        id="userIdentifier"
+        name="account">
+
+      <input
+        id="deleteAccountFormButton"
+        type="submit"
+        value="Delete account">
+
+      <input
+        id="deleteAccountJsButton"
+        type="button"
+        onclick="deleteAccount()"
+        style="display: none;"
+        value="Delete account">
+    </form>
+  </div>
+
 </body>
 <script src="/.static/js/settings.js"></script>
 <script src="/.static/js/api.js"></script>
+<script src="/.static/js/accountManagement.js"></script>
 
 </html>
