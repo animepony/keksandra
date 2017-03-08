@@ -53,10 +53,6 @@ if (!DISABLE_JS) {
       type : 'boolean',
       setting : 'allowTorFiles',
     },
-    checkboxAllowTorPosting : {
-      type : 'boolean',
-      setting : 'allowTorPosting',
-    },
     checkboxUseAlternativeLanguages : {
       type : 'boolean',
       setting : 'useAlternativeLanguages',
@@ -340,6 +336,10 @@ if (!DISABLE_JS) {
     comboBypassMode : {
       setting : 'bypassMode',
       type : 'combo'
+    },
+    comboTorPostingLevel : {
+      type : 'combo',
+      setting : 'torPostingLevel',
     },
     comboMinClearIpRole : {
       setting : 'clearIpMinRole',
