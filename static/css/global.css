@@ -18,11 +18,7 @@ body {
 hr {
   border-width: 1px medium medium;
   border-style: solid none none;
-  border-color: #B7C5D9 -moz-use-text-color -moz-use-text-color;
-  -moz-border-top-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-bottom-colors: none;
-  -moz-border-left-colors: none;
+  border-color: #B7C5D9 currentColor currentColor;
   border-image: none;
   height: 0px;
   clear: left;
