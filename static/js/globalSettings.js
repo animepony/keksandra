@@ -29,6 +29,10 @@ if (!DISABLE_JS) {
       type : 'boolean',
       setting : 'verboseGridfs',
     },
+    checkboxBlockedReport : {
+      type : 'boolean',
+      setting : 'allowBlockedToReport',
+    },
     checkboxVerboseMisc : {
       type : 'boolean',
       setting : 'verboseMisc',
