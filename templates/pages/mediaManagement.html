@@ -16,10 +16,19 @@
   <form
     action="/mediaManagement.js"
     method="GET">
-    <button
-      type="submit"
+    Search:
+    <input
+      name="filter"
+      type="text">
+    <br>
+    Show only orphaned files:
+    <input
+      type="checkbox"
       value="1"
-      name="orphaned">Show only orphaned files</button>
+      name="orphaned">
+    <br>
+    <button type="submit">Filter</button>
+
   </form>
   <br>
 

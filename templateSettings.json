@@ -70,5 +70,6 @@
   "topBoardCell": "cells/topBoardCell.html",
   "accountsPage": "pages/accounts.html",
   "accountCell": "cells/accountCell.html",
-  "accountManagementPage": "pages/accountManagement.html"
+  "accountManagementPage": "pages/accountManagement.html",
+  "maintenanceImage": "images/maintenanceImage.png"
 }
