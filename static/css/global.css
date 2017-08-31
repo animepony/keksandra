@@ -3,7 +3,7 @@ body {
   font-size: 10pt;
   color: #000000;
   margin-bottom: 100px;
-  background: #EEF2FF;
+  background:#EEF2FF url(/.static/fade-blue.png) top center repeat-x;
 }
 
 .imgFlag {
