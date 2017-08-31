@@ -64,9 +64,9 @@ figure.page-head {
 
 #labelName, #labelDescription {
   color: #AF0A0F;
-  font-size: 20pt;
+  font-size: 28px;
   font-weight: bold;
-  font-family: tahoma;
+  font-family: tahoma, sans-serif;
   letter-spacing: -2px;
   margin: 0.2em 0 0 0;
 }
@@ -291,4 +291,12 @@ figure.page-head {
   display: inline-block;
   margin: 0.2em 0px;
   padding: 0.15em 0.75em 0.25em;
+}
+
+
+/* IDs */
+.labelId {
+  padding: 0 5px;
+  border-radius: 6px;
+  font-size: 0.8em;
 }
