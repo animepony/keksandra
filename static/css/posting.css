@@ -164,7 +164,7 @@ figure.page-head {
 
 .opCell>.divMessage, .innerPost>.divMessage, .markedPost>.divMessage {
   clear: both;
-  font-size: 14px;
+  font-size: 10pt;
   margin-left: 40px;
   margin-top: 10px;
   word-wrap: break-word;
